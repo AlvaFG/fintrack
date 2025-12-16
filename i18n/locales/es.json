@@ -64,7 +64,8 @@
     "categories": "Categorías",
     "export": "Exportar",
     "settings": "Configuración",
-    "mainMenu": "MENÚ PRINCIPAL"
+    "mainMenu": "MENÚ PRINCIPAL",
+    "openMenu": "Abrir menú"
   },
   "dashboard": {
     "title": "Dashboard",

@@ -64,7 +64,8 @@
     "categories": "Categories",
     "export": "Export",
     "settings": "Settings",
-    "mainMenu": "MAIN MENU"
+    "mainMenu": "MAIN MENU",
+    "openMenu": "Open menu"
   },
   "dashboard": {
     "title": "Dashboard",

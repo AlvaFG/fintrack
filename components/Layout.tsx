@@ -148,6 +148,29 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-h-screen md:ml-64 transition-all duration-300">
+        {/* Mobile Header */}
+        <header className="md:hidden h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 sticky top-0 z-20 shadow-sm">
+          <button 
+            onClick={toggleSidebar}
+            className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+            aria-label={t('nav.openMenu')}
+          >
+            <Menu size={24} />
+          </button>
+          <div className="flex items-center gap-2 font-bold text-lg">
+            <div className="w-8 h-8 bg-[#10B981] rounded-lg flex items-center justify-center text-white text-sm">
+              FT
+            </div>
+            <span>{t('common.appName')}</span>
+          </div>
+          <div className="w-10" /> {/* Spacer for centering */}
+        </header>
+
+        {/* Desktop Breadcrumb */}
+        <div className="hidden md:block bg-white border-b border-gray-200 px-8 py-4">
+          {getBreadcrumbs()}
+        </div>
+
         {/* Page Content */}
         <main className="flex-1 p-4 md:p-8 bg-gray-50 dark:bg-gray-950">
           <div className="max-w-7xl mx-auto w-full">
