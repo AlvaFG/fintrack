@@ -24,16 +24,13 @@ import {
   Bell, 
   Database,
   Save,
-  Camera,
-  Moon,
-  Sun,
-  Laptop
+  Camera
 } from 'lucide-react';
 import type { Currency } from '../types';
 
 const SettingsPage = () => {
   const { t, i18n } = useTranslation();
-  const { user, profile, settings, updateSettings, updateProfile, loading, theme, setTheme } = useApp();
+  const { user, profile, settings, updateSettings, updateProfile, loading } = useApp();
   const [isSaving, setIsSaving] = useState(false);
 
   // Estados del formulario
@@ -46,7 +43,6 @@ const SettingsPage = () => {
     currency: settings?.currency || 'USD' as Currency,
     dateFormat: settings?.dateFormat || 'DD/MM/YYYY',
     language: settings?.language || 'es',
-    theme: settings?.theme || 'light',
   });
 
   const [passwordForm, setPasswordForm] = useState({
@@ -68,7 +64,6 @@ const SettingsPage = () => {
         currency: settings.currency,
         dateFormat: settings.dateFormat,
         language: settings.language,
-        theme: settings.theme,
       });
     }
   }, [settings]);
@@ -92,10 +87,8 @@ const SettingsPage = () => {
         currency: preferencesForm.currency,
         dateFormat: preferencesForm.dateFormat as any,
         language: preferencesForm.language as any,
-        theme: preferencesForm.theme as any,
+        theme: 'light',
       });
-      // Actualizar tema inmediatamente
-      setTheme(preferencesForm.theme as any);
       // Cambiar idioma de i18n
       i18n.changeLanguage(preferencesForm.language);
       alert(t('settings.settingsSaved'));
@@ -124,8 +117,8 @@ const SettingsPage = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">{t('settings.title')}</h1>
-        <p className="text-gray-500 dark:text-gray-400 mt-1">
+        <h1 className="text-3xl font-bold text-gray-900
+        <p className="text-gray-500 mt-1">
           {t('settings.subtitle')}
         </p>
       </div>
@@ -220,61 +213,6 @@ const SettingsPage = () => {
                 { value: 'en', label: `🇬🇧 ${t('settings.languages.en')}` },
               ]}
             />
-          </div>
-
-          {/* Tema */}
-          <div className="grid gap-2">
-            <Label>{t('settings.appTheme')}</Label>
-            <div className="grid grid-cols-3 gap-4">
-              <button
-                type="button"
-                onClick={() => setPreferencesForm({ ...preferencesForm, theme: 'light' })}
-                className={`p-6 border-2 rounded-xl flex flex-col items-center gap-3 transition-all ${
-                  preferencesForm.theme === 'light' 
-                    ? 'border-primary bg-primary/10 dark:bg-primary/20 shadow-lg ring-2 ring-primary/20' 
-                    : 'border-gray-300 dark:border-gray-600 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-gray-800/50'
-                }`}
-              >
-                <Sun size={28} className={preferencesForm.theme === 'light' ? 'text-primary' : 'text-gray-500 dark:text-gray-400'} />
-                <span className={`text-sm font-medium ${
-                  preferencesForm.theme === 'light' 
-                    ? 'text-primary dark:text-primary' 
-                    : 'text-gray-700 dark:text-gray-200'
-                }`}>Claro</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setPreferencesForm({ ...preferencesForm, theme: 'dark' })}
-                className={`p-6 border-2 rounded-xl flex flex-col items-center gap-3 transition-all ${
-                  preferencesForm.theme === 'dark' 
-                    ? 'border-primary bg-primary/10 dark:bg-primary/20 shadow-lg ring-2 ring-primary/20' 
-                    : 'border-gray-300 dark:border-gray-600 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-gray-800/50'
-                }`}
-              >
-                <Moon size={28} className={preferencesForm.theme === 'dark' ? 'text-primary' : 'text-gray-500 dark:text-gray-400'} />
-                <span className={`text-sm font-medium ${
-                  preferencesForm.theme === 'dark' 
-                    ? 'text-primary dark:text-primary' 
-                    : 'text-gray-700 dark:text-gray-200'
-                }`}>{t('settings.darkMode')}</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setPreferencesForm({ ...preferencesForm, theme: 'system' })}
-                className={`p-6 border-2 rounded-xl flex flex-col items-center gap-3 transition-all ${
-                  preferencesForm.theme === 'system' 
-                    ? 'border-primary bg-primary/10 dark:bg-primary/20 shadow-lg ring-2 ring-primary/20' 
-                    : 'border-gray-300 dark:border-gray-600 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-gray-50 dark:hover:bg-gray-800/50'
-                }`}
-              >
-                <Laptop size={28} className={preferencesForm.theme === 'system' ? 'text-primary' : 'text-gray-500 dark:text-gray-400'} />
-                <span className={`text-sm font-medium ${
-                  preferencesForm.theme === 'system' 
-                    ? 'text-primary dark:text-primary' 
-                    : 'text-gray-700 dark:text-gray-300'
-                }`}>{t('settings.systemMode')}</span>
-              </button>
-            </div>
           </div>
 
           <Button onClick={handleSavePreferences} disabled={isSaving} className="gap-2">

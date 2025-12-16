@@ -98,7 +98,7 @@ const StatsPage = () => {
   if (!metrics) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">{t('stats.title')}</h1>
+        <h1 className="text-3xl font-bold text-gray-900
         <Card>
           <CardContent className="p-12 text-center">
             <div className="text-6xl mb-4">📊</div>
@@ -117,8 +117,8 @@ const StatsPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">{t('stats.title')}</h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">
+          <h1 className="text-3xl font-bold text-gray-900
+          <p className="text-gray-500 mt-1">
             {t('stats.subtitle')}
           </p>
         </div>
@@ -140,7 +140,7 @@ const StatsPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('stats.monthlyVariation')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('stats.monthlyVariation')}</p>
                 {metrics.monthVariation > 0 ? (
                   <TrendingUp className="h-5 w-5 text-gray-400" />
                 ) : (
@@ -148,7 +148,7 @@ const StatsPage = () => {
                 )}
               </div>
               <div className="mt-auto">
-                <div className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-1">
+                <div className="text-3xl font-bold text-gray-900 mb-1">
                   {metrics.monthVariation > 0 ? '+' : ''}{metrics.monthVariation.toFixed(1)}%
                 </div>
               </div>
@@ -160,11 +160,11 @@ const StatsPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('stats.averageDaily')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('stats.averageDaily')}</p>
                 <Calendar className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
-                <div className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-1">
+                <div className="text-3xl font-bold text-gray-900 mb-1">
                   ${metrics.averages.daily.toLocaleString('es-AR', { maximumFractionDigits: 0 })}
                 </div>
               </div>
@@ -176,14 +176,14 @@ const StatsPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('stats.projectedSpending')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('stats.projectedSpending')}</p>
                 <DollarSign className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
-                <div className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-1">
+                <div className="text-3xl font-bold text-gray-900 mb-1">
                   ${metrics.projection.projected.toLocaleString('es-AR', { maximumFractionDigits: 0 })}
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-gray-500
                   {metrics.projection.daysElapsed}/{metrics.projection.daysTotal} días
                 </p>
               </div>
@@ -195,15 +195,15 @@ const StatsPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('stats.highestGrowth')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('stats.highestGrowth')}</p>
                 <BarChart3 className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
-                <div className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-1">
+                <div className="text-2xl font-bold text-gray-900 mb-1">
                   {metrics.maxGrowthCategory?.category.name || 'N/A'}
                 </div>
                 {metrics.maxGrowthCategory && (
-                  <p className="text-xs text-green-600 dark:text-green-400">
+                  <p className="text-xs text-green-600
                     +{metrics.maxGrowthCategory.growth.toFixed(1)}%
                   </p>
                 )}

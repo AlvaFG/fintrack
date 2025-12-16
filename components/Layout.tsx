@@ -168,7 +168,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
 
         {/* Page Content */}
-        <main className="flex-1 p-4 md:p-8 bg-gray-50 dark:bg-gray-950">
+        <main className="flex-1 p-4 md:p-8 bg-gray-50
           <div className="max-w-7xl mx-auto w-full">
             {children}
           </div>

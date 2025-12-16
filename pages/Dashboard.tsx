@@ -188,19 +188,19 @@ const Dashboard = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('dashboard.monthlyExpenses')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('dashboard.monthlyExpenses')}</p>
                 <TrendingDown className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
-                <div className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-1">
+                <div className="text-3xl font-bold text-gray-900 mb-1">
                   $ {totalSpentARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}
                 </div>
                 {totalSpentUSD > 0 && (
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-600
                     US$ {totalSpentUSD.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}
                   </p>
                 )}
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-gray-500
                   {t('dashboard.thisMonth')}
                 </p>
               </div>
@@ -212,19 +212,19 @@ const Dashboard = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('dashboard.weeklyExpenses')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('dashboard.weeklyExpenses')}</p>
                 <Calendar className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
-                <div className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-1">
+                <div className="text-3xl font-bold text-gray-900 mb-1">
                   $ {weeklySpentARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}
                 </div>
                 {weeklySpentUSD > 0 && (
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-600
                     US$ {weeklySpentUSD.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}
                   </p>
                 )}
-                <p className="text-xs text-gray-500 dark:text-gray-400">{t('dashboard.thisWeek')}</p>
+                <p className="text-xs text-gray-500
               </div>
             </div>
           </CardContent>
@@ -234,18 +234,18 @@ const Dashboard = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('dashboard.topCategory')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('dashboard.topCategory')}</p>
                 <Award className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
-                <div className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-1">{topCategory?.name || 'N/A'}</div>
+                <div className="text-2xl font-bold text-gray-900 mb-1">{topCategory?.name || 'N/A'}</div>
                 {topCategoryAmountARS > 0 && (
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                  <p className="text-xs text-gray-500
                     $ {topCategoryAmountARS.toLocaleString('es-AR', { maximumFractionDigits: 0 })}
                   </p>
                 )}
                 {topCategoryAmountUSD > 0 && (
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                  <p className="text-xs text-gray-500
                     US$ {topCategoryAmountUSD.toLocaleString('es-AR', { maximumFractionDigits: 2 })}
                   </p>
                 )}
@@ -258,12 +258,12 @@ const Dashboard = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('expenses.totalExpenses')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('expenses.totalExpenses')}</p>
                 <Clock className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
-                <div className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-1">{expenses.length}</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{t('dashboard.totalSpent')}</p>
+                <div className="text-3xl font-bold text-gray-900 mb-1">{expenses.length}</div>
+                <p className="text-xs text-gray-500
               </div>
             </div>
           </CardContent>
@@ -429,8 +429,8 @@ const Dashboard = () => {
                         <IconComponent size={20} style={{ color: cat?.color }} />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900 dark:text-gray-100">{expense.description}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="font-medium text-gray-900
+                        <p className="text-xs text-gray-500
                           {expense.date.toLocaleDateString('es-AR', { day: 'numeric', month: 'short' })}
                         </p>
                       </div>
@@ -463,7 +463,7 @@ const Dashboard = () => {
       {/* Modal Agregar Gasto */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md p-6">
+          <div className="bg-white rounded-lg shadow-xl w-full max-w-md p-6">
             <h2 className="text-2xl font-bold mb-4">{t('expenses.addExpense')}</h2>
             <form onSubmit={handleSave} className="space-y-4">
               <div>

@@ -308,7 +308,7 @@ const CategoriesPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">{t('nav.categories')}</h1>
+          <h1 className="text-3xl font-bold text-gray-900
           <p className="text-gray-500 mt-1">
             {t('categories.manageAndOrganize')}
           </p>
@@ -325,17 +325,17 @@ const CategoriesPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('categories.yearlyExpense')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('categories.yearlyExpense')}</p>
                 <DollarSign className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto space-y-1">
                 {metrics.yearARS > 0 && (
-                  <div className="text-2xl font-bold text-gray-900 dark:text-gray-50">
+                  <div className="text-2xl font-bold text-gray-900
                     ${metrics.yearARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </div>
                 )}
                 {metrics.yearUSD > 0 && (
-                  <div className="text-2xl font-bold text-gray-900 dark:text-gray-50">
+                  <div className="text-2xl font-bold text-gray-900
                     US${metrics.yearUSD.toLocaleString('es-AR', { 
                       minimumFractionDigits: metrics.yearUSD % 1 !== 0 ? 2 : 0, 
                       maximumFractionDigits: metrics.yearUSD % 1 !== 0 ? 2 : 0 
@@ -343,7 +343,7 @@ const CategoriesPage = () => {
                   </div>
                 )}
                 {metrics.yearARS === 0 && metrics.yearUSD === 0 && (
-                  <div className="text-3xl font-bold text-gray-900 dark:text-gray-50">$0</div>
+                  <div className="text-3xl font-bold text-gray-900
                 )}
               </div>
             </div>
@@ -354,17 +354,17 @@ const CategoriesPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('categories.thisMonthExpense')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('categories.thisMonthExpense')}</p>
                 <DollarSign className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto space-y-1">
                 {metrics.monthARS > 0 && (
-                  <div className="text-2xl font-bold text-gray-900 dark:text-gray-50">
+                  <div className="text-2xl font-bold text-gray-900
                     ${metrics.monthARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </div>
                 )}
                 {metrics.monthUSD > 0 && (
-                  <div className="text-2xl font-bold text-gray-900 dark:text-gray-50">
+                  <div className="text-2xl font-bold text-gray-900
                     US${metrics.monthUSD.toLocaleString('es-AR', { 
                       minimumFractionDigits: metrics.monthUSD % 1 !== 0 ? 2 : 0, 
                       maximumFractionDigits: metrics.monthUSD % 1 !== 0 ? 2 : 0 
@@ -372,7 +372,7 @@ const CategoriesPage = () => {
                   </div>
                 )}
                 {metrics.monthARS === 0 && metrics.monthUSD === 0 && (
-                  <div className="text-3xl font-bold text-gray-900 dark:text-gray-50">$0</div>
+                  <div className="text-3xl font-bold text-gray-900
                 )}
               </div>
             </div>
@@ -383,17 +383,17 @@ const CategoriesPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('categories.lastMonthExpense')}</p>
+                <p className="text-sm font-medium text-gray-500 pt-1">{t('categories.lastMonthExpense')}</p>
                 <DollarSign className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto space-y-1">
                 {metrics.lastMonthARS > 0 && (
-                  <div className="text-2xl font-bold text-gray-900 dark:text-gray-50">
+                  <div className="text-2xl font-bold text-gray-900
                     ${metrics.lastMonthARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </div>
                 )}
                 {metrics.lastMonthUSD > 0 && (
-                  <div className="text-2xl font-bold text-gray-900 dark:text-gray-50">
+                  <div className="text-2xl font-bold text-gray-900
                     US${metrics.lastMonthUSD.toLocaleString('es-AR', { 
                       minimumFractionDigits: metrics.lastMonthUSD % 1 !== 0 ? 2 : 0, 
                       maximumFractionDigits: metrics.lastMonthUSD % 1 !== 0 ? 2 : 0 
@@ -401,7 +401,7 @@ const CategoriesPage = () => {
                   </div>
                 )}
                 {metrics.lastMonthARS === 0 && metrics.lastMonthUSD === 0 && (
-                  <div className="text-3xl font-bold text-gray-900 dark:text-gray-50">$0</div>
+                  <div className="text-3xl font-bold text-gray-900
                 )}
               </div>
             </div>
@@ -464,32 +464,32 @@ const CategoriesPage = () => {
                 <div className="space-y-3">
                   <div className="grid grid-cols-2 gap-2">
                     <div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Total</p>
+                      <p className="text-xs text-gray-500
                       {stats.totalARS > 0 && stats.totalUSD > 0 ? (
-                        <p className="text-sm font-semibold text-gray-900 dark:text-gray-50">
+                        <p className="text-sm font-semibold text-gray-900
                           ${stats.totalARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })} + US${stats.totalUSD.toLocaleString('es-AR', { 
                             minimumFractionDigits: stats.totalUSD % 1 !== 0 ? 2 : 0, 
                             maximumFractionDigits: stats.totalUSD % 1 !== 0 ? 2 : 0 
                           }).replace('.', ',')}
                         </p>
                       ) : stats.totalARS > 0 ? (
-                        <p className="text-sm font-semibold text-gray-900 dark:text-gray-50">
+                        <p className="text-sm font-semibold text-gray-900
                           ${stats.totalARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                         </p>
                       ) : stats.totalUSD > 0 ? (
-                        <p className="text-sm font-semibold text-gray-900 dark:text-gray-50">
+                        <p className="text-sm font-semibold text-gray-900
                           US${stats.totalUSD.toLocaleString('es-AR', { 
                             minimumFractionDigits: stats.totalUSD % 1 !== 0 ? 2 : 0, 
                             maximumFractionDigits: stats.totalUSD % 1 !== 0 ? 2 : 0 
                           }).replace('.', ',')}
                         </p>
                       ) : (
-                        <p className="text-sm font-semibold text-gray-900 dark:text-gray-50">$0</p>
+                        <p className="text-sm font-semibold text-gray-900
                       )}
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-gray-500 dark:text-gray-400">{t('categories.expenses')}</p>
-                      <p className="text-sm font-semibold text-gray-900 dark:text-gray-50">{stats.count}</p>
+                      <p className="text-xs text-gray-500
+                      <p className="text-sm font-semibold text-gray-900
                     </div>
                   </div>
                 </div>
@@ -520,7 +520,7 @@ const CategoriesPage = () => {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-[600px]">
           <form onSubmit={handleSubmit}>
-            <DialogHeader className="border-b border-gray-200 dark:border-gray-700 pb-4">
+            <DialogHeader className="border-b border-gray-200 pb-4">
               <DialogTitle className="text-2xl">
                 {editingCategory ? t('categories.editCategory') : t('categories.newCategory')}
               </DialogTitle>
@@ -534,7 +534,7 @@ const CategoriesPage = () => {
             <div className="space-y-6 py-6">
               {/* Nombre */}
               <div>
-                <Label htmlFor="name" className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                <Label htmlFor="name" className="text-sm font-semibold text-gray-700
                   {t('categories.categoryName')}
                 </Label>
                 <Input
@@ -549,7 +549,7 @@ const CategoriesPage = () => {
 
               {/* Icono */}
               <div>
-                <Label className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 block">
+                <Label className="text-sm font-semibold text-gray-700 mb-3 block">
                   {t('categories.selectIcon')}
                 </Label>
                 <div className="grid grid-cols-6 gap-3">
@@ -562,8 +562,8 @@ const CategoriesPage = () => {
                         onClick={() => setFormData({ ...formData, icon: item.icon })}
                         className={`p-4 rounded-lg border-2 transition-all hover:scale-105 flex items-center justify-center group ${
                           formData.icon === item.icon
-                            ? 'border-secondary bg-emerald-50 dark:bg-emerald-950 shadow-lg scale-105'
-                            : 'border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600 hover:bg-gray-50 dark:hover:bg-gray-800'
+                            ? 'border-secondary bg-emerald-50 shadow-lg scale-105'
+                            : 'border-gray-200 hover:border-emerald-300 hover:bg-gray-50
                         }`}
                         title={item.name}
                       >
@@ -571,8 +571,8 @@ const CategoriesPage = () => {
                           size={20} 
                           className={
                             formData.icon === item.icon 
-                              ? 'text-secondary dark:text-emerald-400' 
-                              : 'text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300'
+                              ? 'text-secondary 
+                              : 'text-gray-500 group-hover:text-gray-700
                           } 
                         />
                       </button>
@@ -583,7 +583,7 @@ const CategoriesPage = () => {
 
               {/* Color */}
               <div>
-                <Label className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 block">
+                <Label className="text-sm font-semibold text-gray-700 mb-3 block">
                   {t('categories.chooseColor')}
                 </Label>
                 <div className="grid grid-cols-6 gap-3">
@@ -594,16 +594,16 @@ const CategoriesPage = () => {
                       onClick={() => setFormData({ ...formData, color: item.color })}
                       className={`h-14 rounded-lg border-3 transition-all hover:scale-105 relative ${
                         formData.color === item.color
-                          ? 'scale-110 ring-3 ring-offset-2 dark:ring-offset-gray-900 ring-gray-900 dark:ring-gray-100 shadow-lg'
-                          : 'border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500'
+                          ? 'scale-110 ring-3 ring-offset-2 ring-gray-900 shadow-lg'
+                          : 'border-gray-200 hover:border-gray-400
                       }`}
                       style={{ backgroundColor: item.color }}
                       title={item.name}
                     >
                       {formData.color === item.color && (
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-6 h-6 bg-white dark:bg-gray-900 rounded-full flex items-center justify-center shadow-md">
-                            <div className="w-3 h-3 bg-gray-900 dark:bg-white rounded-full"></div>
+                          <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md">
+                            <div className="w-3 h-3 bg-gray-900 rounded-full"></div>
                           </div>
                         </div>
                       )}
@@ -614,10 +614,10 @@ const CategoriesPage = () => {
 
               {/* Preview */}
               <div>
-                <Label className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 block">
+                <Label className="text-sm font-semibold text-gray-700 mb-3 block">
                   Vista previa
                 </Label>
-                <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-inner">
+                <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl shadow-inner">
                   <div className="flex items-center gap-4">
                     <div 
                       className="w-16 h-16 rounded-xl flex items-center justify-center shadow-md"
@@ -629,7 +629,7 @@ const CategoriesPage = () => {
                       })()}
                     </div>
                     <div className="flex-1">
-                      <p className="font-bold text-gray-900 dark:text-gray-50 text-xl">
+                      <p className="font-bold text-gray-900 text-xl">
                         {formData.name || t('categories.categoryNamePlaceholder')}
                       </p>
                       <div className="flex items-center gap-2 mt-2">
@@ -637,7 +637,7 @@ const CategoriesPage = () => {
                           className="h-2 flex-1 max-w-[140px] rounded-full shadow-sm"
                           style={{ backgroundColor: formData.color }}
                         />
-                        <span className="text-sm font-medium text-gray-600 dark:text-gray-400">100%</span>
+                        <span className="text-sm font-medium text-gray-600
                       </div>
                     </div>
                   </div>

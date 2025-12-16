@@ -14,11 +14,11 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyle = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
   
   const variants = {
-    primary: "bg-primary text-white hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600",
-    secondary: "bg-secondary text-white hover:bg-emerald-600 dark:bg-emerald-700 dark:hover:bg-emerald-600",
-    outline: "border border-gray-300 bg-transparent hover:bg-gray-100 text-gray-700 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800",
-    ghost: "hover:bg-gray-100 text-gray-700 dark:text-gray-300 dark:hover:bg-gray-800",
-    danger: "bg-danger text-white hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-600"
+    primary: "bg-primary text-white hover:bg-slate-800
+    secondary: "bg-secondary text-white hover:bg-emerald-600
+    outline: "border border-gray-300 bg-transparent hover:bg-gray-100 text-gray-700
+    ghost: "hover:bg-gray-100 text-gray-700
+    danger: "bg-danger text-white hover:bg-red-600
   };
 
   const sizes = {
@@ -49,10 +49,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, error, label, ...props }, ref) => {
   return (
     <div className="w-full">
-      {label && <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{label}</label>}
+      {label && <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>}
       <input
         ref={ref}
-        className={`flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-400 dark:ring-offset-gray-950 ${error ? 'border-red-500 dark:border-red-500' : ''} ${className}`}
+        className={`flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${error ? 'border-red-500 : ''} ${className}`}
         {...props}
       />
       {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
@@ -63,7 +63,7 @@ Input.displayName = 'Input';
 
 // --- CARD ---
 export const Card: React.FC<{ children: ReactNode, className?: string }> = ({ children, className = '' }) => (
-  <div className={`rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 text-gray-950 dark:text-gray-50 shadow-sm ${className}`}>{children}</div>
+  <div className={`rounded-lg border border-gray-200 bg-white text-gray-950 shadow-sm ${className}`}>{children}</div>
 );
 
 export const CardHeader: React.FC<{ children: ReactNode, className?: string }> = ({ children, className = '' }) => (
@@ -82,9 +82,9 @@ export const CardContent: React.FC<{ children: ReactNode, className?: string }> 
 export const Badge: React.FC<{ children: ReactNode, className?: string, variant?: 'default' | 'outline' | 'secondary' | 'danger', style?: React.CSSProperties }> = ({ children, className = '', variant = 'default', style }) => {
   const variants = {
     default: "border-transparent bg-primary text-white hover:bg-primary/80",
-    secondary: "border-transparent bg-secondary/20 text-secondary hover:bg-secondary/30 dark:bg-secondary/30 dark:text-emerald-400",
-    outline: "text-gray-950 border-gray-200 dark:text-gray-300 dark:border-gray-700",
-    danger: "border-transparent bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+    secondary: "border-transparent bg-secondary/20 text-secondary hover:bg-secondary/30
+    outline: "text-gray-950 border-gray-200
+    danger: "border-transparent bg-red-100 text-red-700
   };
   return (
     <div className={`inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${variants[variant]} ${className}`} style={style}>
@@ -104,7 +104,7 @@ export const Dialog: React.FC<DialogProps> = ({ open, onOpenChange, children }) 
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 transition-all duration-200" onClick={() => onOpenChange(false)}>
-      <div className="relative w-full max-w-lg bg-white dark:bg-gray-900 shadow-2xl rounded-xl sm:max-w-[500px] animate-in fade-in zoom-in-95 duration-200 mx-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+      <div className="relative w-full max-w-lg bg-white shadow-2xl rounded-xl sm:max-w-[500px] animate-in fade-in zoom-in-95 duration-200 mx-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>
@@ -122,11 +122,11 @@ export const DialogHeader: React.FC<{ children: ReactNode, className?: string }>
 );
 
 export const DialogTitle: React.FC<{ children: ReactNode, className?: string }> = ({ children, className = '' }) => (
-  <h2 className={`text-lg font-semibold leading-none tracking-tight dark:text-gray-50 ${className}`}>{children}</h2>
+  <h2 className={`text-lg font-semibold leading-none tracking-tight ${className}`}>{children}</h2>
 );
 
 export const DialogDescription: React.FC<{ children: ReactNode, className?: string }> = ({ children, className = '' }) => (
-  <p className={`text-sm text-gray-500 dark:text-gray-400 ${className}`}>{children}</p>
+  <p className={`text-sm text-gray-500 ${className}`}>{children}</p>
 );
 
 export const DialogFooter: React.FC<{ children: ReactNode, className?: string }> = ({ children, className = '' }) => (
@@ -139,7 +139,7 @@ export const DialogFooter: React.FC<{ children: ReactNode, className?: string }>
 interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {}
 
 export const Label: React.FC<LabelProps> = ({ children, className = '', ...props }) => (
-  <label className={`text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-gray-300 ${className}`} {...props}>
+  <label className={`text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${className}`} {...props}>
     {children}
   </label>
 );
@@ -153,11 +153,11 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ label, options, className, ...props }, ref) => {
     return (
         <div className="w-full">
-            {label && <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{label}</label>}
+            {label && <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>}
             <div className="relative">
                 <select
                     ref={ref}
-                    className={`flex h-10 w-full appearance-none items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-400 ${className}`}
+                    className={`flex h-10 w-full appearance-none items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
                     {...props}
                 >
                     {options.map((opt) => (
@@ -194,7 +194,7 @@ export const Tabs: React.FC<TabsProps> = ({ value, onValueChange, children }) =>
 };
 
 export const TabsList: React.FC<{ children: ReactNode, className?: string }> = ({ children, className = '' }) => (
-    <div className={`inline-flex h-10 items-center justify-center rounded-md bg-gray-100 dark:bg-gray-800 p-1 text-gray-500 dark:text-gray-400 w-full ${className}`}>
+    <div className={`inline-flex h-10 items-center justify-center rounded-md bg-gray-100 p-1 text-gray-500 w-full ${className}`}>
         {children}
     </div>
 );
@@ -209,7 +209,7 @@ export const TabsTrigger: React.FC<{ value: string; children: ReactNode }> = ({ 
     <button
         onClick={() => context.onValueChange(value)}
         type="button"
-        className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-white dark:ring-offset-gray-950 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 w-full ${isSelected ? 'bg-white dark:bg-gray-900 text-gray-950 dark:text-gray-50 shadow-sm' : 'hover:text-gray-700 dark:hover:text-gray-300'}`}
+        className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 w-full ${isSelected ? 'bg-white text-gray-950 shadow-sm' : 'hover:text-gray-700
     >
         {children}
     </button>
@@ -234,15 +234,15 @@ export const AvatarImage: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = 
 );
 
 export const AvatarFallback: React.FC<{ children: ReactNode, className?: string }> = ({ children, className = '' }) => (
-  <div className={`flex h-full w-full items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 ${className}`}>{children}</div>
+  <div className={`flex h-full w-full items-center justify-center rounded-full bg-gray-100 text-gray-500 ${className}`}>{children}</div>
 );
 
 // --- SKELETON ---
 export const Skeleton: React.FC<{ className?: string }> = ({ className }) => (
-    <div className={`animate-pulse rounded-md bg-gray-200 dark:bg-gray-800 ${className}`} />
+    <div className={`animate-pulse rounded-md bg-gray-200 ${className}`} />
 );
 
 // --- SEPARATOR ---
 export const Separator: React.FC<{ className?: string }> = ({ className }) => (
-    <div className={`h-[1px] w-full bg-gray-200 dark:bg-gray-700 my-4 ${className}`} />
+    <div className={`h-[1px] w-full bg-gray-200 my-4 ${className}`} />
 );

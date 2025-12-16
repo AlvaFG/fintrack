@@ -14,7 +14,6 @@ import { useExpenses } from './hooks/useExpenses';
 import { useCategories } from './hooks/useCategories';
 import { useSettings } from './hooks/useSettings';
 import { useAuth } from './hooks/useAuth';
-import { useTheme, Theme } from './hooks/useTheme';
 import type { User } from '@supabase/supabase-js';
 
 // --- CONTEXT SETUP ---
@@ -27,9 +26,6 @@ interface AppContextType {
   settings: UserSettings | null;
   loading: boolean;
   error: string | null;
-  theme: Theme;
-  resolvedTheme: 'light' | 'dark';
-  setTheme: (theme: Theme) => void;
   signIn: (email: string, password: string) => Promise<{ data: any; error: string | null }>;
   signUp: (email: string, password: string, fullName: string) => Promise<{ data: any; error: string | null }>;
   signOut: () => Promise<{ error: string | null }>;
@@ -90,16 +86,6 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     updateSettings: updateSettingsDB
   } = useSettings();
 
-  // Hook de tema
-  const { theme, resolvedTheme, setTheme } = useTheme(settings?.theme || 'system');
-
-  // Sincronizar tema con settings cuando cambie
-  useEffect(() => {
-    if (settings && settings.theme !== theme) {
-      setTheme(settings.theme);
-    }
-  }, [settings?.theme]);
-
   const loading = authLoading || expensesLoading || categoriesLoading || settingsLoading;
   const error = expensesError || categoriesError || settingsError;
 
@@ -113,9 +99,6 @@ const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       settings,
       loading,
       error,
-      theme,
-      resolvedTheme,
-      setTheme,
       signIn,
       signUp,
       signOut,
