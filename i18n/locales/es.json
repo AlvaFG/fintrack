@@ -220,6 +220,7 @@
     "noCategories": "Aún no hay categorías",
     "createFirstCategory": "Crea tu primera categoría para organizar tus gastos",
     "totalSpent": "Total Gastado",
+    "total": "Total",
     "expenseCount": "Gastos",
     "expenses": "Gastos",
     "average": "Promedio",
@@ -413,6 +414,7 @@
     "selectCategory": "Por favor selecciona una categoría"
   },
   "messages": {
+    "error": "Error",
     "expenseAdded": "Gasto agregado exitosamente",
     "expenseUpdated": "Gasto actualizado exitosamente",
     "expenseDeleted": "Gasto eliminado exitosamente",

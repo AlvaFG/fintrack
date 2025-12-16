@@ -220,6 +220,7 @@
     "noCategories": "No categories yet",
     "createFirstCategory": "Create your first category to organize your expenses",
     "totalSpent": "Total Spent",
+    "total": "Total",
     "expenseCount": "Expenses",
     "expenses": "Expenses",
     "average": "Average",
@@ -413,6 +414,7 @@
     "selectCategory": "Please select a category"
   },
   "messages": {
+    "error": "Error",
     "expenseAdded": "Expense added successfully",
     "expenseUpdated": "Expense updated successfully",
     "expenseDeleted": "Expense deleted successfully",

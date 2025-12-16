@@ -49,8 +49,6 @@ export interface UserSettings {
   createdAt: string;
   updatedAt: string;
 }
-  updatedAt: Date;
-}
 
 // Legacy settings (puede ser removido después)
 export interface LegacyUserSettings {
