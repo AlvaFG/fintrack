@@ -14,11 +14,11 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyle = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
   
   const variants = {
-    primary: "bg-primary text-white hover:bg-slate-800
-    secondary: "bg-secondary text-white hover:bg-emerald-600
-    outline: "border border-gray-300 bg-transparent hover:bg-gray-100 text-gray-700
-    ghost: "hover:bg-gray-100 text-gray-700
-    danger: "bg-danger text-white hover:bg-red-600
+    primary: "bg-primary text-white hover:bg-slate-800",
+    secondary: "bg-secondary text-white hover:bg-emerald-600",
+    outline: "border border-gray-300 bg-transparent hover:bg-gray-100 text-gray-700",
+    ghost: "hover:bg-gray-100 text-gray-700",
+    danger: "bg-danger text-white hover:bg-red-600"
   };
 
   const sizes = {
@@ -52,7 +52,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className
       {label && <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>}
       <input
         ref={ref}
-        className={`flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${error ? 'border-red-500 : ''} ${className}`}
+        className={`flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${error ? 'border-red-500' : ''} ${className}`}
         {...props}
       />
       {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
@@ -82,9 +82,9 @@ export const CardContent: React.FC<{ children: ReactNode, className?: string }> 
 export const Badge: React.FC<{ children: ReactNode, className?: string, variant?: 'default' | 'outline' | 'secondary' | 'danger', style?: React.CSSProperties }> = ({ children, className = '', variant = 'default', style }) => {
   const variants = {
     default: "border-transparent bg-primary text-white hover:bg-primary/80",
-    secondary: "border-transparent bg-secondary/20 text-secondary hover:bg-secondary/30
-    outline: "text-gray-950 border-gray-200
-    danger: "border-transparent bg-red-100 text-red-700
+    secondary: "border-transparent bg-secondary/20 text-secondary hover:bg-secondary/30",
+    outline: "text-gray-950 border-gray-200",
+    danger: "border-transparent bg-red-100 text-red-700"
   };
   return (
     <div className={`inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${variants[variant]} ${className}`} style={style}>
@@ -209,7 +209,7 @@ export const TabsTrigger: React.FC<{ value: string; children: ReactNode }> = ({ 
     <button
         onClick={() => context.onValueChange(value)}
         type="button"
-        className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 w-full ${isSelected ? 'bg-white text-gray-950 shadow-sm' : 'hover:text-gray-700
+        className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 w-full ${isSelected ? 'bg-white text-gray-950 shadow-sm' : 'hover:text-gray-700'}`}
     >
         {children}
     </button>

@@ -138,7 +138,6 @@ import {
   XCircle,
   HelpCircle,
   Settings,
-  Tool,
   Cog,
   Key,
   Lock,
@@ -367,7 +366,6 @@ const CategoriesPage = () => {
     // Servicios y Utilidades
     { icon: 'Wrench', name: t('categories.icons.services'), component: Wrench },
     { icon: 'Hammer', name: t('categories.icons.tools'), component: Hammer },
-    { icon: 'Tool', name: 'Herramientas', component: Tool },
     { icon: 'Settings', name: 'Configuración', component: Settings },
     { icon: 'Cog', name: 'Ajustes', component: Cog },
     { icon: 'Zap', name: t('categories.icons.electricity'), component: Zap },
@@ -874,7 +872,7 @@ const CategoriesPage = () => {
                           className={`p-3 rounded-lg border-2 transition-all hover:scale-105 flex items-center justify-center group ${
                             formData.icon === item.icon
                               ? 'border-secondary bg-emerald-50 shadow-lg scale-105'
-                              : 'border-gray-200 hover:border-emerald-300 hover:bg-gray-50
+                              : 'border-gray-200 hover:border-emerald-300 hover:bg-gray-50'
                           }`}
                           title={item.name}
                         >
@@ -882,8 +880,8 @@ const CategoriesPage = () => {
                             size={18} 
                             className={
                               formData.icon === item.icon 
-                                ? 'text-secondary 
-                                : 'text-gray-500 group-hover:text-gray-700
+                                ? 'text-secondary' 
+                                : 'text-gray-500 group-hover:text-gray-700'
                             } 
                           />
                         </button>
@@ -907,7 +905,7 @@ const CategoriesPage = () => {
                       className={`h-14 rounded-lg border-3 transition-all hover:scale-105 relative ${
                         formData.color === item.color
                           ? 'scale-110 ring-3 ring-offset-2 ring-gray-900 shadow-lg'
-                          : 'border-gray-200 hover:border-gray-400
+                          : 'border-gray-200 hover:border-gray-400'
                       }`}
                       style={{ backgroundColor: item.color }}
                       title={item.name}
