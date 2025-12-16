@@ -196,11 +196,11 @@ const Dashboard = () => {
                   $ {totalSpentARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}
                 </div>
                 {totalSpentUSD > 0 && (
-                  <p className="text-sm text-gray-600
+                  <p className="text-sm text-gray-600">
                     US$ {totalSpentUSD.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}
                   </p>
                 )}
-                <p className="text-xs text-gray-500
+                <p className="text-xs text-gray-500">
                   {t('dashboard.thisMonth')}
                 </p>
               </div>
@@ -220,11 +220,13 @@ const Dashboard = () => {
                   $ {weeklySpentARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}
                 </div>
                 {weeklySpentUSD > 0 && (
-                  <p className="text-sm text-gray-600
+                  <p className="text-sm text-gray-600">
                     US$ {weeklySpentUSD.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}
                   </p>
                 )}
-                <p className="text-xs text-gray-500
+                <p className="text-xs text-gray-500">
+                  {t('dashboard.thisWeek')}
+                </p>
               </div>
             </div>
           </CardContent>
@@ -240,12 +242,12 @@ const Dashboard = () => {
               <div className="mt-auto">
                 <div className="text-2xl font-bold text-gray-900 mb-1">{topCategory?.name || 'N/A'}</div>
                 {topCategoryAmountARS > 0 && (
-                  <p className="text-xs text-gray-500
+                  <p className="text-xs text-gray-500">
                     $ {topCategoryAmountARS.toLocaleString('es-AR', { maximumFractionDigits: 0 })}
                   </p>
                 )}
                 {topCategoryAmountUSD > 0 && (
-                  <p className="text-xs text-gray-500
+                  <p className="text-xs text-gray-500">
                     US$ {topCategoryAmountUSD.toLocaleString('es-AR', { maximumFractionDigits: 2 })}
                   </p>
                 )}
@@ -263,7 +265,9 @@ const Dashboard = () => {
               </div>
               <div className="mt-auto">
                 <div className="text-3xl font-bold text-gray-900 mb-1">{expenses.length}</div>
-                <p className="text-xs text-gray-500
+                <p className="text-xs text-gray-500">
+                  {t('dashboard.allTime')}
+                </p>
               </div>
             </div>
           </CardContent>
@@ -429,8 +433,8 @@ const Dashboard = () => {
                         <IconComponent size={20} style={{ color: cat?.color }} />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900
-                        <p className="text-xs text-gray-500
+                        <p className="font-medium text-gray-900">{cat?.name}</p>
+                        <p className="text-xs text-gray-500">
                           {expense.date.toLocaleDateString('es-AR', { day: 'numeric', month: 'short' })}
                         </p>
                       </div>
