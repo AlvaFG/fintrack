@@ -213,8 +213,8 @@ const CategoriesPage = () => {
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Iconos disponibles para categorías (dentro del componente para acceder a t())
-  const AVAILABLE_ICONS = [
+  // Iconos disponibles para categorías
+  const AVAILABLE_ICONS = useMemo(() => [
     // Compras y Comercio
     { icon: 'ShoppingCart', name: t('categories.icons.shopping'), component: ShoppingCart },
     { icon: 'ShoppingBag', name: t('categories.icons.bags'), component: ShoppingBag },
@@ -389,7 +389,7 @@ const CategoriesPage = () => {
     { icon: 'CheckCircle', name: 'Completo', component: CheckCircle },
     { icon: 'XCircle', name: 'Error', component: XCircle },
     { icon: 'HelpCircle', name: 'Ayuda', component: HelpCircle },
-  ];
+  ], [t]);
 
   // Función auxiliar para obtener componente de icono
   const getIconComponent = (iconName: string) => {
