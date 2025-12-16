@@ -87,11 +87,6 @@ import {
   Building,
   Building2,
   Store,
-  Factory,
-  Warehouse,
-  Church,
-  School,
-  Trees,
   Mountain,
   Tent,
   Apple,
@@ -130,7 +125,6 @@ import {
   Unlock,
   Shield,
   FileText,
-  File,
   Folder,
   Archive,
   Clipboard,
@@ -142,10 +136,6 @@ import {
   Mail,
   Send,
   Share2,
-  Download,
-  Upload,
-  Link,
-  Anchor,
   Bookmark,
   ThumbsUp,
   ThumbsDown,
@@ -159,29 +149,36 @@ import {
   Bluetooth,
   Monitor,
   Printer,
-  Keyboard,
-  Mouse,
   Mic,
   Speaker,
   Volume2,
   Play,
   Pause,
-  Image,
-  Video,
   Newspaper,
   BookOpen,
-  Library,
-  Pen,
-  Edit,
-  Palette,
-  Brush,
-  Ruler,
-  Compass,
-  Move,
-  Navigation,
-  Map
+  type LucideIcon
 } from 'lucide-react';
 import { Category } from '../types';
+
+// Mapa de todos los iconos disponibles
+const ICON_MAP: Record<string, LucideIcon> = {
+  ShoppingCart, Car, Home, Utensils, Heart, Shirt, Gamepad, GraduationCap,
+  Plane, Gift, Wrench, Coffee, Phone, Dumbbell, Music, Film, Book, Briefcase,
+  Wallet, MoreHorizontal, Tv, Smartphone, Laptop, Headphones, Camera, Paintbrush,
+  Hammer, Zap, Droplet, Leaf, Scissors, Baby, PawPrint, Pizza, Wine, ShoppingBag,
+  Watch, Glasses, Bus, Train, Bike, Fuel, Sparkles, Globe, MapPin, Hotel, Bed,
+  Users, User, Crown, Star, Umbrella, CloudRain, Sun, Moon, Thermometer, Wind,
+  Snowflake, Flame, Building, Building2, Store, Mountain, Tent, Apple, Pill,
+  Stethoscope, HeartPulse, Activity, BadgeDollarSign, CreditCard, Banknote,
+  Receipt, Calculator, BarChart, PieChart, TrendingDown, ArrowUpDown, Target,
+  Flag, Award, Trophy, Medal, Gem, Coins, Ticket, Tag, Percent, AlertCircle,
+  Info, CheckCircle, XCircle, HelpCircle, Settings, Cog, Key, Lock, Unlock,
+  Shield, FileText, Folder, Archive, Clipboard, Calendar, Clock, Timer, Bell,
+  MessageCircle, Mail, Send, Share2, Bookmark, ThumbsUp, ThumbsDown, Smile,
+  Frown, Rocket, Lightbulb, Battery, Wifi, Radio, Bluetooth, Monitor, Printer,
+  Mic, Speaker, Volume2, Play, Pause, Newspaper, BookOpen, Plus, Edit2, Trash2,
+  DollarSign, TrendingUp, Package
+};
 
 const CategoriesPage = () => {
   const { t } = useTranslation();
@@ -239,9 +236,8 @@ const CategoriesPage = () => {
   ], [t]);
 
   // Función auxiliar para obtener componente de icono
-  const getIconComponent = (iconName: string) => {
-    const iconData = AVAILABLE_ICONS.find(i => i.icon === iconName);
-    return iconData ? iconData.component : MoreHorizontal;
+  const getIconComponent = (iconName: string): LucideIcon => {
+    return ICON_MAP[iconName] || MoreHorizontal;
   };
 
   // Calcular estadísticas por categoría
