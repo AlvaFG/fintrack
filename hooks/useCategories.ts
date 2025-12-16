@@ -46,7 +46,6 @@ export function useCategories() {
           color: category.color,
           icon: category.icon,
           is_preset: category.isPreset || false,
-          user_id: user.id,
         }])
         .select()
         .single();
