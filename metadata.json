@@ -1,0 +1,7 @@
+{
+  "name": "FinTrack Pro",
+  "description": "A professional personal finance management application with multi-currency support, expense tracking, OCR features, and analytics.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
