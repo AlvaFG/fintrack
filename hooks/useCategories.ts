@@ -37,7 +37,7 @@ export function useCategories() {
   const addCategory = async (category: Omit<Category, 'id'>) => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      if (!user) throw new Error('No autenticado');
+      if (!user) throw new Error('Not authenticated');
 
       const { data, error: insertError } = await supabase
         .from('categories')
@@ -108,7 +108,7 @@ export function useCategories() {
       if (checkError) throw checkError;
 
       if (expenses && expenses.length > 0) {
-        throw new Error('No se puede eliminar una categoría con gastos asociados');
+        throw new Error('Cannot delete a category with associated expenses');
       }
 
       const { error: deleteError } = await supabase

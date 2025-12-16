@@ -85,7 +85,7 @@ export function useSettings() {
   const updateSettings = async (updates: Partial<Omit<UserSettings, 'id' | 'userId' | 'createdAt' | 'updatedAt'>>) => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      if (!user) throw new Error('No autenticado');
+      if (!user) throw new Error('Not authenticated');
 
       const updateData: any = {};
       if (updates.currency !== undefined) updateData.currency = updates.currency;
