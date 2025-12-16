@@ -63,7 +63,165 @@ import {
   Wine,
   ShoppingBag,
   Watch,
-  Glasses
+  Glasses,
+  Bus,
+  Train,
+  Bike,
+  Fuel,
+  Sparkles,
+  Globe,
+  MapPin,
+  Hotel,
+  Bed,
+  Users,
+  User,
+  Crown,
+  Star,
+  Umbrella,
+  CloudRain,
+  Sun,
+  Moon,
+  Thermometer,
+  Wind,
+  Snowflake,
+  Flame,
+  Building,
+  Building2,
+  Store,
+  Factory,
+  Warehouse,
+  Church,
+  School,
+  Trees,
+  Mountain,
+  Tent,
+  Carrot,
+  Apple,
+  Cherry,
+  Sandwich,
+  Soup,
+  CakeSlice,
+  Cookie,
+  Beer,
+  GlassWater,
+  Milk,
+  Pill,
+  Syringe,
+  Stethoscope,
+  HeartPulse,
+  Activity,
+  Cigarette,
+  Scan,
+  TestTube,
+  BadgeDollarSign,
+  CreditCard,
+  Banknote,
+  Receipt,
+  Calculator,
+  BarChart,
+  PieChart,
+  TrendingDown,
+  ArrowUpDown,
+  Target,
+  Flag,
+  Award,
+  Trophy,
+  Medal,
+  Gem,
+  Coins,
+  Ticket,
+  Tag,
+  Percent,
+  AlertCircle,
+  Info,
+  CheckCircle,
+  XCircle,
+  HelpCircle,
+  Settings,
+  Tool,
+  Cog,
+  Key,
+  Lock,
+  Unlock,
+  Shield,
+  FileText,
+  File,
+  Folder,
+  Archive,
+  Clipboard,
+  Calendar,
+  Clock,
+  Timer,
+  Bell,
+  MessageCircle,
+  Mail,
+  Send,
+  Share2,
+  Download,
+  Upload,
+  Link,
+  Anchor,
+  Bookmark,
+  Heart as HeartFilled,
+  ThumbsUp,
+  ThumbsDown,
+  Smile,
+  Frown,
+  Meh,
+  PartyPopper,
+  Rocket,
+  Lightbulb,
+  Battery,
+  Wifi,
+  Radio,
+  Bluetooth,
+  Cast,
+  Monitor,
+  Printer,
+  Keyboard,
+  Mouse,
+  Mic,
+  Speaker,
+  Volume2,
+  VolumeX,
+  Play,
+  Pause,
+  SkipForward,
+  SkipBack,
+  FastForward,
+  Rewind,
+  Image,
+  Video,
+  Newspaper,
+  BookOpen,
+  Library,
+  Pen,
+  Edit,
+  Type,
+  Bold,
+  Italic,
+  Underline,
+  Palette,
+  Brush,
+  Pipette,
+  Ruler,
+  Compass,
+  Triangle,
+  Square,
+  Circle,
+  Hexagon,
+  Pentagon,
+  Slash,
+  Minus,
+  X,
+  Check,
+  ChevronRight,
+  ChevronLeft,
+  ChevronUp,
+  ChevronDown,
+  Move,
+  Navigation,
+  Map
 } from 'lucide-react';
 import { Category } from '../types';
 
@@ -99,45 +257,192 @@ const CategoriesPage = () => {
 
   // Iconos disponibles para categorías (dentro del componente para acceder a t())
   const AVAILABLE_ICONS = [
+    // Compras y Comercio
     { icon: 'ShoppingCart', name: t('categories.icons.shopping'), component: ShoppingCart },
-    { icon: 'Car', name: t('categories.icons.transport'), component: Car },
-    { icon: 'Home', name: t('categories.icons.home'), component: Home },
-    { icon: 'Utensils', name: t('categories.icons.food'), component: Utensils },
-    { icon: 'Heart', name: t('categories.icons.health'), component: Heart },
-    { icon: 'Shirt', name: t('categories.icons.clothing'), component: Shirt },
-    { icon: 'Gamepad', name: t('categories.icons.entertainment'), component: Gamepad },
-    { icon: 'GraduationCap', name: t('categories.icons.education'), component: GraduationCap },
-    { icon: 'Plane', name: t('categories.icons.travel'), component: Plane },
+    { icon: 'ShoppingBag', name: t('categories.icons.bags'), component: ShoppingBag },
+    { icon: 'Package', name: 'Paquete', component: Package },
+    { icon: 'Store', name: 'Tienda', component: Store },
+    { icon: 'Tag', name: 'Etiqueta', component: Tag },
+    { icon: 'Ticket', name: 'Ticket', component: Ticket },
+    { icon: 'Receipt', name: 'Recibo', component: Receipt },
     { icon: 'Gift', name: t('categories.icons.gifts'), component: Gift },
-    { icon: 'Wrench', name: t('categories.icons.services'), component: Wrench },
+    
+    // Transporte
+    { icon: 'Car', name: t('categories.icons.transport'), component: Car },
+    { icon: 'Bus', name: 'Autobús', component: Bus },
+    { icon: 'Train', name: 'Tren', component: Train },
+    { icon: 'Bike', name: 'Bicicleta', component: Bike },
+    { icon: 'Plane', name: t('categories.icons.travel'), component: Plane },
+    { icon: 'Fuel', name: 'Combustible', component: Fuel },
+    
+    // Hogar y Vivienda
+    { icon: 'Home', name: t('categories.icons.home'), component: Home },
+    { icon: 'Building', name: 'Edificio', component: Building },
+    { icon: 'Building2', name: 'Oficina', component: Building2 },
+    { icon: 'Bed', name: 'Dormitorio', component: Bed },
+    { icon: 'Hotel', name: 'Hotel', component: Hotel },
+    
+    // Comida y Bebidas
+    { icon: 'Utensils', name: t('categories.icons.food'), component: Utensils },
     { icon: 'Coffee', name: t('categories.icons.coffee'), component: Coffee },
-    { icon: 'Phone', name: t('categories.icons.technology'), component: Phone },
-    { icon: 'Dumbbell', name: t('categories.icons.sports'), component: Dumbbell },
-    { icon: 'Music', name: t('categories.icons.music'), component: Music },
-    { icon: 'Film', name: t('categories.icons.movies'), component: Film },
-    { icon: 'Book', name: t('categories.icons.books'), component: Book },
-    { icon: 'Briefcase', name: t('categories.icons.work'), component: Briefcase },
-    { icon: 'Wallet', name: t('categories.icons.finance'), component: Wallet },
-    { icon: 'Tv', name: t('categories.icons.tv'), component: Tv },
-    { icon: 'Smartphone', name: t('categories.icons.mobile'), component: Smartphone },
-    { icon: 'Laptop', name: t('categories.icons.computer'), component: Laptop },
-    { icon: 'Headphones', name: t('categories.icons.audio'), component: Headphones },
-    { icon: 'Camera', name: t('categories.icons.photography'), component: Camera },
-    { icon: 'Paintbrush', name: t('categories.icons.art'), component: Paintbrush },
-    { icon: 'Hammer', name: t('categories.icons.tools'), component: Hammer },
-    { icon: 'Zap', name: t('categories.icons.electricity'), component: Zap },
-    { icon: 'Droplet', name: t('categories.icons.water'), component: Droplet },
-    { icon: 'Leaf', name: t('categories.icons.nature'), component: Leaf },
-    { icon: 'Scissors', name: t('categories.icons.beauty'), component: Scissors },
-    { icon: 'Baby', name: t('categories.icons.baby'), component: Baby },
-    { icon: 'PawPrint', name: t('categories.icons.pets'), component: PawPrint },
     { icon: 'Pizza', name: t('categories.icons.pizza'), component: Pizza },
     { icon: 'IceCream', name: t('categories.icons.desserts'), component: IceCream },
     { icon: 'Wine', name: t('categories.icons.drinks'), component: Wine },
-    { icon: 'ShoppingBag', name: t('categories.icons.bags'), component: ShoppingBag },
+    { icon: 'Beer', name: 'Cerveza', component: Beer },
+    { icon: 'Sandwich', name: 'Sandwich', component: Sandwich },
+    { icon: 'Soup', name: 'Sopa', component: Soup },
+    { icon: 'CakeSlice', name: 'Pastel', component: CakeSlice },
+    { icon: 'Cookie', name: 'Galleta', component: Cookie },
+    { icon: 'Apple', name: 'Frutas', component: Apple },
+    { icon: 'Carrot', name: 'Verduras', component: Carrot },
+    { icon: 'Milk', name: 'Lácteos', component: Milk },
+    { icon: 'GlassWater', name: 'Agua', component: GlassWater },
+    
+    // Salud y Bienestar
+    { icon: 'Heart', name: t('categories.icons.health'), component: Heart },
+    { icon: 'HeartPulse', name: 'Salud', component: HeartPulse },
+    { icon: 'Activity', name: 'Actividad', component: Activity },
+    { icon: 'Pill', name: 'Medicamentos', component: Pill },
+    { icon: 'Syringe', name: 'Vacunas', component: Syringe },
+    { icon: 'Stethoscope', name: 'Médico', component: Stethoscope },
+    { icon: 'Dumbbell', name: t('categories.icons.sports'), component: Dumbbell },
+    { icon: 'Thermometer', name: 'Temperatura', component: Thermometer },
+    
+    // Ropa y Accesorios
+    { icon: 'Shirt', name: t('categories.icons.clothing'), component: Shirt },
     { icon: 'Watch', name: t('categories.icons.watch'), component: Watch },
     { icon: 'Glasses', name: t('categories.icons.glasses'), component: Glasses },
+    { icon: 'Crown', name: 'Lujo', component: Crown },
+    { icon: 'Gem', name: 'Joyería', component: Gem },
+    
+    // Entretenimiento
+    { icon: 'Gamepad', name: t('categories.icons.entertainment'), component: Gamepad },
+    { icon: 'Music', name: t('categories.icons.music'), component: Music },
+    { icon: 'Film', name: t('categories.icons.movies'), component: Film },
+    { icon: 'Tv', name: t('categories.icons.tv'), component: Tv },
+    { icon: 'PartyPopper', name: 'Fiesta', component: PartyPopper },
+    { icon: 'Sparkles', name: 'Evento', component: Sparkles },
+    { icon: 'Trophy', name: 'Logros', component: Trophy },
+    { icon: 'Award', name: 'Premio', component: Award },
+    { icon: 'Medal', name: 'Medalla', component: Medal },
+    { icon: 'Star', name: 'Favorito', component: Star },
+    
+    // Educación y Trabajo
+    { icon: 'GraduationCap', name: t('categories.icons.education'), component: GraduationCap },
+    { icon: 'Book', name: t('categories.icons.books'), component: Book },
+    { icon: 'BookOpen', name: 'Lectura', component: BookOpen },
+    { icon: 'Library', name: 'Biblioteca', component: Library },
+    { icon: 'Briefcase', name: t('categories.icons.work'), component: Briefcase },
+    { icon: 'School', name: 'Escuela', component: School },
+    
+    // Tecnología
+    { icon: 'Phone', name: t('categories.icons.technology'), component: Phone },
+    { icon: 'Smartphone', name: t('categories.icons.mobile'), component: Smartphone },
+    { icon: 'Laptop', name: t('categories.icons.computer'), component: Laptop },
+    { icon: 'Monitor', name: 'Pantalla', component: Monitor },
+    { icon: 'Headphones', name: t('categories.icons.audio'), component: Headphones },
+    { icon: 'Camera', name: t('categories.icons.photography'), component: Camera },
+    { icon: 'Keyboard', name: 'Teclado', component: Keyboard },
+    { icon: 'Mouse', name: 'Mouse', component: Mouse },
+    { icon: 'Printer', name: 'Impresora', component: Printer },
+    { icon: 'Wifi', name: 'Internet', component: Wifi },
+    { icon: 'Radio', name: 'Radio', component: Radio },
+    { icon: 'Battery', name: 'Batería', component: Battery },
+    { icon: 'Bluetooth', name: 'Bluetooth', component: Bluetooth },
+    
+    // Finanzas
+    { icon: 'Wallet', name: t('categories.icons.finance'), component: Wallet },
+    { icon: 'CreditCard', name: 'Tarjeta', component: CreditCard },
+    { icon: 'Banknote', name: 'Dinero', component: Banknote },
+    { icon: 'Coins', name: 'Monedas', component: Coins },
+    { icon: 'BadgeDollarSign', name: 'Dólar', component: BadgeDollarSign },
+    { icon: 'DollarSign', name: 'Precio', component: DollarSign },
+    { icon: 'Calculator', name: 'Calculadora', component: Calculator },
+    { icon: 'BarChart', name: 'Gráfico', component: BarChart },
+    { icon: 'PieChart', name: 'Estadísticas', component: PieChart },
+    { icon: 'TrendingUp', name: 'Aumento', component: TrendingUp },
+    { icon: 'TrendingDown', name: 'Disminución', component: TrendingDown },
+    { icon: 'Percent', name: 'Descuento', component: Percent },
+    
+    // Servicios y Utilidades
+    { icon: 'Wrench', name: t('categories.icons.services'), component: Wrench },
+    { icon: 'Hammer', name: t('categories.icons.tools'), component: Hammer },
+    { icon: 'Tool', name: 'Herramientas', component: Tool },
+    { icon: 'Settings', name: 'Configuración', component: Settings },
+    { icon: 'Cog', name: 'Ajustes', component: Cog },
+    { icon: 'Zap', name: t('categories.icons.electricity'), component: Zap },
+    { icon: 'Droplet', name: t('categories.icons.water'), component: Droplet },
+    { icon: 'Flame', name: 'Gas', component: Flame },
+    { icon: 'Lightbulb', name: 'Luz', component: Lightbulb },
+    { icon: 'Wifi', name: 'WiFi', component: Wifi },
+    
+    // Belleza y Cuidado Personal
+    { icon: 'Scissors', name: t('categories.icons.beauty'), component: Scissors },
+    { icon: 'Paintbrush', name: t('categories.icons.art'), component: Paintbrush },
+    { icon: 'Brush', name: 'Maquillaje', component: Brush },
+    { icon: 'Smile', name: 'Sonrisa', component: Smile },
+    { icon: 'Sparkles', name: 'Spa', component: Sparkles },
+    
+    // Familia
+    { icon: 'Baby', name: t('categories.icons.baby'), component: Baby },
+    { icon: 'Users', name: 'Familia', component: Users },
+    { icon: 'User', name: 'Personal', component: User },
+    { icon: 'PawPrint', name: t('categories.icons.pets'), component: PawPrint },
+    
+    // Naturaleza y Clima
+    { icon: 'Leaf', name: t('categories.icons.nature'), component: Leaf },
+    { icon: 'Trees', name: 'Árboles', component: Trees },
+    { icon: 'Mountain', name: 'Montaña', component: Mountain },
+    { icon: 'Tent', name: 'Camping', component: Tent },
+    { icon: 'Sun', name: 'Sol', component: Sun },
+    { icon: 'Moon', name: 'Noche', component: Moon },
+    { icon: 'CloudRain', name: 'Lluvia', component: CloudRain },
+    { icon: 'Umbrella', name: 'Paraguas', component: Umbrella },
+    { icon: 'Snowflake', name: 'Nieve', component: Snowflake },
+    { icon: 'Wind', name: 'Viento', component: Wind },
+    
+    // Ubicación y Mapas
+    { icon: 'MapPin', name: 'Ubicación', component: MapPin },
+    { icon: 'Map', name: 'Mapa', component: Map },
+    { icon: 'Navigation', name: 'Navegación', component: Navigation },
+    { icon: 'Globe', name: 'Global', component: Globe },
+    
+    // Comunicación
+    { icon: 'Mail', name: 'Email', component: Mail },
+    { icon: 'MessageCircle', name: 'Mensajes', component: MessageCircle },
+    { icon: 'Bell', name: 'Notificación', component: Bell },
+    { icon: 'Send', name: 'Enviar', component: Send },
+    { icon: 'Share2', name: 'Compartir', component: Share2 },
+    
+    // Archivos y Documentos
+    { icon: 'FileText', name: 'Documento', component: FileText },
+    { icon: 'File', name: 'Archivo', component: File },
+    { icon: 'Folder', name: 'Carpeta', component: Folder },
+    { icon: 'Archive', name: 'Archivo', component: Archive },
+    { icon: 'Clipboard', name: 'Portapapeles', component: Clipboard },
+    { icon: 'Calendar', name: 'Calendario', component: Calendar },
+    { icon: 'Clock', name: 'Reloj', component: Clock },
+    { icon: 'Timer', name: 'Temporizador', component: Timer },
+    
+    // Seguridad
+    { icon: 'Lock', name: 'Bloqueado', component: Lock },
+    { icon: 'Unlock', name: 'Desbloqueado', component: Unlock },
+    { icon: 'Key', name: 'Llave', component: Key },
+    { icon: 'Shield', name: 'Seguridad', component: Shield },
+    
+    // Otros
     { icon: 'MoreHorizontal', name: t('categories.icons.other'), component: MoreHorizontal },
+    { icon: 'Target', name: 'Objetivo', component: Target },
+    { icon: 'Flag', name: 'Bandera', component: Flag },
+    { icon: 'Bookmark', name: 'Marcador', component: Bookmark },
+    { icon: 'Link', name: 'Enlace', component: Link },
+    { icon: 'Anchor', name: 'Ancla', component: Anchor },
+    { icon: 'Rocket', name: 'Cohete', component: Rocket },
+    { icon: 'AlertCircle', name: 'Alerta', component: AlertCircle },
+    { icon: 'Info', name: 'Info', component: Info },
+    { icon: 'CheckCircle', name: 'Completo', component: CheckCircle },
+    { icon: 'XCircle', name: 'Error', component: XCircle },
+    { icon: 'HelpCircle', name: 'Ayuda', component: HelpCircle },
   ];
 
   // Función auxiliar para obtener componente de icono
@@ -557,32 +862,34 @@ const CategoriesPage = () => {
                 <Label className="text-sm font-semibold text-gray-700 mb-3 block">
                   {t('categories.selectIcon')}
                 </Label>
-                <div className="grid grid-cols-6 gap-3">
-                  {AVAILABLE_ICONS.map((item) => {
-                    const IconComp = item.component;
-                    return (
-                      <button
-                        key={item.icon}
-                        type="button"
-                        onClick={() => setFormData({ ...formData, icon: item.icon })}
-                        className={`p-4 rounded-lg border-2 transition-all hover:scale-105 flex items-center justify-center group ${
-                          formData.icon === item.icon
-                            ? 'border-secondary bg-emerald-50 shadow-lg scale-105'
-                            : 'border-gray-200 hover:border-emerald-300 hover:bg-gray-50
-                        }`}
-                        title={item.name}
-                      >
-                        <IconComp 
-                          size={20} 
-                          className={
-                            formData.icon === item.icon 
-                              ? 'text-secondary 
-                              : 'text-gray-500 group-hover:text-gray-700
-                          } 
-                        />
-                      </button>
-                    );
-                  })}
+                <div className="max-h-[400px] overflow-y-auto pr-2">
+                  <div className="grid grid-cols-8 gap-2">
+                    {AVAILABLE_ICONS.map((item) => {
+                      const IconComp = item.component;
+                      return (
+                        <button
+                          key={item.icon}
+                          type="button"
+                          onClick={() => setFormData({ ...formData, icon: item.icon })}
+                          className={`p-3 rounded-lg border-2 transition-all hover:scale-105 flex items-center justify-center group ${
+                            formData.icon === item.icon
+                              ? 'border-secondary bg-emerald-50 shadow-lg scale-105'
+                              : 'border-gray-200 hover:border-emerald-300 hover:bg-gray-50
+                          }`}
+                          title={item.name}
+                        >
+                          <IconComp 
+                            size={18} 
+                            className={
+                              formData.icon === item.icon 
+                                ? 'text-secondary 
+                                : 'text-gray-500 group-hover:text-gray-700
+                            } 
+                          />
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
