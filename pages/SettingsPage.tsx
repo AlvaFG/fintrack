@@ -207,13 +207,13 @@ const SettingsPage = () => {
                   value={preferencesForm.currency}
                   onChange={(e) => setPreferencesForm({ ...preferencesForm, currency: e.target.value as Currency })}
                   options={[
-                    { value: 'USD', label: '🇺🇸 USD - Dólar Estadounidense' },
-                    { value: 'EUR', label: '🇪🇺 EUR - Euro' },
-                    { value: 'ARS', label: '🇦🇷 ARS - Peso Argentino' },
-                    { value: 'MXN', label: '🇲🇽 MXN - Peso Mexicano' },
-                    { value: 'COP', label: '🇨🇴 COP - Peso Colombiano' },
-                    { value: 'CLP', label: '🇨🇱 CLP - Peso Chileno' },
-                    { value: 'BRL', label: '🇧🇷 BRL - Real Brasileño' },
+                    { value: 'USD', label: `🇺🇸 USD - ${t('settings.currencies.usd')}` },
+                    { value: 'EUR', label: `🇪🇺 EUR - ${t('settings.currencies.eur')}` },
+                    { value: 'ARS', label: `🇦🇷 ARS - ${t('settings.currencies.ars')}` },
+                    { value: 'MXN', label: `🇲🇽 MXN - ${t('settings.currencies.mxn')}` },
+                    { value: 'COP', label: `🇨🇴 COP - ${t('settings.currencies.cop')}` },
+                    { value: 'CLP', label: `🇨🇱 CLP - ${t('settings.currencies.clp')}` },
+                    { value: 'BRL', label: `🇧🇷 BRL - ${t('settings.currencies.brl')}` },
                   ]}
                 />
               </div>

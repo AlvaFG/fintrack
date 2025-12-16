@@ -276,7 +276,7 @@ const Dashboard = () => {
                   <Line 
                     type="monotone" 
                     dataKey="USD" 
-                    name="Dólares (USD)"
+                    name={t('dashboard.dollarsUSD')}
                     stroke="#10B981" 
                     strokeWidth={2} 
                     dot={{ r: 4 }} 

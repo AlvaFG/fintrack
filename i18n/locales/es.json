@@ -36,7 +36,13 @@
     "createAccount": "Crea tu cuenta",
     "emailPlaceholder": "tu@email.com",
     "confirmEmail": "Debes confirmar tu email antes de iniciar sesión",
-    "subtitle": "Gestiona tus finanzas inteligentemente"
+    "subtitle": "Gestiona tus finanzas inteligentemente",
+    "emailAlreadyRegistered": "Este email ya está registrado",
+    "createPassword": "Crear contraseña",
+    "repeatPassword": "Repetir contraseña",
+    "passwordWeak": "Débil",
+    "passwordMedium": "Media",
+    "passwordStrong": "Fuerte"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -61,7 +67,8 @@
     "viewAll": "Ver Todos",
     "totalSpent": "Total Gastado",
     "thisMonth": "Este Mes",
-    "thisWeek": "Esta Semana"
+    "thisWeek": "Esta Semana",
+    "dollarsUSD": "Dólares (USD)"
   },
   "expenses": {
     "title": "Gastos",
@@ -116,6 +123,8 @@
     "tomorrow": "Mañana",
     "overdue": "Vencido",
     "inDays": "En {{days}} días",
+    "leaveEmptyToUseStartDate": "Dejar vacío para usar fecha de inicio",
+    "leaveEmptyToUseStartDate": "Dejar vacío para usar fecha de inicio",
     "frequencies": {
       "daily": "Diario",
       "weekly": "Semanal",
@@ -313,6 +322,15 @@
     "saveChanges": "Guardar Cambios",
     "savePreferences": "Guardar Preferencias",
     "confirmNewPassword": "Confirmar Nueva Contraseña",
+    "currencies": {
+      "usd": "Dólar Estadounidense",
+      "eur": "Euro",
+      "ars": "Peso Argentino",
+      "mxn": "Peso Mexicano",
+      "cop": "Peso Colombiano",
+      "clp": "Peso Chileno",
+      "brl": "Real Brasileño"
+    },
     "languages": {
       "en": "Inglés",
       "es": "Español"

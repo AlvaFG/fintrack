@@ -123,7 +123,7 @@ const AuthPage = () => {
       
       if (error) {
         setAuthError(error.includes('already registered') 
-          ? 'Este email ya está registrado' 
+          ? t('auth.emailAlreadyRegistered') 
           : error);
       } else if (data?.session) {
         // Auto-login exitoso - redirigir al dashboard
@@ -201,7 +201,7 @@ const AuthPage = () => {
                 />
                 <div className="relative">
                   <Input 
-                    label="Contraseña" 
+                    label={t('auth.password')} 
                     type={showPassword ? "text" : "password"} 
                     placeholder="••••••••" 
                     value={loginData.password}
@@ -282,9 +282,9 @@ const AuthPage = () => {
                 <div className="space-y-1">
                   <div className="relative">
                     <Input 
-                      label="Contraseña" 
+                      label={t('auth.password')} 
                       type={showPassword ? "text" : "password"} 
-                      placeholder="Crear contraseña" 
+                      placeholder={t('auth.createPassword')} 
                       value={registerData.password}
                       onChange={(e) => setRegisterData({...registerData, password: e.target.value})}
                       error={errors.password}
@@ -308,7 +308,7 @@ const AuthPage = () => {
                         <div className={`h-full rounded-full flex-1 transition-all ${passwordStrength >= 4 ? 'bg-emerald-600' : 'bg-gray-200'}`}></div>
                       </div>
                       <p className="text-xs text-right text-gray-500">
-                        {passwordStrength < 2 ? 'Débil' : passwordStrength < 4 ? 'Media' : 'Fuerte'}
+                        {passwordStrength < 2 ? t('auth.passwordWeak') : passwordStrength < 4 ? t('auth.passwordMedium') : t('auth.passwordStrong')}
                       </p>
                     </div>
                   )}
@@ -317,7 +317,7 @@ const AuthPage = () => {
                 <Input 
                   label={t('auth.confirmPassword')} 
                   type="password" 
-                  placeholder="Repetir contraseña" 
+                  placeholder={t('auth.repeatPassword')} 
                   value={registerData.confirmPassword}
                   onChange={(e) => setRegisterData({...registerData, confirmPassword: e.target.value})}
                   error={errors.confirmPassword}
