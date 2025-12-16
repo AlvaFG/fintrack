@@ -361,7 +361,7 @@ export default function RecurringPage() {
                         <button
                           onClick={() => processPayment(item.id)}
                           className="text-green-600 hover:text-green-900"
-                          title="Registrar pago"
+                          title={t('recurring.recordPayment')}
                         >
                           <CheckCircle2 size={18} />
                         </button>

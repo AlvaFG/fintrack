@@ -42,7 +42,10 @@
     "repeatPassword": "Repeat password",
     "passwordWeak": "Weak",
     "passwordMedium": "Medium",
-    "passwordStrong": "Strong"
+    "passwordStrong": "Strong",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "John Doe",
+    "emailExamplePlaceholder": "user@example.com"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -124,6 +127,7 @@
     "overdue": "Overdue",
     "inDays": "In {{days}} days",
     "leaveEmptyToUseStartDate": "Leave empty to use start date",
+    "recordPayment": "Record payment",
     "leaveEmptyToUseStartDate": "Leave empty to use start date",
     "frequencies": {
       "daily": "Daily",
@@ -346,6 +350,8 @@
       "clp": "Chilean Peso",
       "brl": "Brazilian Real"
     },
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Your full name",
     "languages": {
       "en": "English",
       "es": "Spanish"

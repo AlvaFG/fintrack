@@ -42,7 +42,10 @@
     "repeatPassword": "Repetir contraseña",
     "passwordWeak": "Débil",
     "passwordMedium": "Media",
-    "passwordStrong": "Fuerte"
+    "passwordStrong": "Fuerte",
+    "fullName": "Nombre Completo",
+    "fullNamePlaceholder": "Juan Perez",
+    "emailExamplePlaceholder": "usuario@ejemplo.com"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -124,6 +127,7 @@
     "overdue": "Vencido",
     "inDays": "En {{days}} días",
     "leaveEmptyToUseStartDate": "Dejar vacío para usar fecha de inicio",
+    "recordPayment": "Registrar pago",
     "leaveEmptyToUseStartDate": "Dejar vacío para usar fecha de inicio",
     "frequencies": {
       "daily": "Diario",
@@ -346,6 +350,8 @@
       "clp": "Peso Chileno",
       "brl": "Real Brasileño"
     },
+    "fullName": "Nombre Completo",
+    "fullNamePlaceholder": "Tu nombre completo",
     "languages": {
       "en": "Inglés",
       "es": "Español"

@@ -263,17 +263,17 @@ const AuthPage = () => {
             <TabsContent value="register" className="space-y-4">
               <form onSubmit={handleRegisterSubmit} className="space-y-3">
                 <Input 
-                  label="Nombre Completo" 
-                  placeholder="Juan Perez" 
+                  label={t('auth.fullName')} 
+                  placeholder={t('auth.fullNamePlaceholder')} 
                   value={registerData.name}
                   onChange={(e) => setRegisterData({...registerData, name: e.target.value})}
                   error={errors.name}
                 />
                 
                 <Input 
-                  label="Email" 
+                  label={t('auth.email')} 
                   type="email" 
-                  placeholder="usuario@ejemplo.com" 
+                  placeholder={t('auth.emailExamplePlaceholder')} 
                   value={registerData.email}
                   onChange={(e) => setRegisterData({...registerData, email: e.target.value})}
                   error={errors.email}

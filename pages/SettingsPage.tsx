@@ -161,12 +161,12 @@ const SettingsPage = () => {
             <CardContent className="space-y-6">
               {/* Nombre */}
               <div className="grid gap-2">
-                <Label htmlFor="fullName">Nombre Completo</Label>
+                <Label htmlFor="fullName">{t('settings.fullName')}</Label>
                 <Input
                   id="fullName"
                   value={profileForm.fullName}
                   onChange={(e) => setProfileForm({ ...profileForm, fullName: e.target.value })}
-                  placeholder="Tu nombre completo"
+                  placeholder={t('settings.fullNamePlaceholder')}
                 />
               </div>
 
