@@ -125,7 +125,7 @@ export default function RecurringPage() {
 
   const getCategoryName = (categoryId: string) => {
     const category = categories.find(c => c.id === categoryId);
-    return category?.name || 'Sin categoría';
+    return category?.name || t('recurring.noCategory');
   };
 
   const getCategoryColor = (categoryId: string) => {
@@ -145,10 +145,10 @@ export default function RecurringPage() {
     const diffTime = targetDate.getTime() - today.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 0) return 'Hoy';
-    if (diffDays === 1) return 'Mañana';
-    if (diffDays < 0) return 'Vencido';
-    return `En ${diffDays} días`;
+    if (diffDays === 0) return t('recurring.today');
+    if (diffDays === 1) return t('recurring.tomorrow');
+    if (diffDays < 0) return t('recurring.overdue');
+    return t('recurring.inDays', { days: diffDays });
   };
 
   if (loading) {

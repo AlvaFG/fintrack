@@ -111,6 +111,11 @@
     "addFirstRecurring": "Agrega tu primer gasto recurrente",
     "saveChanges": "Guardar Cambios",
     "createRecurring": "Crear Recurrente",
+    "noCategory": "Sin categoría",
+    "today": "Hoy",
+    "tomorrow": "Mañana",
+    "overdue": "Vencido",
+    "inDays": "En {{days}} días",
     "frequencies": {
       "daily": "Diario",
       "weekly": "Semanal",
@@ -204,6 +209,7 @@
     "saving": "Guardando...",
     "saveChanges": "Guardar Cambios",
     "createCategoryButton": "Crear Categoría",
+    "categoryNamePlaceholder": "Nombre de categoría",
     "icons": {
       "shopping": "Compras",
       "transport": "Transporte",

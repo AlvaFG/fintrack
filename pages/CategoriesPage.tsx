@@ -629,7 +629,7 @@ const CategoriesPage = () => {
                     </div>
                     <div className="flex-1">
                       <p className="font-bold text-gray-900 dark:text-gray-50 text-xl">
-                        {formData.name || 'Nombre de categoría'}
+                        {formData.name || t('categories.categoryNamePlaceholder')}
                       </p>
                       <div className="flex items-center gap-2 mt-2">
                         <div 

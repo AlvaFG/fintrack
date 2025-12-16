@@ -110,6 +110,11 @@
     "addFirstRecurring": "Add your first recurring expense",
     "saveChanges": "Save Changes",
     "createRecurring": "Create Recurring",
+    "noCategory": "No category",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "overdue": "Overdue",
+    "inDays": "In {{days}} days",
     "frequencies": {
       "daily": "Daily",
       "weekly": "Weekly",
@@ -203,6 +208,7 @@
     "saving": "Saving...",
     "saveChanges": "Save Changes",
     "createCategoryButton": "Create Category",
+    "categoryNamePlaceholder": "Category name",
     "icons": {
       "shopping": "Shopping",
       "transport": "Transport",
