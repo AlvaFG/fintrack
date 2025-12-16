@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useApp } from '../App';
-import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge, Button } from '../components/ui/shadcn';
+import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge, Button, Dialog, Input, Label, Select } from '../components/ui/shadcn';
 import { 
   TrendingDown, 
   Calendar, 
@@ -9,6 +9,7 @@ import {
   ArrowDownRight, 
   Clock, 
   Award,
+  Plus,
   ShoppingCart,
   Car,
   Home,
@@ -73,8 +74,49 @@ const getIconComponent = (iconName: string) => {
 
 const Dashboard = () => {
   const { t } = useTranslation();
-  const { expenses, categories, loading, settings } = useApp();
+  const { expenses, categories, loading, settings, addExpense } = useApp();
   const currency = settings?.currency || 'USD'; // Usar la moneda de settings
+
+  // Estado para el modal de agregar gasto
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [newAmount, setNewAmount] = useState('');
+  const [newCurrency, setNewCurrency] = useState('ARS');
+  const [newDesc, setNewDesc] = useState('');
+  const [newCat, setNewCat] = useState(categories[0]?.id || '');
+  const [newDate, setNewDate] = useState(new Date().toISOString().split('T')[0]);
+
+  const handleOpenNew = () => {
+    setNewAmount('');
+    setNewDesc('');
+    setNewCat(categories[0]?.id || '');
+    setNewCurrency('ARS');
+    setNewDate(new Date().toISOString().split('T')[0]);
+    setIsModalOpen(true);
+  };
+
+  const handleSave = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSaving(true);
+
+    try {
+      const expenseData = {
+        amount: parseFloat(newAmount),
+        currency: newCurrency as 'ARS' | 'USD',
+        description: newDesc,
+        categoryId: newCat,
+        date: new Date(newDate),
+      };
+
+      await addExpense(expenseData);
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error('Error saving expense:', error);
+      alert(t('messages.errorOccurred'));
+    } finally {
+      setSaving(false);
+    }
+  };
 
   // Cálculos reales basados en datos de Supabase
   const totalSpentUSD = calculateMonthlyTotal(expenses, 'USD');
@@ -408,6 +450,100 @@ const Dashboard = () => {
           )}
         </CardContent>
       </Card>
+
+      {/* Floating Action Button */}
+      <button
+        onClick={handleOpenNew}
+        className="fixed bottom-6 right-6 w-14 h-14 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-all hover:scale-110 flex items-center justify-center z-50"
+        aria-label={t('expenses.addExpense')}
+      >
+        <Plus size={24} />
+      </button>
+
+      {/* Modal Agregar Gasto */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md p-6">
+            <h2 className="text-2xl font-bold mb-4">{t('expenses.addExpense')}</h2>
+            <form onSubmit={handleSave} className="space-y-4">
+              <div>
+                <Label htmlFor="amount">{t('common.amount')}</Label>
+                <Input
+                  id="amount"
+                  type="number"
+                  step="0.01"
+                  value={newAmount}
+                  onChange={(e) => setNewAmount(e.target.value)}
+                  placeholder={t('expenses.amountPlaceholder')}
+                  required
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="currency">{t('common.currency')}</Label>
+                <Select
+                  id="currency"
+                  value={newCurrency}
+                  onChange={(e) => setNewCurrency(e.target.value)}
+                  options={[
+                    { value: 'ARS', label: 'ARS - Pesos' },
+                    { value: 'USD', label: 'USD - Dólares' },
+                  ]}
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="description">{t('common.description')}</Label>
+                <Input
+                  id="description"
+                  value={newDesc}
+                  onChange={(e) => setNewDesc(e.target.value)}
+                  placeholder={t('expenses.descriptionPlaceholder')}
+                  required
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="category">{t('common.category')}</Label>
+                <Select
+                  id="category"
+                  value={newCat}
+                  onChange={(e) => setNewCat(e.target.value)}
+                  options={categories.map(cat => ({
+                    value: cat.id,
+                    label: cat.name
+                  }))}
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="date">{t('common.date')}</Label>
+                <Input
+                  id="date"
+                  type="date"
+                  value={newDate}
+                  onChange={(e) => setNewDate(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="flex gap-2 pt-4">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setIsModalOpen(false)}
+                  className="flex-1"
+                >
+                  {t('common.cancel')}
+                </Button>
+                <Button type="submit" disabled={saving} className="flex-1">
+                  {saving ? t('common.loading') : t('common.save')}
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </Dialog>
     </div>
   );
 };
