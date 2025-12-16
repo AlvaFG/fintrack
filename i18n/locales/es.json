@@ -384,6 +384,7 @@
     "dangerZone": "Zona de Peligro",
     "deleteAllData": "Eliminar Todos los Datos",
     "deleteWarning": "Esta acción eliminará permanentemente todos tus gastos, categorías y configuraciones. No se puede deshacer.",
+    "switchLanguage": "Cambiar idioma",
     "languages": {
       "en": "Inglés",
       "es": "Español"

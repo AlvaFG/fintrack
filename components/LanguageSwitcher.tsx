@@ -4,7 +4,7 @@ import { Globe } from 'lucide-react';
 import { Button } from './ui/shadcn';
 
 export const LanguageSwitcher: React.FC = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'es' : 'en';
@@ -17,7 +17,7 @@ export const LanguageSwitcher: React.FC = () => {
       size="sm"
       onClick={toggleLanguage}
       className="flex items-center gap-2"
-      title={i18n.language === 'en' ? 'Switch to Spanish' : 'Cambiar a Inglés'}
+      title={t('settings.switchLanguage')}
     >
       <Globe size={18} />
       <span className="text-sm font-medium uppercase">{i18n.language}</span>
