@@ -46,7 +46,12 @@
     "fullName": "Full Name",
     "fullNamePlaceholder": "John Doe",
     "emailExamplePlaceholder": "user@example.com",
-    "orContinueWith": "Or continue with"
+    "orContinueWith": "Or continue with",
+    "rememberMe": "Remember me",
+    "termsAndConditions": "Terms and Conditions",
+    "andThe": "and the",
+    "privacyPolicy": "Privacy Policy",
+    "acceptTerms": "I accept the"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -131,6 +136,7 @@
     "leaveEmptyToUseStartDate": "Leave empty to use start date",
     "recordPayment": "Record payment",
     "leaveEmptyToUseStartDate": "Leave empty to use start date",
+    "selectCategory": "Select a category",
     "frequencies": {
       "daily": "Daily",
       "weekly": "Weekly",
@@ -310,6 +316,13 @@
     "csvFormatTitle": "CSV File Format",
     "csvFormatDescription": "The file will include the following columns:",
     "csvFormatFooter": "Expenses will be sorted by date (most recent first) and the file will be compatible with Excel, Google Sheets, and other applications.",
+    "allCategories": "All categories",
+    "currency": "Currency",
+    "allCurrencies": "All currencies",
+    "preview": "Preview",
+    "information": "Information",
+    "willExport": "Will export",
+    "expenses": "expenses",
     "columns": {
       "date": "Date",
       "month": "Month",

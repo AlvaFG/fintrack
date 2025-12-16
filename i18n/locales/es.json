@@ -46,7 +46,12 @@
     "fullName": "Nombre Completo",
     "fullNamePlaceholder": "Juan Perez",
     "emailExamplePlaceholder": "usuario@ejemplo.com",
-    "orContinueWith": "O continúa con"
+    "orContinueWith": "O continúa con",
+    "rememberMe": "Recordarme",
+    "termsAndConditions": "Términos y Condiciones",
+    "andThe": "y la",
+    "privacyPolicy": "Política de Privacidad",
+    "acceptTerms": "Acepto los"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -131,6 +136,7 @@
     "leaveEmptyToUseStartDate": "Dejar vacío para usar fecha de inicio",
     "recordPayment": "Registrar pago",
     "leaveEmptyToUseStartDate": "Dejar vacío para usar fecha de inicio",
+    "selectCategory": "Selecciona una categoría",
     "frequencies": {
       "daily": "Diario",
       "weekly": "Semanal",
@@ -308,6 +314,13 @@
     "csvFormatTitle": "Formato del Archivo CSV",
     "csvFormatDescription": "El archivo incluirá las siguientes columnas:",
     "csvFormatFooter": "Los gastos se ordenarán por fecha (más recientes primero) y el archivo será compatible con Excel, Google Sheets y otras aplicaciones.",
+    "allCategories": "Todas las categorías",
+    "currency": "Moneda",
+    "allCurrencies": "Todas las monedas",
+    "preview": "Vista Previa",
+    "information": "Información",
+    "willExport": "Se exportarán",
+    "expenses": "gastos",
     "columns": {
       "date": "Fecha",
       "month": "Mes",

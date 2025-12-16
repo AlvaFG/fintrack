@@ -217,7 +217,7 @@ export default function ExportPage() {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
               >
-                <option value="">Todas las categorías</option>
+                <option value="">{t('export.allCategories')}</option>
                 {categories.map(cat => (
                   <option key={cat.id} value={cat.id}>
                     {cat.name}
@@ -228,14 +228,14 @@ export default function ExportPage() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Moneda
+                {t('export.currency')}
               </label>
               <select
                 value={selectedCurrency}
                 onChange={(e) => setSelectedCurrency(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
               >
-                <option value="">Todas las monedas</option>
+                <option value="">{t('export.allCurrencies')}</option>
                 <option value="ARS">ARS</option>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
@@ -250,9 +250,9 @@ export default function ExportPage() {
 
         {/* Preview */}
         <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
-          <h3 className="font-semibold text-emerald-900 mb-2">Vista Previa</h3>
+          <h3 className="font-semibold text-emerald-900 mb-2">{t('export.preview')}</h3>
           <p className="text-emerald-800">
-            Se exportarán <strong>{getPreviewCount()}</strong> gastos
+            {t('export.willExport')} <strong>{getPreviewCount()}</strong> {t('export.expenses')}
           </p>
           {Object.keys(totals).length > 0 && (
             <div className="mt-2">
@@ -299,7 +299,7 @@ export default function ExportPage() {
 
       {/* Information */}
       <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-bold text-gray-900 mb-3">Información</h2>
+        <h2 className="text-lg font-bold text-gray-900 mb-3">{t('export.information')}</h2>
         <div className="space-y-2 text-sm text-gray-600">
           <p>• El archivo CSV se descargará automáticamente en tu carpeta de Descargas</p>
           <p>• El formato es compatible con Excel, Google Sheets, Numbers y otras aplicaciones</p>

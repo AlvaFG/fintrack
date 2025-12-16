@@ -185,16 +185,16 @@ const AuthPage = () => {
         <CardContent>
           <Tabs value={activeTab} onValueChange={(v) => { setActiveTab(v); setErrors({}); }}>
             <TabsList className="grid w-full grid-cols-2 mb-6">
-              <TabsTrigger value="login">Iniciar Sesión</TabsTrigger>
-              <TabsTrigger value="register">Registrarse</TabsTrigger>
+              <TabsTrigger value="login">{t('auth.signIn')}</TabsTrigger>
+              <TabsTrigger value="register">{t('auth.signUp')}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="login" className="space-y-4">
               <form onSubmit={handleLoginSubmit} className="space-y-4">
                 <Input 
-                  label="Email" 
+                  label={t('auth.email')} 
                   type="email" 
-                  placeholder="usuario@ejemplo.com" 
+                  placeholder={t('auth.emailExamplePlaceholder')} 
                   value={loginData.email}
                   onChange={(e) => setLoginData({...loginData, email: e.target.value})}
                   error={errors.email}
@@ -220,10 +220,10 @@ const AuthPage = () => {
                 <div className="flex items-center justify-between text-sm">
                   <label className="flex items-center gap-2 text-gray-600 cursor-pointer">
                     <input type="checkbox" className="rounded border-gray-300 text-primary focus:ring-primary" />
-                    Recordarme
+                    {t('auth.rememberMe')}
                   </label>
                   <a href="#" className="text-secondary hover:underline font-medium transition-colors">
-                    ¿Olvidaste tu contraseña?
+                    {t('auth.forgotPassword')}
                   </a>
                 </div>
 
@@ -235,7 +235,7 @@ const AuthPage = () => {
                 )}
 
                 <Button type="submit" className="w-full" size="lg" isLoading={isLoading}>
-                  Iniciar Sesión
+                  {t('auth.signIn')}
                 </Button>
 
                 <div className="relative my-6">
@@ -248,13 +248,13 @@ const AuthPage = () => {
                 </div>
                 
                 <div className="text-center text-sm">
-                  <span className="text-gray-500">¿No tienes cuenta? </span>
+                  <span className="text-gray-500">{t('auth.dontHaveAccount')} </span>
                   <button 
                     type="button"
                     onClick={() => setActiveTab('register')} 
                     className="text-primary font-semibold hover:underline"
                   >
-                    Regístrate
+                    {t('auth.signUp')}
                   </button>
                 </div>
               </form>
@@ -333,7 +333,7 @@ const AuthPage = () => {
                       onChange={(e) => setRegisterData({...registerData, terms: e.target.checked})}
                     />
                     <label htmlFor="terms" className="text-gray-600 leading-tight cursor-pointer">
-                      Acepto los <a href="#" className="text-primary hover:underline">Términos y Condiciones</a> y la Política de Privacidad.
+                      {t('auth.acceptTerms')} <a href="#" className="text-primary hover:underline">{t('auth.termsAndConditions')}</a> {t('auth.andThe')} {t('auth.privacyPolicy')}.
                     </label>
                   </div>
                   {errors.terms && <p className="text-xs text-red-500 ml-6">{errors.terms}</p>}
