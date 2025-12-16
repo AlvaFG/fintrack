@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useRecurring, calculateNextPaymentDate } from '../hooks/useRecurring';
 import { useApp } from '../App';
 import { RecurringFrequency, Currency } from '../types';
 import { Plus, Calendar, Pause, Play, Trash2, CheckCircle2, Circle, Edit2 } from 'lucide-react';
 
 export default function RecurringPage() {
+  const { t } = useTranslation();
   const { recurring, loading, addRecurring, updateRecurring, deleteRecurring, toggleActive, processPayment } = useRecurring();
   const { categories, settings } = useApp();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,14 +26,14 @@ export default function RecurringPage() {
   });
 
   const frequencyLabels: Record<RecurringFrequency, string> = {
-    daily: 'Diario',
-    weekly: 'Semanal',
-    biweekly: 'Quincenal',
-    monthly: 'Mensual',
-    bimonthly: 'Bimestral',
-    quarterly: 'Trimestral',
-    semiannual: 'Semestral',
-    annual: 'Anual',
+    daily: t('recurring.frequencies.daily'),
+    weekly: t('recurring.frequencies.weekly'),
+    biweekly: t('recurring.frequencies.biweekly'),
+    monthly: t('recurring.frequencies.monthly'),
+    bimonthly: t('recurring.frequencies.bimonthly'),
+    quarterly: t('recurring.frequencies.quarterly'),
+    semiannual: t('recurring.frequencies.semiannual'),
+    annual: t('recurring.frequencies.annual'),
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -98,7 +100,7 @@ export default function RecurringPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (window.confirm('¿Estás seguro de que quieres eliminar este gasto recurrente?')) {
+    if (window.confirm(t('recurring.confirmDelete'))) {
       await deleteRecurring(id);
     }
   };
@@ -152,7 +154,7 @@ export default function RecurringPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="text-lg text-gray-600">Cargando gastos recurrentes...</div>
+        <div className="text-lg text-gray-600">{t('common.loading')}</div>
       </div>
     );
   }
@@ -160,7 +162,7 @@ export default function RecurringPage() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-gray-900">Gastos Recurrentes</h1>
+        <h1 className="text-3xl font-bold text-gray-900">{t('recurring.title')}</h1>
         <button
           onClick={() => {
             resetForm();
@@ -169,7 +171,7 @@ export default function RecurringPage() {
           className="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-emerald-600 flex items-center gap-2"
         >
           <Plus size={20} />
-          Nuevo Recurrente
+          {t('recurring.addRecurring')}
         </button>
       </div>
 
@@ -178,7 +180,7 @@ export default function RecurringPage() {
         <div className="bg-white p-6 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Total Mensual Estimado</p>
+              <p className="text-sm text-gray-600">{t('stats.projectedSpending')}</p>
               <p className="text-2xl font-bold text-gray-900">
                 ${totalMonthlyAmount.toFixed(2)}
               </p>
@@ -190,7 +192,7 @@ export default function RecurringPage() {
         <div className="bg-white p-6 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Activos</p>
+              <p className="text-sm text-gray-600">{t('recurring.active')}</p>
               <p className="text-2xl font-bold text-gray-900">
                 {recurring.filter(r => r.isActive).length}
               </p>
@@ -202,7 +204,7 @@ export default function RecurringPage() {
         <div className="bg-white p-6 rounded-lg shadow">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Pausados</p>
+              <p className="text-sm text-gray-600">{t('recurring.paused')}</p>
               <p className="text-2xl font-bold text-gray-600">
                 {recurring.filter(r => !r.isActive).length}
               </p>
@@ -214,9 +216,9 @@ export default function RecurringPage() {
 
       {/* Upcoming Payments */}
       <div className="bg-white p-6 rounded-lg shadow">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Próximos Pagos</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-4">{t('recurring.nextPayment')}</h2>
         {upcomingPayments.length === 0 ? (
-          <p className="text-gray-600">No hay pagos próximos</p>
+          <p className="text-gray-600">{t('recurring.noRecurring')}</p>
         ) : (
           <div className="space-y-3">
             {upcomingPayments.map(item => (
@@ -251,7 +253,7 @@ export default function RecurringPage() {
               : 'text-gray-600 hover:text-gray-900'
           }`}
         >
-          Todos ({recurring.length})
+          {t('recurring.all')} ({recurring.length})
         </button>
         <button
           onClick={() => setFilter('active')}
@@ -261,7 +263,7 @@ export default function RecurringPage() {
               : 'text-gray-600 hover:text-gray-900'
           }`}
         >
-          Activos ({recurring.filter(r => r.isActive).length})
+          {t('recurring.activeOnly')} ({recurring.filter(r => r.isActive).length})
         </button>
         <button
           onClick={() => setFilter('paused')}
@@ -271,7 +273,7 @@ export default function RecurringPage() {
               : 'text-gray-600 hover:text-gray-900'
           }`}
         >
-          Pausados ({recurring.filter(r => !r.isActive).length})
+          {t('recurring.pausedOnly')} ({recurring.filter(r => !r.isActive).length})
         </button>
       </div>
 
@@ -279,32 +281,32 @@ export default function RecurringPage() {
       <div className="bg-white rounded-lg shadow overflow-hidden">
         {filteredRecurring.length === 0 ? (
           <div className="p-8 text-center text-gray-600">
-            No hay gastos recurrentes {filter !== 'all' && filter}
+            {t('recurring.noRecurring')}
           </div>
         ) : (
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Estado
+                  {t('recurring.active')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Descripción
+                  {t('common.description')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Categoría
+                  {t('common.category')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Monto
+                  {t('common.amount')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Frecuencia
+                  {t('recurring.frequency')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Próximo Pago
+                  {t('recurring.nextPayment')}
                 </th>
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Acciones
+                  {t('common.actions')}
                 </th>
               </tr>
             </thead>
@@ -315,12 +317,12 @@ export default function RecurringPage() {
                     {item.isActive ? (
                       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                         <Play size={12} className="mr-1" />
-                        Activo
+                        {t('recurring.active')}
                       </span>
                     ) : (
                       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
                         <Pause size={12} className="mr-1" />
-                        Pausado
+                        {t('recurring.paused')}
                       </span>
                     )}
                   </td>

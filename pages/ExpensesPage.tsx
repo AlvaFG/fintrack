@@ -122,21 +122,21 @@ const ExpensesPage = () => {
       setIsModalOpen(false);
     } catch (error) {
       console.error('Error al guardar:', error);
-      alert('Error al guardar el gasto');
+      alert(t('messages.errorOccurred'));
     } finally {
       setSaving(false);
     }
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('¿Estás seguro de eliminar este gasto?')) return;
+    if (!confirm(t('expenses.confirmDelete'))) return;
     
     setDeleting(id);
     try {
       await deleteExpense(id);
     } catch (error) {
       console.error('Error al eliminar:', error);
-      alert('Error al eliminar el gasto');
+      alert(t('messages.errorOccurred'));
     } finally {
       setDeleting(null);
     }
@@ -150,15 +150,15 @@ const ExpensesPage = () => {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-primary">Mis Gastos</h2>
-          <p className="text-gray-500">Gestiona y analiza cada movimiento</p>
+          <h2 className="text-2xl font-bold text-primary">{t('expenses.title')}</h2>
+          <p className="text-gray-500">{t('expenses.subtitle')}</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline">
-            <Filter size={18} className="mr-2" /> Filtros
+            <Filter size={18} className="mr-2" /> {t('common.filter')}
           </Button>
           <Button onClick={handleOpenNew}>
-            <Plus size={18} className="mr-2" /> Agregar Gasto
+            <Plus size={18} className="mr-2" /> {t('expenses.addExpense')}
           </Button>
         </div>
       </div>
@@ -168,7 +168,7 @@ const ExpensesPage = () => {
             <div className="relative mb-6">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input 
-                    placeholder="Buscar por descripción..." 
+                    placeholder={t('expenses.searchPlaceholder')} 
                     className="pl-10"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -178,18 +178,18 @@ const ExpensesPage = () => {
             {loading ? (
               <div className="text-center py-8">
                 <Loader2 className="h-8 w-8 animate-spin mx-auto text-primary" />
-                <p className="text-gray-500 mt-2">Cargando gastos...</p>
+                <p className="text-gray-500 mt-2">{t('common.loading')}</p>
               </div>
             ) : (
               <div className="rounded-md border">
                   <table className="w-full text-sm text-left">
                       <thead className="bg-gray-50 text-gray-700 font-medium border-b">
                           <tr>
-                              <th className="px-4 py-3">Fecha</th>
-                              <th className="px-4 py-3">Descripción</th>
-                              <th className="px-4 py-3">Categoría</th>
-                              <th className="px-4 py-3 text-right">Monto</th>
-                              <th className="px-4 py-3 text-center">Acciones</th>
+                              <th className="px-4 py-3">{t('common.date')}</th>
+                              <th className="px-4 py-3">{t('common.description')}</th>
+                              <th className="px-4 py-3">{t('common.category')}</th>
+                              <th className="px-4 py-3 text-right">{t('common.amount')}</th>
+                              <th className="px-4 py-3 text-center">{t('common.actions')}</th>
                           </tr>
                       </thead>
                       <tbody className="divide-y">

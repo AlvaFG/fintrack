@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useApp } from '../App';
 import { 
   Card, 
@@ -54,6 +55,7 @@ import {
 } from '../utils/analytics';
 
 const StatsPage = () => {
+  const { t } = useTranslation();
   const { expenses, categories, loading } = useApp();
   const [activeTab, setActiveTab] = useState('overview');
   const [selectedMonths, setSelectedMonths] = useState(6);
@@ -96,13 +98,13 @@ const StatsPage = () => {
   if (!metrics) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">Estadísticas</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">{t('stats.title')}</h1>
         <Card>
           <CardContent className="p-12 text-center">
             <div className="text-6xl mb-4">📊</div>
-            <h3 className="text-xl font-semibold mb-2">No hay datos suficientes</h3>
+            <h3 className="text-xl font-semibold mb-2">{t('stats.noDataYet')}</h3>
             <p className="text-gray-500">
-              Agrega algunos gastos para ver estadísticas y análisis detallados
+              {t('stats.addExpensesForStats')}
             </p>
           </CardContent>
         </Card>
@@ -115,9 +117,9 @@ const StatsPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">Estadísticas</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">{t('stats.title')}</h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1">
-            Análisis detallado de tus gastos y tendencias
+            {t('stats.subtitle')}
           </p>
         </div>
         
@@ -125,9 +127,9 @@ const StatsPage = () => {
           value={selectedMonths.toString()}
           onChange={(e) => setSelectedMonths(Number(e.target.value))}
           options={[
-            { value: '3', label: 'Últimos 3 meses' },
-            { value: '6', label: 'Últimos 6 meses' },
-            { value: '12', label: 'Últimos 12 meses' }
+            { value: '3', label: t('stats.lastMonths.3') },
+            { value: '6', label: t('stats.lastMonths.6') },
+            { value: '12', label: t('stats.lastMonths.12') }
           ]}
         />
       </div>
@@ -138,7 +140,7 @@ const StatsPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Variación Mensual</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('stats.monthlyVariation')}</p>
                 {metrics.monthVariation > 0 ? (
                   <TrendingUp className="h-5 w-5 text-gray-400" />
                 ) : (
@@ -158,7 +160,7 @@ const StatsPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Promedio Diario</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('stats.averageDaily')}</p>
                 <Calendar className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
@@ -174,7 +176,7 @@ const StatsPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Proyección Mensual</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('stats.projectedSpending')}</p>
                 <DollarSign className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">

@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useApp } from '../App';
 import { 
   Card, 
@@ -66,49 +67,6 @@ import {
 } from 'lucide-react';
 import { Category } from '../types';
 
-// Iconos disponibles para categorías (Lucide React)
-const AVAILABLE_ICONS = [
-  { icon: 'ShoppingCart', name: 'Compras', component: ShoppingCart },
-  { icon: 'Car', name: 'Transporte', component: Car },
-  { icon: 'Home', name: 'Hogar', component: Home },
-  { icon: 'Utensils', name: 'Comida', component: Utensils },
-  { icon: 'Heart', name: 'Salud', component: Heart },
-  { icon: 'Shirt', name: 'Ropa', component: Shirt },
-  { icon: 'Gamepad', name: 'Entretenimiento', component: Gamepad },
-  { icon: 'GraduationCap', name: 'Educación', component: GraduationCap },
-  { icon: 'Plane', name: 'Viajes', component: Plane },
-  { icon: 'Gift', name: 'Regalos', component: Gift },
-  { icon: 'Wrench', name: 'Servicios', component: Wrench },
-  { icon: 'Coffee', name: 'Café', component: Coffee },
-  { icon: 'Phone', name: 'Tecnología', component: Phone },
-  { icon: 'Dumbbell', name: 'Deporte', component: Dumbbell },
-  { icon: 'Music', name: 'Música', component: Music },
-  { icon: 'Film', name: 'Cine', component: Film },
-  { icon: 'Book', name: 'Libros', component: Book },
-  { icon: 'Briefcase', name: 'Trabajo', component: Briefcase },
-  { icon: 'Wallet', name: 'Finanzas', component: Wallet },
-  { icon: 'Tv', name: 'TV', component: Tv },
-  { icon: 'Smartphone', name: 'Móvil', component: Smartphone },
-  { icon: 'Laptop', name: 'Computadora', component: Laptop },
-  { icon: 'Headphones', name: 'Audio', component: Headphones },
-  { icon: 'Camera', name: 'Fotografía', component: Camera },
-  { icon: 'Paintbrush', name: 'Arte', component: Paintbrush },
-  { icon: 'Hammer', name: 'Herramientas', component: Hammer },
-  { icon: 'Zap', name: 'Electricidad', component: Zap },
-  { icon: 'Droplet', name: 'Agua', component: Droplet },
-  { icon: 'Leaf', name: 'Naturaleza', component: Leaf },
-  { icon: 'Scissors', name: 'Estética', component: Scissors },
-  { icon: 'Baby', name: 'Bebé', component: Baby },
-  { icon: 'PawPrint', name: 'Mascotas', component: PawPrint },
-  { icon: 'Pizza', name: 'Pizza', component: Pizza },
-  { icon: 'IceCream', name: 'Postres', component: IceCream },
-  { icon: 'Wine', name: 'Bebidas', component: Wine },
-  { icon: 'ShoppingBag', name: 'Bolsas', component: ShoppingBag },
-  { icon: 'Watch', name: 'Reloj', component: Watch },
-  { icon: 'Glasses', name: 'Lentes', component: Glasses },
-  { icon: 'MoreHorizontal', name: 'Otros', component: MoreHorizontal },
-];
-
 // Colores disponibles para categorías
 const AVAILABLE_COLORS = [
   { color: '#FF6B6B', name: 'Rojo' },
@@ -126,6 +84,7 @@ const AVAILABLE_COLORS = [
 ];
 
 const CategoriesPage = () => {
+  const { t } = useTranslation();
   const { expenses, categories, loading, addCategory, updateCategory, deleteCategory } = useApp();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
@@ -136,6 +95,49 @@ const CategoriesPage = () => {
   });
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Iconos disponibles para categorías (dentro del componente para acceder a t())
+  const AVAILABLE_ICONS = [
+    { icon: 'ShoppingCart', name: t('categories.icons.shopping'), component: ShoppingCart },
+    { icon: 'Car', name: t('categories.icons.transport'), component: Car },
+    { icon: 'Home', name: t('categories.icons.home'), component: Home },
+    { icon: 'Utensils', name: t('categories.icons.food'), component: Utensils },
+    { icon: 'Heart', name: t('categories.icons.health'), component: Heart },
+    { icon: 'Shirt', name: t('categories.icons.clothing'), component: Shirt },
+    { icon: 'Gamepad', name: t('categories.icons.entertainment'), component: Gamepad },
+    { icon: 'GraduationCap', name: t('categories.icons.education'), component: GraduationCap },
+    { icon: 'Plane', name: t('categories.icons.travel'), component: Plane },
+    { icon: 'Gift', name: t('categories.icons.gifts'), component: Gift },
+    { icon: 'Wrench', name: t('categories.icons.services'), component: Wrench },
+    { icon: 'Coffee', name: t('categories.icons.coffee'), component: Coffee },
+    { icon: 'Phone', name: t('categories.icons.technology'), component: Phone },
+    { icon: 'Dumbbell', name: t('categories.icons.sports'), component: Dumbbell },
+    { icon: 'Music', name: t('categories.icons.music'), component: Music },
+    { icon: 'Film', name: t('categories.icons.movies'), component: Film },
+    { icon: 'Book', name: t('categories.icons.books'), component: Book },
+    { icon: 'Briefcase', name: t('categories.icons.work'), component: Briefcase },
+    { icon: 'Wallet', name: t('categories.icons.finance'), component: Wallet },
+    { icon: 'Tv', name: t('categories.icons.tv'), component: Tv },
+    { icon: 'Smartphone', name: t('categories.icons.mobile'), component: Smartphone },
+    { icon: 'Laptop', name: t('categories.icons.computer'), component: Laptop },
+    { icon: 'Headphones', name: t('categories.icons.audio'), component: Headphones },
+    { icon: 'Camera', name: t('categories.icons.photography'), component: Camera },
+    { icon: 'Paintbrush', name: t('categories.icons.art'), component: Paintbrush },
+    { icon: 'Hammer', name: t('categories.icons.tools'), component: Hammer },
+    { icon: 'Zap', name: t('categories.icons.electricity'), component: Zap },
+    { icon: 'Droplet', name: t('categories.icons.water'), component: Droplet },
+    { icon: 'Leaf', name: t('categories.icons.nature'), component: Leaf },
+    { icon: 'Scissors', name: t('categories.icons.beauty'), component: Scissors },
+    { icon: 'Baby', name: t('categories.icons.baby'), component: Baby },
+    { icon: 'PawPrint', name: t('categories.icons.pets'), component: PawPrint },
+    { icon: 'Pizza', name: t('categories.icons.pizza'), component: Pizza },
+    { icon: 'IceCream', name: t('categories.icons.desserts'), component: IceCream },
+    { icon: 'Wine', name: t('categories.icons.drinks'), component: Wine },
+    { icon: 'ShoppingBag', name: t('categories.icons.bags'), component: ShoppingBag },
+    { icon: 'Watch', name: t('categories.icons.watch'), component: Watch },
+    { icon: 'Glasses', name: t('categories.icons.glasses'), component: Glasses },
+    { icon: 'MoreHorizontal', name: t('categories.icons.other'), component: MoreHorizontal },
+  ];
 
   // Función auxiliar para obtener componente de icono
   const getIconComponent = (iconName: string) => {

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../App';
 import { Card, CardContent, CardHeader, CardTitle, Input, Button, Tabs, TabsList, TabsTrigger, TabsContent } from '../components/ui/shadcn';
 import { Eye, EyeOff, Check, X as XIcon, AlertCircle } from 'lucide-react';
 
 const AuthPage = () => {
+  const { t } = useTranslation();
   const { signIn, signUp, isAuthenticated } = useApp();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('login');
@@ -53,10 +55,10 @@ const AuthPage = () => {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
 
-    if (!loginData.email) newErrors.email = 'El email es requerido';
-    else if (!validateEmail(loginData.email)) newErrors.email = 'Email inválido';
+    if (!loginData.email) newErrors.email = t('validation.required');
+    else if (!validateEmail(loginData.email)) newErrors.email = t('validation.invalidEmail');
     
-    if (!loginData.password) newErrors.password = 'La contraseña es requerida';
+    if (!loginData.password) newErrors.password = t('validation.required');
 
     setErrors(newErrors);
     setAuthError('');
@@ -72,9 +74,9 @@ const AuthPage = () => {
         if (result.error) {
           console.error('Login error:', result.error);
           if (result.error === 'Invalid login credentials') {
-            setAuthError('Credenciales incorrectas');
+            setAuthError(t('validation.invalidEmail'));
           } else if (result.error.includes('Email not confirmed')) {
-            setAuthError('Debes confirmar tu email antes de iniciar sesión');
+            setAuthError(t('auth.confirmEmail'));
           } else {
             setAuthError(result.error);
           }
@@ -97,19 +99,19 @@ const AuthPage = () => {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
 
-    if (!registerData.name) newErrors.name = 'El nombre es requerido';
+    if (!registerData.name) newErrors.name = t('validation.required');
     
-    if (!registerData.email) newErrors.email = 'El email es requerido';
-    else if (!validateEmail(registerData.email)) newErrors.email = 'Email inválido';
+    if (!registerData.email) newErrors.email = t('validation.required');
+    else if (!validateEmail(registerData.email)) newErrors.email = t('validation.invalidEmail');
 
-    if (!registerData.password) newErrors.password = 'La contraseña es requerida';
-    else if (registerData.password.length < 8) newErrors.password = 'Mínimo 8 caracteres';
+    if (!registerData.password) newErrors.password = t('validation.required');
+    else if (registerData.password.length < 8) newErrors.password = t('validation.passwordTooShort');
 
     if (registerData.password !== registerData.confirmPassword) {
-      newErrors.confirmPassword = 'Las contraseñas no coinciden';
+      newErrors.confirmPassword = t('validation.passwordsDontMatch');
     }
 
-    if (!registerData.terms) newErrors.terms = 'Debes aceptar los términos';
+    if (!registerData.terms) newErrors.terms = t('validation.required');
 
     setErrors(newErrors);
     setAuthError('');

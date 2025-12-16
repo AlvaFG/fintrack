@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useApp } from '../App';
 import { exportToCSV } from '../utils/exportData';
 import { Download, Filter, Calendar, FileSpreadsheet } from 'lucide-react';
 
 export default function ExportPage() {
+  const { t } = useTranslation();
   const { expenses, categories } = useApp();
   
   const [startDate, setStartDate] = useState(() => {
@@ -21,7 +23,7 @@ export default function ExportPage() {
 
   const handleExport = () => {
     if (!startDate || !endDate) {
-      alert('Por favor selecciona un rango de fechas');
+      alert(t('export.selectDateRange'));
       return;
     }
 
@@ -29,7 +31,7 @@ export default function ExportPage() {
     const end = new Date(endDate);
 
     if (start > end) {
-      alert('La fecha de inicio debe ser anterior a la fecha de fin');
+      alert(t('validation.invalidDate'));
       return;
     }
 
@@ -127,7 +129,7 @@ export default function ExportPage() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-gray-900">Exportar Datos</h1>
+        <h1 className="text-3xl font-bold text-gray-900">{t('export.title')}</h1>
         <FileSpreadsheet className="text-green-600" size={32} />
       </div>
 
@@ -135,7 +137,7 @@ export default function ExportPage() {
         <div>
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
             <Calendar size={24} className="text-secondary" />
-            Rango de Fechas
+            {t('export.selectDateRange')}
           </h2>
           
           {/* Quick date range buttons */}
@@ -144,7 +146,7 @@ export default function ExportPage() {
               onClick={() => setQuickDateRange('week')}
               className="px-3 py-1.5 text-sm bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
             >
-              Última semana
+              {t('export.lastWeek')}
             </button>
             <button
               onClick={() => setQuickDateRange('month')}

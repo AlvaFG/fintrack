@@ -34,7 +34,8 @@
     "alreadyHaveAccount": "Already have an account?",
     "welcomeBack": "Welcome back",
     "createAccount": "Create your account",
-    "emailPlaceholder": "your@email.com"
+    "emailPlaceholder": "your@email.com",
+    "confirmEmail": "Please confirm your email before signing in"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -232,6 +233,7 @@
     "selectFormat": "Select Format",
     "selectDateRange": "Select Date Range",
     "allTime": "All Time",
+    "lastWeek": "Last Week",
     "lastMonth": "Last Month",
     "last3Months": "Last 3 Months",
     "last6Months": "Last 6 Months",
