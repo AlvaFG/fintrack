@@ -42,6 +42,7 @@ export function useCategories() {
       const { data, error: insertError } = await supabase
         .from('categories')
         .insert([{
+          user_id: user.id,
           name: category.name,
           color: category.color,
           icon: category.icon,
