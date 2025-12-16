@@ -179,7 +179,7 @@ const AuthPage = () => {
               FT
             </div>
           </div>
-          <CardTitle className="text-2xl text-primary font-bold tracking-tight">FinTrack Pro</CardTitle>
+          <CardTitle className="text-2xl text-primary font-bold tracking-tight">{t('common.appName')} Pro</CardTitle>
           <p className="text-gray-500 mt-2 text-sm">{t('auth.subtitle')}</p>
         </CardHeader>
         <CardContent>
