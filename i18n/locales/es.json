@@ -388,6 +388,7 @@
     "changePasswordButton": "Cambiar Contraseña (Próximamente)",
     "dangerZone": "Zona de Peligro",
     "deleteAllData": "Eliminar Todos los Datos",
+    "deleteAllDataButton": "Eliminar Todos los Datos (Próximamente)",
     "deleteWarning": "Esta acción eliminará permanentemente todos tus gastos, categorías y configuraciones. No se puede deshacer.",
     "switchLanguage": "Cambiar idioma",
     "languages": {

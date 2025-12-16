@@ -369,7 +369,7 @@ const SettingsPage = () => {
                 </p>
                 <Button variant="danger" disabled className="gap-2">
                   <Database size={16} />
-                  Eliminar Todos los Datos (Próximamente)
+                  {t('settings.deleteAllDataButton')}
                 </Button>
               </div>
             </CardContent>

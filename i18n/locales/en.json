@@ -388,6 +388,7 @@
     "changePasswordButton": "Change Password (Coming Soon)",
     "dangerZone": "Danger Zone",
     "deleteAllData": "Delete All Data",
+    "deleteAllDataButton": "Delete All Data (Coming Soon)",
     "deleteWarning": "This action will permanently delete all your expenses, categories, and settings. It cannot be undone.",
     "switchLanguage": "Switch language",
     "languages": {
