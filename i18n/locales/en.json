@@ -51,7 +51,10 @@
     "termsAndConditions": "Terms and Conditions",
     "andThe": "and the",
     "privacyPolicy": "Privacy Policy",
-    "acceptTerms": "I accept the"
+    "acceptTerms": "I accept the",
+    "checkYourEmail": "Check your email!",
+    "sentConfirmationEmail": "We've sent a confirmation email to",
+    "clickLinkToActivate": "Please click the link in the email to activate your account and sign in."
   },
   "nav": {
     "dashboard": "Dashboard",

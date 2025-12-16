@@ -145,12 +145,12 @@ const AuthPage = () => {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Check className="h-8 w-8 text-green-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">¡Revisa tu email!</h2>
+            <h2 className="text-2xl font-bold text-gray-900">{t('auth.checkYourEmail')}</h2>
             <p className="text-gray-600">
-              Hemos enviado un correo de confirmación a <strong>{registerData.email}</strong>
+              {t('auth.sentConfirmationEmail')} <strong>{registerData.email}</strong>
             </p>
             <p className="text-sm text-gray-500">
-              Por favor, haz clic en el enlace del correo para activar tu cuenta y poder iniciar sesión.
+              {t('auth.clickLinkToActivate')}
             </p>
             <div className="pt-4">
               <Button 
