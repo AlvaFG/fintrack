@@ -3,6 +3,8 @@
  * Este archivo muestra patrones de reemplazo comunes
  */
 
+import { useTranslation } from 'react-i18next';
+
 // Patrón 1: Textos estáticos simples
 // Antes: <h1>Dashboard</h1>
 // Después: <h1>{t('dashboard.title')}</h1>

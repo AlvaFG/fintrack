@@ -352,6 +352,7 @@
     },
     "fullName": "Nombre Completo",
     "fullNamePlaceholder": "Tu nombre completo",
+    "profileUpdated": "Perfil actualizado correctamente",
     "languages": {
       "en": "Inglés",
       "es": "Español"

@@ -83,9 +83,9 @@ const SettingsPage = () => {
     setIsSaving(true);
     try {
       await updateProfile({ fullName: profileForm.fullName });
-      alert('Perfil actualizado correctamente');
+      alert(t('settings.profileUpdated'));
     } catch (error: any) {
-      alert(`Error al actualizar perfil: ${error.message}`);
+      alert(`${t('messages.error')}: ${error.message}`);
     } finally {
       setIsSaving(false);
     }
