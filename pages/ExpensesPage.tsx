@@ -121,7 +121,7 @@ const ExpensesPage = () => {
 
       setIsModalOpen(false);
     } catch (error) {
-      console.error('Error al guardar:', error);
+      console.error('Error saving expense:', error);
       alert(t('messages.errorOccurred'));
     } finally {
       setSaving(false);
@@ -135,7 +135,7 @@ const ExpensesPage = () => {
     try {
       await deleteExpense(id);
     } catch (error) {
-      console.error('Error al eliminar:', error);
+      console.error('Error deleting expense:', error);
       alert(t('messages.errorOccurred'));
     } finally {
       setDeleting(null);
