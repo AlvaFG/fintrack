@@ -219,6 +219,21 @@
     "saveChanges": "Guardar Cambios",
     "createCategoryButton": "Crear Categoría",
     "categoryNamePlaceholder": "Nombre de categoría",
+    "chooseColor": "Elige un color",
+    "colors": {
+      "red": "Rojo",
+      "turquoise": "Turquesa",
+      "yellow": "Amarillo",
+      "aquaGreen": "Verde Agua",
+      "mintGreen": "Verde Menta",
+      "lightBlue": "Azul Claro",
+      "pink": "Rosa",
+      "lavender": "Lavanda",
+      "orange": "Naranja",
+      "tealGreen": "Verde Azulado",
+      "terracotta": "Terracota",
+      "purple": "Púrpura"
+    },
     "icons": {
       "shopping": "Compras",
       "transport": "Transporte",

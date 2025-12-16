@@ -67,25 +67,26 @@ import {
 } from 'lucide-react';
 import { Category } from '../types';
 
-// Colores disponibles para categorías
-const AVAILABLE_COLORS = [
-  { color: '#FF6B6B', name: 'Rojo' },
-  { color: '#4ECDC4', name: 'Turquesa' },
-  { color: '#FFD93D', name: 'Amarillo' },
-  { color: '#95E1D3', name: 'Verde Agua' },
-  { color: '#A8E6CF', name: 'Verde Menta' },
-  { color: '#A8D8EA', name: 'Azul Claro' },
-  { color: '#FF8B94', name: 'Rosa' },
-  { color: '#B4A7D6', name: 'Lavanda' },
-  { color: '#F4A261', name: 'Naranja' },
-  { color: '#2A9D8F', name: 'Verde Azulado' },
-  { color: '#E76F51', name: 'Terracota' },
-  { color: '#8338EC', name: 'Púrpura' },
-];
-
 const CategoriesPage = () => {
   const { t } = useTranslation();
   const { expenses, categories, loading, addCategory, updateCategory, deleteCategory } = useApp();
+  
+  // Colores disponibles para categorías
+  const AVAILABLE_COLORS = [
+    { color: '#FF6B6B', name: t('categories.colors.red') },
+    { color: '#4ECDC4', name: t('categories.colors.turquoise') },
+    { color: '#FFD93D', name: t('categories.colors.yellow') },
+    { color: '#95E1D3', name: t('categories.colors.aquaGreen') },
+    { color: '#A8E6CF', name: t('categories.colors.mintGreen') },
+    { color: '#A8D8EA', name: t('categories.colors.lightBlue') },
+    { color: '#FF8B94', name: t('categories.colors.pink') },
+    { color: '#B4A7D6', name: t('categories.colors.lavender') },
+    { color: '#F4A261', name: t('categories.colors.orange') },
+    { color: '#2A9D8F', name: t('categories.colors.tealGreen') },
+    { color: '#E76F51', name: t('categories.colors.terracotta') },
+    { color: '#8338EC', name: t('categories.colors.purple') },
+  ];
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [formData, setFormData] = useState({
@@ -583,7 +584,7 @@ const CategoriesPage = () => {
               {/* Color */}
               <div>
                 <Label className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 block">
-                  Elige un color
+                  {t('categories.chooseColor')}
                 </Label>
                 <div className="grid grid-cols-6 gap-3">
                   {AVAILABLE_COLORS.map((item) => (
