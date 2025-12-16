@@ -326,6 +326,11 @@
     "information": "Información",
     "willExport": "Se exportarán",
     "expenses": "gastos",
+    "infoDownload": "El archivo CSV se descargará automáticamente en tu carpeta de Descargas",
+    "infoCompatibility": "El formato es compatible con Excel, Google Sheets, Numbers y otras aplicaciones",
+    "infoEncoding": "La codificación UTF-8 con BOM garantiza que los caracteres especiales se muestren correctamente",
+    "infoFilters": "Puedes usar los filtros para exportar solo gastos específicos de una categoría o moneda",
+    "infoSorting": "Los gastos se ordenan de más reciente a más antiguo",
     "columns": {
       "date": "Fecha",
       "month": "Mes",

@@ -294,7 +294,7 @@ export default function ExportPage() {
           className="w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-semibold"
         >
           <Download size={20} />
-          Exportar a CSV ({getPreviewCount()} gastos)
+          {t('export.exportToCSV')} ({getPreviewCount()} {t('export.expenses')})
         </button>
       </div>
 
@@ -302,11 +302,11 @@ export default function ExportPage() {
       <div className="bg-white rounded-lg shadow p-6">
         <h2 className="text-lg font-bold text-gray-900 mb-3">{t('export.information')}</h2>
         <div className="space-y-2 text-sm text-gray-600">
-          <p>• El archivo CSV se descargará automáticamente en tu carpeta de Descargas</p>
-          <p>• El formato es compatible con Excel, Google Sheets, Numbers y otras aplicaciones</p>
-          <p>• La codificación UTF-8 con BOM garantiza que los caracteres especiales se muestren correctamente</p>
-          <p>• Puedes usar los filtros para exportar solo gastos específicos de una categoría o moneda</p>
-          <p>• Los gastos se ordenan de más reciente a más antiguo</p>
+          <p>• {t('export.infoDownload')}</p>
+          <p>• {t('export.infoCompatibility')}</p>
+          <p>• {t('export.infoEncoding')}</p>
+          <p>• {t('export.infoFilters')}</p>
+          <p>• {t('export.infoSorting')}</p>
         </div>
       </div>
     </div>
