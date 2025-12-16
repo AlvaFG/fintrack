@@ -267,7 +267,7 @@ const StatsPage = () => {
           {/* Top 5 gastos */}
           <Card>
             <CardHeader>
-              <CardTitle>Top 5 Gastos del Período</CardTitle>
+              <CardTitle>{t('stats.topExpenses')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
