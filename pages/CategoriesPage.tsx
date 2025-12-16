@@ -613,7 +613,7 @@ const CategoriesPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900
+          <h1 className="text-3xl font-bold text-gray-900">{t('categories.title')}</h1>
           <p className="text-gray-500 mt-1">
             {t('categories.manageAndOrganize')}
           </p>
@@ -635,12 +635,12 @@ const CategoriesPage = () => {
               </div>
               <div className="mt-auto space-y-1">
                 {metrics.yearARS > 0 && (
-                  <div className="text-2xl font-bold text-gray-900
+                  <div className="text-2xl font-bold text-gray-900">
                     ${metrics.yearARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </div>
                 )}
                 {metrics.yearUSD > 0 && (
-                  <div className="text-2xl font-bold text-gray-900
+                  <div className="text-2xl font-bold text-gray-900">
                     US${metrics.yearUSD.toLocaleString('es-AR', { 
                       minimumFractionDigits: metrics.yearUSD % 1 !== 0 ? 2 : 0, 
                       maximumFractionDigits: metrics.yearUSD % 1 !== 0 ? 2 : 0 
@@ -648,7 +648,7 @@ const CategoriesPage = () => {
                   </div>
                 )}
                 {metrics.yearARS === 0 && metrics.yearUSD === 0 && (
-                  <div className="text-3xl font-bold text-gray-900
+                  <div className="text-3xl font-bold text-gray-900">$0</div>
                 )}
               </div>
             </div>
@@ -664,12 +664,12 @@ const CategoriesPage = () => {
               </div>
               <div className="mt-auto space-y-1">
                 {metrics.monthARS > 0 && (
-                  <div className="text-2xl font-bold text-gray-900
+                  <div className="text-2xl font-bold text-gray-900">
                     ${metrics.monthARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </div>
                 )}
                 {metrics.monthUSD > 0 && (
-                  <div className="text-2xl font-bold text-gray-900
+                  <div className="text-2xl font-bold text-gray-900">
                     US${metrics.monthUSD.toLocaleString('es-AR', { 
                       minimumFractionDigits: metrics.monthUSD % 1 !== 0 ? 2 : 0, 
                       maximumFractionDigits: metrics.monthUSD % 1 !== 0 ? 2 : 0 
@@ -677,7 +677,7 @@ const CategoriesPage = () => {
                   </div>
                 )}
                 {metrics.monthARS === 0 && metrics.monthUSD === 0 && (
-                  <div className="text-3xl font-bold text-gray-900
+                  <div className="text-3xl font-bold text-gray-900">$0</div>
                 )}
               </div>
             </div>
@@ -693,12 +693,12 @@ const CategoriesPage = () => {
               </div>
               <div className="mt-auto space-y-1">
                 {metrics.lastMonthARS > 0 && (
-                  <div className="text-2xl font-bold text-gray-900
+                  <div className="text-2xl font-bold text-gray-900">
                     ${metrics.lastMonthARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </div>
                 )}
                 {metrics.lastMonthUSD > 0 && (
-                  <div className="text-2xl font-bold text-gray-900
+                  <div className="text-2xl font-bold text-gray-900">
                     US${metrics.lastMonthUSD.toLocaleString('es-AR', { 
                       minimumFractionDigits: metrics.lastMonthUSD % 1 !== 0 ? 2 : 0, 
                       maximumFractionDigits: metrics.lastMonthUSD % 1 !== 0 ? 2 : 0 
@@ -706,7 +706,7 @@ const CategoriesPage = () => {
                   </div>
                 )}
                 {metrics.lastMonthARS === 0 && metrics.lastMonthUSD === 0 && (
-                  <div className="text-3xl font-bold text-gray-900
+                  <div className="text-3xl font-bold text-gray-900">$0</div>
                 )}
               </div>
             </div>
@@ -774,32 +774,32 @@ const CategoriesPage = () => {
                 <div className="space-y-3">
                   <div className="grid grid-cols-2 gap-2">
                     <div>
-                      <p className="text-xs text-gray-500
+                      <p className="text-xs text-gray-500">{t('categories.total')}</p>
                       {stats.totalARS > 0 && stats.totalUSD > 0 ? (
-                        <p className="text-sm font-semibold text-gray-900
+                        <p className="text-sm font-semibold text-gray-900">
                           ${stats.totalARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })} + US${stats.totalUSD.toLocaleString('es-AR', { 
                             minimumFractionDigits: stats.totalUSD % 1 !== 0 ? 2 : 0, 
                             maximumFractionDigits: stats.totalUSD % 1 !== 0 ? 2 : 0 
                           }).replace('.', ',')}
                         </p>
                       ) : stats.totalARS > 0 ? (
-                        <p className="text-sm font-semibold text-gray-900
+                        <p className="text-sm font-semibold text-gray-900">
                           ${stats.totalARS.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                         </p>
                       ) : stats.totalUSD > 0 ? (
-                        <p className="text-sm font-semibold text-gray-900
+                        <p className="text-sm font-semibold text-gray-900">
                           US${stats.totalUSD.toLocaleString('es-AR', { 
                             minimumFractionDigits: stats.totalUSD % 1 !== 0 ? 2 : 0, 
                             maximumFractionDigits: stats.totalUSD % 1 !== 0 ? 2 : 0 
                           }).replace('.', ',')}
                         </p>
                       ) : (
-                        <p className="text-sm font-semibold text-gray-900
+                        <p className="text-sm font-semibold text-gray-900">$0</p>
                       )}
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-gray-500
-                      <p className="text-sm font-semibold text-gray-900
+                      <p className="text-xs text-gray-500">{t('categories.expenses')}</p>
+                      <p className="text-sm font-semibold text-gray-900">{stats.count}</p>
                     </div>
                   </div>
                 </div>
@@ -844,7 +844,7 @@ const CategoriesPage = () => {
             <div className="space-y-6 py-6">
               {/* Nombre */}
               <div>
-                <Label htmlFor="name" className="text-sm font-semibold text-gray-700
+                <Label htmlFor="name" className="text-sm font-semibold text-gray-700">
                   {t('categories.categoryName')}
                 </Label>
                 <Input
@@ -954,7 +954,7 @@ const CategoriesPage = () => {
                           className="h-2 flex-1 max-w-[140px] rounded-full shadow-sm"
                           style={{ backgroundColor: formData.color }}
                         />
-                        <span className="text-sm font-medium text-gray-600
+                        <span className="text-sm font-medium text-gray-600">100%</span>
                       </div>
                     </div>
                   </div>

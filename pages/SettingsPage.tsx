@@ -117,7 +117,7 @@ const SettingsPage = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900
+        <h1 className="text-3xl font-bold text-gray-900">{t('settings.title')}</h1>
         <p className="text-gray-500 mt-1">
           {t('settings.subtitle')}
         </p>

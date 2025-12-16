@@ -98,7 +98,7 @@ const StatsPage = () => {
   if (!metrics) {
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-bold text-gray-900
+        <h1 className="text-3xl font-bold text-gray-900">{t('stats.title')}</h1>
         <Card>
           <CardContent className="p-12 text-center">
             <div className="text-6xl mb-4">📊</div>
@@ -117,7 +117,7 @@ const StatsPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900
+          <h1 className="text-3xl font-bold text-gray-900">{t('stats.title')}</h1>
           <p className="text-gray-500 mt-1">
             {t('stats.subtitle')}
           </p>
@@ -183,7 +183,7 @@ const StatsPage = () => {
                 <div className="text-3xl font-bold text-gray-900 mb-1">
                   ${metrics.projection.projected.toLocaleString('es-AR', { maximumFractionDigits: 0 })}
                 </div>
-                <p className="text-xs text-gray-500
+                <p className="text-xs text-gray-500">
                   {metrics.projection.daysElapsed}/{metrics.projection.daysTotal} días
                 </p>
               </div>
@@ -203,7 +203,7 @@ const StatsPage = () => {
                   {metrics.maxGrowthCategory?.category.name || 'N/A'}
                 </div>
                 {metrics.maxGrowthCategory && (
-                  <p className="text-xs text-green-600
+                  <p className="text-xs text-green-600">
                     +{metrics.maxGrowthCategory.growth.toFixed(1)}%
                   </p>
                 )}
