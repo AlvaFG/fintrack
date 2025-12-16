@@ -812,6 +812,7 @@ const CategoriesPage = () => {
                   <div className="grid grid-cols-8 gap-2">
                     {AVAILABLE_ICONS.map((item) => {
                       const IconComp = item.component;
+                      if (!IconComp) return null;
                       return (
                         <button
                           key={item.icon}
