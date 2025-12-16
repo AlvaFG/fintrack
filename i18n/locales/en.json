@@ -45,7 +45,8 @@
     "passwordStrong": "Strong",
     "fullName": "Full Name",
     "fullNamePlaceholder": "John Doe",
-    "emailExamplePlaceholder": "user@example.com"
+    "emailExamplePlaceholder": "user@example.com",
+    "orContinueWith": "Or continue with"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -54,7 +55,8 @@
     "stats": "Statistics",
     "categories": "Categories",
     "export": "Export",
-    "settings": "Settings"
+    "settings": "Settings",
+    "mainMenu": "MAIN MENU"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -167,6 +169,9 @@
       "categories": "Categories",
       "timeline": "Timeline"
     },
+    "highestGrowth": "Highest Growth",
+    "distribution": "Distribution",
+    "average": "Average",
     "days": {
       "monday": "Mon",
       "tuesday": "Tue",
@@ -353,6 +358,16 @@
     "fullName": "Full Name",
     "fullNamePlaceholder": "Your full name",
     "profileUpdated": "Profile updated successfully",
+    "personalInformation": "Personal Information",
+    "generalPreferences": "General Preferences",
+    "appTheme": "App Theme",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "changePasswordButton": "Change Password (Coming Soon)",
+    "dangerZone": "Danger Zone",
+    "deleteAllData": "Delete All Data",
+    "deleteWarning": "This action will permanently delete all your expenses, categories, and settings. It cannot be undone.",
     "languages": {
       "en": "English",
       "es": "Spanish"

@@ -195,7 +195,7 @@ const StatsPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Mayor Crecimiento</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('stats.highestGrowth')}</p>
                 <BarChart3 className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
@@ -215,9 +215,9 @@ const StatsPage = () => {
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="overview">Resumen</TabsTrigger>
-          <TabsTrigger value="trends">Tendencias</TabsTrigger>
-          <TabsTrigger value="categories">Por Categoría</TabsTrigger>
+          <TabsTrigger value="overview">{t('stats.tabs.overview')}</TabsTrigger>
+          <TabsTrigger value="trends">{t('stats.tabs.trends')}</TabsTrigger>
+          <TabsTrigger value="categories">{t('stats.tabs.categories')}</TabsTrigger>
         </TabsList>
 
         {/* Tab: Resumen */}
@@ -226,7 +226,7 @@ const StatsPage = () => {
             {/* Comparativa mensual */}
             <Card>
               <CardHeader>
-                <CardTitle>Comparativa Mensual</CardTitle>
+                <CardTitle>{t('stats.monthlyComparison')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
@@ -246,7 +246,7 @@ const StatsPage = () => {
             {/* Gastos por día de la semana */}
             <Card>
               <CardHeader>
-                <CardTitle>Gastos por Día de la Semana</CardTitle>
+                <CardTitle>{t('stats.spendingByDay')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
@@ -315,7 +315,7 @@ const StatsPage = () => {
         <TabsContent value="trends" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Tendencias por Categoría</CardTitle>
+              <CardTitle>{t('stats.categoryTrends')}</CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={400}>
@@ -346,7 +346,7 @@ const StatsPage = () => {
           <div className="grid gap-4 md:grid-cols-3">
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Promedio Diario</CardTitle>
+                <CardTitle className="text-base">{t('stats.averageDaily')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-3xl font-bold text-gray-900">
@@ -392,7 +392,7 @@ const StatsPage = () => {
         <TabsContent value="categories" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Análisis por Categoría</CardTitle>
+              <CardTitle>{t('stats.categoryBreakdown')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -445,7 +445,7 @@ const StatsPage = () => {
                     
                     <div className="mt-3">
                       <div className="flex justify-between text-xs text-gray-500 mb-1">
-                        <span>Distribución</span>
+                        <span>{t('stats.distribution')}</span>
                         <span>{stat.percentage.toFixed(1)}%</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
@@ -461,7 +461,7 @@ const StatsPage = () => {
 
                     <div className="grid grid-cols-2 gap-4 mt-3 pt-3 border-t">
                       <div>
-                        <p className="text-xs text-gray-500">Promedio</p>
+                        <p className="text-xs text-gray-500">{t('stats.average')}</p>
                         <p className="text-sm font-semibold text-gray-900">
                           ${stat.average.toLocaleString('es-AR', { maximumFractionDigits: 0 })}
                         </p>

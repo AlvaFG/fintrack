@@ -45,7 +45,8 @@
     "passwordStrong": "Fuerte",
     "fullName": "Nombre Completo",
     "fullNamePlaceholder": "Juan Perez",
-    "emailExamplePlaceholder": "usuario@ejemplo.com"
+    "emailExamplePlaceholder": "usuario@ejemplo.com",
+    "orContinueWith": "O continúa con"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -54,7 +55,8 @@
     "stats": "Estadísticas",
     "categories": "Categorías",
     "export": "Exportar",
-    "settings": "Configuración"
+    "settings": "Configuración",
+    "mainMenu": "MENÚ PRINCIPAL"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -166,8 +168,9 @@
       "trends": "Tendencias",
       "categories": "Categorías",
       "timeline": "Línea de Tiempo"
-    },
-    "days": {
+    },    "highestGrowth": "Mayor Crecimiento",
+    "distribution": "Distribución",
+    "average": "Promedio",    "days": {
       "monday": "Lun",
       "tuesday": "Mar",
       "wednesday": "Mié",
@@ -353,6 +356,16 @@
     "fullName": "Nombre Completo",
     "fullNamePlaceholder": "Tu nombre completo",
     "profileUpdated": "Perfil actualizado correctamente",
+    "personalInformation": "Información Personal",
+    "generalPreferences": "Preferencias Generales",
+    "appTheme": "Tema de la Aplicación",
+    "changePassword": "Cambiar Contraseña",
+    "currentPassword": "Contraseña Actual",
+    "newPassword": "Nueva Contraseña",
+    "changePasswordButton": "Cambiar Contraseña (Próximamente)",
+    "dangerZone": "Zona de Peligro",
+    "deleteAllData": "Eliminar Todos los Datos",
+    "deleteWarning": "Esta acción eliminará permanentemente todos tus gastos, categorías y configuraciones. No se puede deshacer.",
     "languages": {
       "en": "Inglés",
       "es": "Español"

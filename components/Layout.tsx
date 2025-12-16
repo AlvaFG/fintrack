@@ -108,7 +108,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
           {/* Navigation */}
           <nav className="flex-1 px-4 py-6 space-y-0.5 overflow-y-auto">
-            <p className="px-3 text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-3">MENÚ PRINCIPAL</p>
+            <p className="px-3 text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('nav.mainMenu')}</p>
             {navItems.map((item) => (
               <NavLink
                 key={item.path}

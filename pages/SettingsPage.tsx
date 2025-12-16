@@ -156,7 +156,7 @@ const SettingsPage = () => {
         <TabsContent value="profile" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Información Personal</CardTitle>
+              <CardTitle>{t('settings.personalInformation')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               {/* Nombre */}
@@ -196,7 +196,7 @@ const SettingsPage = () => {
         <TabsContent value="preferences" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Preferencias Generales</CardTitle>
+              <CardTitle>{t('settings.generalPreferences')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               {/* Moneda */}
@@ -249,7 +249,7 @@ const SettingsPage = () => {
 
               {/* Tema */}
               <div className="grid gap-2">
-                <Label>Tema de la Aplicación</Label>
+                <Label>{t('settings.appTheme')}</Label>
                 <div className="grid grid-cols-3 gap-4">
                   <button
                     type="button"
@@ -281,7 +281,7 @@ const SettingsPage = () => {
                       preferencesForm.theme === 'dark' 
                         ? 'text-primary dark:text-primary' 
                         : 'text-gray-700 dark:text-gray-200'
-                    }`}>Oscuro</span>
+                    }`}>{t('settings.darkMode')}</span>
                   </button>
                   <button
                     type="button"
@@ -297,7 +297,7 @@ const SettingsPage = () => {
                       preferencesForm.theme === 'system' 
                         ? 'text-primary dark:text-primary' 
                         : 'text-gray-700 dark:text-gray-300'
-                    }`}>Sistema</span>
+                    }`}>{t('settings.systemMode')}</span>
                   </button>
                 </div>
               </div>
@@ -314,11 +314,11 @@ const SettingsPage = () => {
         {/* Seguridad */}
         <TabsContent value="security" className="space-y-4">\n          <Card>
             <CardHeader>
-              <CardTitle>Cambiar Contraseña</CardTitle>
+              <CardTitle>{t('settings.changePassword')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid gap-2">
-                <Label htmlFor="currentPassword">Contraseña Actual</Label>
+                <Label htmlFor="currentPassword">{t('settings.currentPassword')}</Label>
                 <Input
                   id="currentPassword"
                   type="password"
@@ -329,7 +329,7 @@ const SettingsPage = () => {
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="newPassword">Nueva Contraseña</Label>
+                <Label htmlFor="newPassword">{t('settings.newPassword')}</Label>
                 <Input
                   id="newPassword"
                   type="password"
@@ -352,21 +352,20 @@ const SettingsPage = () => {
 
               <Button disabled className="gap-2">
                 <Lock size={16} />
-                Cambiar Contraseña (Próximamente)
+                {t('settings.changePasswordButton')}
               </Button>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-red-600">Zona de Peligro</CardTitle>
+              <CardTitle className="text-red-600">{t('settings.dangerZone')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                <h4 className="font-semibold text-red-900 mb-2">Eliminar Todos los Datos</h4>
+                <h4 className="font-semibold text-red-900 mb-2">{t('settings.deleteAllData')}</h4>
                 <p className="text-sm text-red-700 mb-4">
-                  Esta acción eliminará permanentemente todos tus gastos, categorías y configuraciones. 
-                  No se puede deshacer.
+                  {t('settings.deleteWarning')}
                 </p>
                 <Button variant="danger" disabled className="gap-2">
                   <Database size={16} />
