@@ -181,7 +181,9 @@ const ExpensesPage = () => {
                 <p className="text-gray-500 mt-2">{t('common.loading')}</p>
               </div>
             ) : (
-              <div className="rounded-md border">
+              <>
+                {/* Vista de tabla para desktop */}
+                <div className="hidden md:block rounded-md border">
                   <table className="w-full text-sm text-left">
                       <thead className="bg-gray-50 text-gray-700 font-medium border-b">
                           <tr>
@@ -246,20 +248,77 @@ const ExpensesPage = () => {
                           {filteredExpenses.length === 0 && (
                               <tr>
                                   <td colSpan={5} className="px-4 py-8 text-center text-gray-500">
-                                      No se encontraron gastos.
+                                      {t('expenses.noExpenses')}
                                   </td>
                               </tr>
                           )}
                       </tbody>
                   </table>
-              </div>
+                </div>
+
+                {/* Vista de tarjetas para móvil */}
+                <div className="md:hidden space-y-3">
+                  {filteredExpenses.map((expense) => {
+                    const cat = categories.find(c => c.id === expense.categoryId);
+                    const IconComponent = cat ? getIconComponent(cat.icon) : Package;
+                    return (
+                      <div key={expense.id} className="bg-white border rounded-lg p-4 shadow-sm">
+                        <div className="flex items-start justify-between mb-3">
+                          <div className="flex-1">
+                            <h3 className="font-medium text-gray-900">{expense.description}</h3>
+                            <p className="text-xs text-gray-500 mt-0.5">
+                              {expense.date.toLocaleDateString('es-AR', { day: '2-digit', month: 'short', year: 'numeric' })} • {expense.date.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })}
+                            </p>
+                          </div>
+                          <div className="text-right">
+                            <p className="font-bold text-gray-900 text-lg">
+                              <span className="text-gray-400 text-sm mr-0.5">{expense.currency === 'USD' ? 'US$' : '$'}</span>
+                              {expense.amount.toLocaleString()}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-medium border bg-white" style={{ borderColor: cat?.color, color: cat?.color }}>
+                            <IconComponent size={14} />
+                            {cat?.name}
+                          </div>
+                          <div className="flex gap-2">
+                            <button 
+                              className="p-2 rounded-full text-gray-400 hover:text-secondary hover:bg-gray-100 transition-colors"
+                              onClick={() => handleOpenEdit(expense)}
+                            >
+                              <Edit2 size={18} />
+                            </button>
+                            <button 
+                              className="p-2 rounded-full text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
+                              onClick={() => handleDelete(expense.id)}
+                              disabled={deleting === expense.id}
+                            >
+                              {deleting === expense.id ? (
+                                <Loader2 size={18} className="animate-spin" />
+                              ) : (
+                                <Trash2 size={18} />
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                  {filteredExpenses.length === 0 && (
+                    <div className="text-center py-8 text-gray-500">
+                      {t('expenses.noExpenses')}
+                    </div>
+                  )}
+                </div>
+              </>
             )}
         </CardContent>
       </Card>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen} title={editingExpense ? t('expenses.editExpense') : t('expenses.newExpense')}>
-        <form onSubmit={handleSave} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+        <form onSubmit={handleSave} className="space-y-4 p-4 md:p-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                     <label className="text-sm font-medium">{t('common.amount')}</label>
                     <Input 
@@ -277,14 +336,14 @@ const ExpensesPage = () => {
                     <div className="flex bg-gray-100 p-1 rounded-md">
                         <button 
                             type="button"
-                            className={`flex-1 text-sm font-medium py-1.5 rounded-sm transition-all ${newCurrency === 'ARS' ? 'bg-white shadow-sm text-primary' : 'text-gray-500'}`}
+                            className={`flex-1 text-sm font-medium py-2 rounded-sm transition-all ${newCurrency === 'ARS' ? 'bg-white shadow-sm text-primary' : 'text-gray-500'}`}
                             onClick={() => setNewCurrency('ARS')}
                         >
                             ARS
                         </button>
                         <button 
                             type="button"
-                            className={`flex-1 text-sm font-medium py-1.5 rounded-sm transition-all ${newCurrency === 'USD' ? 'bg-white shadow-sm text-primary' : 'text-gray-500'}`}
+                            className={`flex-1 text-sm font-medium py-2 rounded-sm transition-all ${newCurrency === 'USD' ? 'bg-white shadow-sm text-primary' : 'text-gray-500'}`}
                             onClick={() => setNewCurrency('USD')}
                         >
                             USD
@@ -295,18 +354,21 @@ const ExpensesPage = () => {
 
             <div className="space-y-2">
                 <label className="text-sm font-medium">{t('common.category')}</label>
-                <div className="grid grid-cols-3 gap-2">
-                    {categories.map(cat => (
-                        <button
-                            key={cat.id}
-                            type="button"
-                            onClick={() => setNewCat(cat.id)}
-                            className={`flex flex-col items-center justify-center p-2 rounded-lg border transition-all ${newCat === cat.id ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}
-                        >
-                            <span className="text-xl mb-1">{cat.icon}</span>
-                            <span className="text-xs font-medium">{cat.name}</span>
-                        </button>
-                    ))}
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-48 overflow-y-auto">
+                    {categories.map(cat => {
+                        const CatIcon = getIconComponent(cat.icon);
+                        return (
+                            <button
+                                key={cat.id}
+                                type="button"
+                                onClick={() => setNewCat(cat.id)}
+                                className={`flex flex-col items-center justify-center p-2 rounded-lg border transition-all ${newCat === cat.id ? 'border-primary bg-primary/5 ring-2 ring-primary/20' : 'border-gray-200 hover:border-gray-300'}`}
+                            >
+                                <CatIcon size={20} style={{ color: cat.color }} className="mb-1" />
+                                <span className="text-xs font-medium text-center leading-tight">{cat.name}</span>
+                            </button>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -325,11 +387,11 @@ const ExpensesPage = () => {
                 onChange={e => setNewDate(e.target.value)}
             />
 
-            <div className="flex justify-end gap-2 mt-6">
-                <Button type="button" variant="ghost" onClick={() => setIsModalOpen(false)}>
+            <div className="flex flex-col-reverse sm:flex-row justify-end gap-2 mt-6">
+                <Button type="button" variant="ghost" onClick={() => setIsModalOpen(false)} className="w-full sm:w-auto">
                   {t('common.cancel')}
                 </Button>
-                <Button type="submit" disabled={saving}>
+                <Button type="submit" disabled={saving} className="w-full sm:w-auto">
                   {saving ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
