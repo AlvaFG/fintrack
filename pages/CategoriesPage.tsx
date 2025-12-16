@@ -415,6 +415,7 @@ const CategoriesPage = () => {
           {categories.map((category) => {
           const stats = categoryStats.get(category.id) || { total: 0, count: 0, average: 0, totalUSD: 0, totalARS: 0 };
           const IconComponent = getIconComponent(category.icon);
+          const isEmoji = !AVAILABLE_ICONS.some(i => i.icon === category.icon);
 
           return (
             <Card key={category.id} className="hover:shadow-lg transition-shadow">
@@ -425,7 +426,11 @@ const CategoriesPage = () => {
                       className="w-12 h-12 rounded-lg flex items-center justify-center"
                       style={{ backgroundColor: `${category.color}20`, color: category.color }}
                     >
-                      <IconComponent size={24} />
+                      {isEmoji ? (
+                        <span className="text-2xl">{category.icon}</span>
+                      ) : (
+                        <IconComponent size={24} />
+                      )}
                     </div>
                     <div>
                       <CardTitle className="text-lg">{category.name}</CardTitle>
@@ -624,6 +629,11 @@ const CategoriesPage = () => {
                       style={{ backgroundColor: `${formData.color}20`, color: formData.color }}
                     >
                       {(() => {
+                        // Verificar si es un emoji o un icono de Lucide
+                        const isEmoji = !AVAILABLE_ICONS.some(i => i.icon === formData.icon);
+                        if (isEmoji) {
+                          return <span className="text-3xl">{formData.icon}</span>;
+                        }
                         const PreviewIcon = getIconComponent(formData.icon);
                         return <PreviewIcon size={30} strokeWidth={2} />;
                       })()}
