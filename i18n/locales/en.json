@@ -179,13 +179,13 @@
     "distribution": "Distribution",
     "average": "Average",
     "days": {
+      "sunday": "Sun",
       "monday": "Mon",
       "tuesday": "Tue",
       "wednesday": "Wed",
       "thursday": "Thu",
       "friday": "Fri",
-      "saturday": "Sat",
-      "sunday": "Sun"
+      "saturday": "Sat"
     },
     "months": {
       "january": "Jan",

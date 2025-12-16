@@ -174,16 +174,18 @@
       "trends": "Tendencias",
       "categories": "Categorías",
       "timeline": "Línea de Tiempo"
-    },    "highestGrowth": "Mayor Crecimiento",
+    },
+    "highestGrowth": "Mayor Crecimiento",
     "distribution": "Distribución",
-    "average": "Promedio",    "days": {
+    "average": "Promedio",
+    "days": {
+      "sunday": "Dom",
       "monday": "Lun",
       "tuesday": "Mar",
       "wednesday": "Mié",
       "thursday": "Jue",
       "friday": "Vie",
-      "saturday": "Sáb",
-      "sunday": "Dom"
+      "saturday": "Sáb"
     },
     "months": {
       "january": "Ene",

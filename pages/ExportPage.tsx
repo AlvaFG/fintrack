@@ -40,6 +40,7 @@ export default function ExportPage() {
       endDate: end,
       categoryId: selectedCategory || undefined,
       currency: selectedCurrency || undefined,
+      t, // Pass translation function
     });
   };
 

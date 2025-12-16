@@ -5,13 +5,15 @@ export interface ExportOptions {
   endDate: Date;
   categoryId?: string;
   currency?: string;
+  t: (key: string) => string; // Translation function
 }
 
 export function exportToCSV(
   expenses: Expense[],
   categories: Category[],
   options: ExportOptions
-): void {
+) {
+  const { t } = options;
   // Filtrar gastos por rango de fechas
   let filteredExpenses = expenses.filter(expense => {
     const expenseDate = new Date(expense.date);
@@ -31,9 +33,18 @@ export function exportToCSV(
   // Ordenar por fecha descendente
   filteredExpenses.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  // Crear encabezados CSV según especificación del usuario:
-  // Fecha, Mes, Categoría, Descripción, Monto, Moneda, Día de semana, Tipo, ID
-  const headers = ['Fecha', 'Mes', 'Categoría', 'Descripción', 'Monto', 'Moneda', 'Día de semana', 'Tipo', 'ID'];
+  // Crear encabezados CSV usando traducciones
+  const headers = [
+    t('export.columns.date'),
+    t('export.columns.month'),
+    t('export.columns.category'),
+    t('export.columns.description'),
+    t('export.columns.amount'),
+    t('export.columns.currency'),
+    t('export.columns.dayOfWeek'),
+    t('export.columns.type'),
+    t('export.columns.id')
+  ];
 
   // Convertir gastos a filas CSV
   const rows = filteredExpenses.map(expense => {
@@ -42,13 +53,13 @@ export function exportToCSV(
     
     return [
       formatDate(date), // Fecha (DD/MM/YYYY)
-      formatMonth(date), // Mes (Enero 2024)
-      category?.name || 'Sin categoría', // Categoría
+      formatMonth(date, t), // Mes (Enero 2024)
+      category?.name || t('recurring.noCategory'), // Categoría
       escapeCSV(expense.description), // Descripción
       expense.amount.toFixed(2), // Monto
       expense.currency, // Moneda
-      getDayOfWeek(date), // Día de semana (Lunes, Martes, etc.)
-      expense.isRecurring ? 'Recurrente' : 'Normal', // Tipo
+      getDayOfWeek(date, t), // Día de semana (Lunes, Martes, etc.)
+      expense.isRecurring ? t('recurring.title') : t('expenses.title'), // Tipo
       expense.id // ID
     ];
   });
@@ -82,17 +93,22 @@ function formatDate(date: Date): string {
   return `${day}/${month}/${year}`;
 }
 
-function formatMonth(date: Date): string {
-  const months = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+function formatMonth(date: Date, t: (key: string) => string): string {
+  const monthKeys = [
+    'stats.months.january', 'stats.months.february', 'stats.months.march',
+    'stats.months.april', 'stats.months.may', 'stats.months.june',
+    'stats.months.july', 'stats.months.august', 'stats.months.september',
+    'stats.months.october', 'stats.months.november', 'stats.months.december'
   ];
-  return `${months[date.getMonth()]} ${date.getFullYear()}`;
+  return `${t(monthKeys[date.getMonth()])} ${date.getFullYear()}`;
 }
 
-function getDayOfWeek(date: Date): string {
-  const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-  return days[date.getDay()];
+function getDayOfWeek(date: Date, t: (key: string) => string): string {
+  const dayKeys = [
+    'stats.days.sunday', 'stats.days.monday', 'stats.days.tuesday',
+    'stats.days.wednesday', 'stats.days.thursday', 'stats.days.friday', 'stats.days.saturday'
+  ];
+  return t(dayKeys[date.getDay()]);
 }
 
 function formatDateForFilename(date: Date): string {

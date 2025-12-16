@@ -1,20 +1,27 @@
 import { Expense, Category, Currency } from '../types';
 
 /**
- * Obtiene el nombre del día de la semana en español
+ * Obtiene el nombre del día de la semana usando i18n
  */
-export function getDayName(date: Date): string {
-  const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-  return days[date.getDay()];
+export function getDayName(date: Date, t: (key: string) => string): string {
+  const dayKeys = [
+    'stats.days.sunday', 'stats.days.monday', 'stats.days.tuesday',
+    'stats.days.wednesday', 'stats.days.thursday', 'stats.days.friday', 'stats.days.saturday'
+  ];
+  return t(dayKeys[date.getDay()]);
 }
 
 /**
- * Obtiene el nombre del mes en español
+ * Obtiene el nombre del mes usando i18n
  */
-export function getMonthName(date: Date): string {
-  const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-                  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-  return months[date.getMonth()];
+export function getMonthName(date: Date, t: (key: string) => string): string {
+  const monthKeys = [
+    'stats.months.january', 'stats.months.february', 'stats.months.march',
+    'stats.months.april', 'stats.months.may', 'stats.months.june',
+    'stats.months.july', 'stats.months.august', 'stats.months.september',
+    'stats.months.october', 'stats.months.november', 'stats.months.december'
+  ];
+  return t(monthKeys[date.getMonth()]);
 }
 
 /**
@@ -23,7 +30,8 @@ export function getMonthName(date: Date): string {
 export function getCategoryTrends(
   expenses: Expense[],
   categories: Category[],
-  months: number = 6
+  months: number = 6,
+  t: (key: string) => string
 ): { month: string; [categoryId: string]: number | string }[] {
   const now = new Date();
   const trends: { month: string; [categoryId: string]: number | string }[] = [];
@@ -33,7 +41,7 @@ export function getCategoryTrends(
     const monthStart = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
     const monthEnd = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0, 23, 59, 59);
     
-    const monthName = `${getMonthName(monthDate)} ${monthDate.getFullYear()}`;
+    const monthName = `${getMonthName(monthDate, t)} ${monthDate.getFullYear()}`;
     const monthData: { month: string; [categoryId: string]: number | string } = { month: monthName };
 
     categories.forEach(category => {
@@ -59,21 +67,28 @@ export function getCategoryTrends(
 /**
  * Calcula el promedio de gastos por día de la semana
  */
-export function getSpendingByDayOfWeek(expenses: Expense[]): {
+export function getSpendingByDayOfWeek(
+  expenses: Expense[],
+  t: (key: string) => string
+): {
   day: string;
   total: number;
   count: number;
   average: number;
 }[] {
+  const dayKeys = [
+    'stats.days.sunday', 'stats.days.monday', 'stats.days.tuesday',
+    'stats.days.wednesday', 'stats.days.thursday', 'stats.days.friday', 'stats.days.saturday'
+  ];
+  const days = dayKeys.map(key => t(key));
   const dayStats: { [key: string]: { total: number; count: number } } = {};
-  const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
   days.forEach(day => {
     dayStats[day] = { total: 0, count: 0 };
   });
 
   expenses.forEach(expense => {
-    const dayName = getDayName(expense.date);
+    const dayName = getDayName(expense.date, t);
     const amount = expense.currency === 'USD' ? expense.amount * 1000 : expense.amount;
     dayStats[dayName].total += amount;
     dayStats[dayName].count += 1;
@@ -241,7 +256,8 @@ export function projectMonthlySpending(expenses: Expense[]): {
  */
 export function getMonthlyComparison(
   expenses: Expense[],
-  months: number = 6
+  months: number = 6,
+  t: (key: string) => string
 ): { month: string; total: number; count: number }[] {
   const now = new Date();
   const comparison: { month: string; total: number; count: number }[] = [];
@@ -260,7 +276,7 @@ export function getMonthlyComparison(
     );
 
     comparison.push({
-      month: `${getMonthName(monthDate).substring(0, 3)} ${monthDate.getFullYear()}`,
+      month: `${getMonthName(monthDate, t)} ${monthDate.getFullYear()}`,
       total,
       count: monthExpenses.length
     });

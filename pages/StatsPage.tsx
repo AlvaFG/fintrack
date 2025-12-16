@@ -71,17 +71,17 @@ const StatsPage = () => {
     const previousMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
 
     return {
-      categoryTrends: getCategoryTrends(expenses, categories, selectedMonths),
-      dayOfWeek: getSpendingByDayOfWeek(expenses),
+      categoryTrends: getCategoryTrends(expenses, categories, selectedMonths, t),
+      dayOfWeek: getSpendingByDayOfWeek(expenses, t),
       topExpenses: getTopExpenses(expenses, 5),
       monthVariation: calculateMonthVariation(expenses, currentMonth, previousMonth),
       maxGrowthCategory: getCategoryWithMaxGrowth(expenses, categories),
       averages: calculateAverages(expenses),
       projection: projectMonthlySpending(expenses),
-      monthlyComparison: getMonthlyComparison(expenses, selectedMonths),
+      monthlyComparison: getMonthlyComparison(expenses, selectedMonths, t),
       categoryStats: getCategoryStats(expenses, categories)
     };
-  }, [expenses, categories, selectedMonths]);
+  }, [expenses, categories, selectedMonths, t]);
 
   if (loading) {
     return (
