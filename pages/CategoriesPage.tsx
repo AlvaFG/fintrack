@@ -215,180 +215,27 @@ const CategoriesPage = () => {
 
   // Iconos disponibles para categorías
   const AVAILABLE_ICONS = useMemo(() => [
-    // Compras y Comercio
+    // Básicos
     { icon: 'ShoppingCart', name: t('categories.icons.shopping'), component: ShoppingCart },
-    { icon: 'ShoppingBag', name: t('categories.icons.bags'), component: ShoppingBag },
-    { icon: 'Package', name: 'Paquete', component: Package },
-    { icon: 'Store', name: 'Tienda', component: Store },
-    { icon: 'Tag', name: 'Etiqueta', component: Tag },
-    { icon: 'Ticket', name: 'Ticket', component: Ticket },
-    { icon: 'Receipt', name: 'Recibo', component: Receipt },
-    { icon: 'Gift', name: t('categories.icons.gifts'), component: Gift },
-    
-    // Transporte
     { icon: 'Car', name: t('categories.icons.transport'), component: Car },
-    { icon: 'Bus', name: 'Autobús', component: Bus },
-    { icon: 'Train', name: 'Tren', component: Train },
-    { icon: 'Bike', name: 'Bicicleta', component: Bike },
-    { icon: 'Plane', name: t('categories.icons.travel'), component: Plane },
-    { icon: 'Fuel', name: 'Combustible', component: Fuel },
-    
-    // Hogar y Vivienda
     { icon: 'Home', name: t('categories.icons.home'), component: Home },
-    { icon: 'Building', name: 'Edificio', component: Building },
-    { icon: 'Building2', name: 'Oficina', component: Building2 },
-    { icon: 'Bed', name: 'Dormitorio', component: Bed },
-    { icon: 'Hotel', name: 'Hotel', component: Hotel },
-    
-    // Comida y Bebidas
     { icon: 'Utensils', name: t('categories.icons.food'), component: Utensils },
-    { icon: 'Coffee', name: t('categories.icons.coffee'), component: Coffee },
-    { icon: 'Pizza', name: t('categories.icons.pizza'), component: Pizza },
-    { icon: 'Wine', name: t('categories.icons.drinks'), component: Wine },
-    { icon: 'Apple', name: 'Frutas', component: Apple },
-    
-    // Salud y Bienestar
     { icon: 'Heart', name: t('categories.icons.health'), component: Heart },
-    { icon: 'HeartPulse', name: 'Salud', component: HeartPulse },
-    { icon: 'Activity', name: 'Actividad', component: Activity },
-    { icon: 'Pill', name: 'Medicamentos', component: Pill },
-    { icon: 'Stethoscope', name: 'Médico', component: Stethoscope },
-    { icon: 'Dumbbell', name: t('categories.icons.sports'), component: Dumbbell },
-    { icon: 'Thermometer', name: 'Temperatura', component: Thermometer },
-    
-    // Ropa y Accesorios
     { icon: 'Shirt', name: t('categories.icons.clothing'), component: Shirt },
-    { icon: 'Watch', name: t('categories.icons.watch'), component: Watch },
-    { icon: 'Glasses', name: t('categories.icons.glasses'), component: Glasses },
-    { icon: 'Crown', name: 'Lujo', component: Crown },
-    { icon: 'Gem', name: 'Joyería', component: Gem },
-    
-    // Entretenimiento
     { icon: 'Gamepad', name: t('categories.icons.entertainment'), component: Gamepad },
+    { icon: 'GraduationCap', name: t('categories.icons.education'), component: GraduationCap },
+    { icon: 'Plane', name: t('categories.icons.travel'), component: Plane },
+    { icon: 'Gift', name: t('categories.icons.gifts'), component: Gift },
+    { icon: 'Wrench', name: t('categories.icons.services'), component: Wrench },
+    { icon: 'MoreHorizontal', name: t('categories.icons.other'), component: MoreHorizontal },
+    { icon: 'Coffee', name: t('categories.icons.coffee'), component: Coffee },
+    { icon: 'Phone', name: t('categories.icons.technology'), component: Phone },
+    { icon: 'Dumbbell', name: t('categories.icons.sports'), component: Dumbbell },
     { icon: 'Music', name: t('categories.icons.music'), component: Music },
     { icon: 'Film', name: t('categories.icons.movies'), component: Film },
-    { icon: 'Tv', name: t('categories.icons.tv'), component: Tv },
-    { icon: 'Sparkles', name: 'Evento', component: Sparkles },
-    { icon: 'Trophy', name: 'Logros', component: Trophy },
-    { icon: 'Award', name: 'Premio', component: Award },
-    { icon: 'Medal', name: 'Medalla', component: Medal },
-    { icon: 'Star', name: 'Favorito', component: Star },
-    
-    // Educación y Trabajo
-    { icon: 'GraduationCap', name: t('categories.icons.education'), component: GraduationCap },
     { icon: 'Book', name: t('categories.icons.books'), component: Book },
-    { icon: 'BookOpen', name: 'Lectura', component: BookOpen },
-    { icon: 'Library', name: 'Biblioteca', component: Library },
     { icon: 'Briefcase', name: t('categories.icons.work'), component: Briefcase },
-    { icon: 'School', name: 'Escuela', component: School },
-    
-    // Tecnología
-    { icon: 'Phone', name: t('categories.icons.technology'), component: Phone },
-    { icon: 'Smartphone', name: t('categories.icons.mobile'), component: Smartphone },
-    { icon: 'Laptop', name: t('categories.icons.computer'), component: Laptop },
-    { icon: 'Monitor', name: 'Pantalla', component: Monitor },
-    { icon: 'Headphones', name: t('categories.icons.audio'), component: Headphones },
-    { icon: 'Camera', name: t('categories.icons.photography'), component: Camera },
-    { icon: 'Keyboard', name: 'Teclado', component: Keyboard },
-    { icon: 'Mouse', name: 'Mouse', component: Mouse },
-    { icon: 'Printer', name: 'Impresora', component: Printer },
-    { icon: 'Wifi', name: 'Internet', component: Wifi },
-    { icon: 'Radio', name: 'Radio', component: Radio },
-    { icon: 'Battery', name: 'Batería', component: Battery },
-    { icon: 'Bluetooth', name: 'Bluetooth', component: Bluetooth },
-    
-    // Finanzas
     { icon: 'Wallet', name: t('categories.icons.finance'), component: Wallet },
-    { icon: 'CreditCard', name: 'Tarjeta', component: CreditCard },
-    { icon: 'Banknote', name: 'Dinero', component: Banknote },
-    { icon: 'Coins', name: 'Monedas', component: Coins },
-    { icon: 'BadgeDollarSign', name: 'Dólar', component: BadgeDollarSign },
-    { icon: 'DollarSign', name: 'Precio', component: DollarSign },
-    { icon: 'Calculator', name: 'Calculadora', component: Calculator },
-    { icon: 'BarChart', name: 'Gráfico', component: BarChart },
-    { icon: 'PieChart', name: 'Estadísticas', component: PieChart },
-    { icon: 'TrendingUp', name: 'Aumento', component: TrendingUp },
-    { icon: 'TrendingDown', name: 'Disminución', component: TrendingDown },
-    { icon: 'Percent', name: 'Descuento', component: Percent },
-    
-    // Servicios y Utilidades
-    { icon: 'Wrench', name: t('categories.icons.services'), component: Wrench },
-    { icon: 'Hammer', name: t('categories.icons.tools'), component: Hammer },
-    { icon: 'Settings', name: 'Configuración', component: Settings },
-    { icon: 'Cog', name: 'Ajustes', component: Cog },
-    { icon: 'Zap', name: t('categories.icons.electricity'), component: Zap },
-    { icon: 'Droplet', name: t('categories.icons.water'), component: Droplet },
-    { icon: 'Flame', name: 'Gas', component: Flame },
-    { icon: 'Lightbulb', name: 'Luz', component: Lightbulb },
-    { icon: 'Wifi', name: 'WiFi', component: Wifi },
-    
-    // Belleza y Cuidado Personal
-    { icon: 'Scissors', name: t('categories.icons.beauty'), component: Scissors },
-    { icon: 'Paintbrush', name: t('categories.icons.art'), component: Paintbrush },
-    { icon: 'Brush', name: 'Maquillaje', component: Brush },
-    { icon: 'Smile', name: 'Sonrisa', component: Smile },
-    { icon: 'Sparkles', name: 'Spa', component: Sparkles },
-    
-    // Familia
-    { icon: 'Baby', name: t('categories.icons.baby'), component: Baby },
-    { icon: 'Users', name: 'Familia', component: Users },
-    { icon: 'User', name: 'Personal', component: User },
-    { icon: 'PawPrint', name: t('categories.icons.pets'), component: PawPrint },
-    
-    // Naturaleza y Clima
-    { icon: 'Leaf', name: t('categories.icons.nature'), component: Leaf },
-    { icon: 'Trees', name: 'Árboles', component: Trees },
-    { icon: 'Mountain', name: 'Montaña', component: Mountain },
-    { icon: 'Tent', name: 'Camping', component: Tent },
-    { icon: 'Sun', name: 'Sol', component: Sun },
-    { icon: 'Moon', name: 'Noche', component: Moon },
-    { icon: 'CloudRain', name: 'Lluvia', component: CloudRain },
-    { icon: 'Umbrella', name: 'Paraguas', component: Umbrella },
-    { icon: 'Snowflake', name: 'Nieve', component: Snowflake },
-    { icon: 'Wind', name: 'Viento', component: Wind },
-    
-    // Ubicación y Mapas
-    { icon: 'MapPin', name: 'Ubicación', component: MapPin },
-    { icon: 'Map', name: 'Mapa', component: Map },
-    { icon: 'Navigation', name: 'Navegación', component: Navigation },
-    { icon: 'Globe', name: 'Global', component: Globe },
-    
-    // Comunicación
-    { icon: 'Mail', name: 'Email', component: Mail },
-    { icon: 'MessageCircle', name: 'Mensajes', component: MessageCircle },
-    { icon: 'Bell', name: 'Notificación', component: Bell },
-    { icon: 'Send', name: 'Enviar', component: Send },
-    { icon: 'Share2', name: 'Compartir', component: Share2 },
-    
-    // Archivos y Documentos
-    { icon: 'FileText', name: 'Documento', component: FileText },
-    { icon: 'File', name: 'Archivo', component: File },
-    { icon: 'Folder', name: 'Carpeta', component: Folder },
-    { icon: 'Archive', name: 'Archivo', component: Archive },
-    { icon: 'Clipboard', name: 'Portapapeles', component: Clipboard },
-    { icon: 'Calendar', name: 'Calendario', component: Calendar },
-    { icon: 'Clock', name: 'Reloj', component: Clock },
-    { icon: 'Timer', name: 'Temporizador', component: Timer },
-    
-    // Seguridad
-    { icon: 'Lock', name: 'Bloqueado', component: Lock },
-    { icon: 'Unlock', name: 'Desbloqueado', component: Unlock },
-    { icon: 'Key', name: 'Llave', component: Key },
-    { icon: 'Shield', name: 'Seguridad', component: Shield },
-    
-    // Otros
-    { icon: 'MoreHorizontal', name: t('categories.icons.other'), component: MoreHorizontal },
-    { icon: 'Target', name: 'Objetivo', component: Target },
-    { icon: 'Flag', name: 'Bandera', component: Flag },
-    { icon: 'Bookmark', name: 'Marcador', component: Bookmark },
-    { icon: 'Link', name: 'Enlace', component: Link },
-    { icon: 'Anchor', name: 'Ancla', component: Anchor },
-    { icon: 'Rocket', name: 'Cohete', component: Rocket },
-    { icon: 'AlertCircle', name: 'Alerta', component: AlertCircle },
-    { icon: 'Info', name: 'Info', component: Info },
-    { icon: 'CheckCircle', name: 'Completo', component: CheckCircle },
-    { icon: 'XCircle', name: 'Error', component: XCircle },
-    { icon: 'HelpCircle', name: 'Ayuda', component: HelpCircle },
   ], [t]);
 
   // Función auxiliar para obtener componente de icono
