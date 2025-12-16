@@ -16,7 +16,7 @@ export const LanguageSwitcher: React.FC = () => {
       variant="ghost"
       size="sm"
       onClick={toggleLanguage}
-      className="flex items-center gap-2"
+      className="flex items-center gap-2 text-gray-400 hover:bg-slate-800/50 hover:text-gray-300 transition-colors w-full justify-center"
       title={t('settings.switchLanguage')}
     >
       <Globe size={18} />
