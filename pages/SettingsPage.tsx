@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useApp } from '../App';
 import { 
   Card, 
@@ -35,6 +36,7 @@ import {
 import type { Currency } from '../types';
 
 const SettingsPage = () => {
+  const { t, i18n } = useTranslation();
   const { user, profile, settings, updateSettings, updateProfile, loading, theme, setTheme } = useApp();
   
   const [activeTab, setActiveTab] = useState('profile');
@@ -100,9 +102,11 @@ const SettingsPage = () => {
       });
       // Actualizar tema inmediatamente
       setTheme(preferencesForm.theme as any);
-      alert('Preferencias guardadas correctamente');
+      // Cambiar idioma de i18n
+      i18n.changeLanguage(preferencesForm.language);
+      alert(t('settings.settingsSaved'));
     } catch (error: any) {
-      alert(`Error al guardar preferencias: ${error.message}`);
+      alert(`${t('messages.errorOccurred')}: ${error.message}`);
     } finally {
       setIsSaving(false);
     }
@@ -126,9 +130,9 @@ const SettingsPage = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">Configuración</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">{t('settings.title')}</h1>
         <p className="text-gray-500 dark:text-gray-400 mt-1">
-          Administra tu perfil y preferencias de la aplicación
+          {t('settings.subtitle')}
         </p>
       </div>
 
@@ -136,11 +140,11 @@ const SettingsPage = () => {
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="profile">
             <User size={16} className="mr-2" />
-            Perfil
+            {t('nav.settings')}
           </TabsTrigger>
           <TabsTrigger value="preferences">
             <Globe size={16} className="mr-2" />
-            Preferencias
+            {t('settings.general')}
           </TabsTrigger>
           <TabsTrigger value="security">
             <Lock size={16} className="mr-2" />
@@ -197,7 +201,7 @@ const SettingsPage = () => {
             <CardContent className="space-y-6">
               {/* Moneda */}
               <div className="grid gap-2">
-                <Label htmlFor="currency">Moneda Principal</Label>
+                <Label htmlFor="currency">{t('settings.defaultCurrency')}</Label>
                 <Select
                   id="currency"
                   value={preferencesForm.currency}
@@ -216,7 +220,7 @@ const SettingsPage = () => {
 
               {/* Formato de fecha */}
               <div className="grid gap-2">
-                <Label htmlFor="dateFormat">Formato de Fecha</Label>
+                <Label htmlFor="dateFormat">{t('common.date')}</Label>
                 <Select
                   id="dateFormat"
                   value={preferencesForm.dateFormat}
@@ -231,14 +235,14 @@ const SettingsPage = () => {
 
               {/* Idioma */}
               <div className="grid gap-2">
-                <Label htmlFor="language">Idioma</Label>
+                <Label htmlFor="language">{t('settings.language')}</Label>
                 <Select
                   id="language"
                   value={preferencesForm.language}
                   onChange={(e) => setPreferencesForm({ ...preferencesForm, language: e.target.value as any })}
                   options={[
-                    { value: 'es', label: '🇪🇸 Español' },
-                    { value: 'en', label: '🇬🇧 English' },
+                    { value: 'es', label: `🇪🇸 ${t('settings.languages.es')}` },
+                    { value: 'en', label: `🇬🇧 ${t('settings.languages.en')}` },
                   ]}
                 />
               </div>

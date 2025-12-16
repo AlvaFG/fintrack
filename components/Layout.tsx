@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   LayoutDashboard, 
   Wallet, 
@@ -17,12 +18,14 @@ import {
 } from 'lucide-react';
 import { Button, Avatar, AvatarFallback, AvatarImage } from './ui/shadcn';
 import { useApp } from '../App';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const { t } = useTranslation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { user, profile, signOut } = useApp();
   const location = useLocation();
@@ -42,26 +45,26 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   const navItems = [
-    { icon: <LayoutDashboard size={20} />, label: 'Dashboard', path: '/' },
-    { icon: <Wallet size={20} />, label: 'Gastos', path: '/expenses' },
-    { icon: <Repeat size={20} />, label: 'Recurrentes', path: '/recurring' },
-    { icon: <PieChart size={20} />, label: 'Estadísticas', path: '/stats' },
-    { icon: <FolderOpen size={20} />, label: 'Categorías', path: '/categories' },
-    { icon: <Download size={20} />, label: 'Exportar', path: '/export' },
-    { icon: <Settings size={20} />, label: 'Configuración', path: '/settings' },
+    { icon: <LayoutDashboard size={20} />, label: t('nav.dashboard'), path: '/' },
+    { icon: <Wallet size={20} />, label: t('nav.expenses'), path: '/expenses' },
+    { icon: <Repeat size={20} />, label: t('nav.recurring'), path: '/recurring' },
+    { icon: <PieChart size={20} />, label: t('nav.stats'), path: '/stats' },
+    { icon: <FolderOpen size={20} />, label: t('nav.categories'), path: '/categories' },
+    { icon: <Download size={20} />, label: t('nav.export'), path: '/export' },
+    { icon: <Settings size={20} />, label: t('nav.settings'), path: '/settings' },
   ];
 
   // Breadcrumb Logic
   const getBreadcrumbs = () => {
     const path = location.pathname;
     const item = navItems.find(i => i.path === path);
-    const label = item ? item.label : 'Dashboard';
+    const label = item ? item.label : t('nav.dashboard');
     
     return (
       <div className="flex items-center text-sm text-gray-500">
         <Link to="/" className="hover:text-primary transition-colors flex items-center gap-1">
           <Home size={14} />
-          <span className="hidden sm:inline">Inicio</span>
+          <span className="hidden sm:inline">{t('common.home')}</span>
         </Link>
         {path !== '/' && (
           <>
@@ -96,7 +99,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <div className="w-9 h-9 bg-[#10B981] rounded-lg flex items-center justify-center text-white shadow-lg shadow-emerald-500/20 font-bold text-sm">
                 FT
               </div>
-              <span className="text-white">FinTrack</span>
+              <span className="text-white">{t('common.appName')}</span>
             </div>
             <button onClick={toggleSidebar} className="md:hidden text-gray-400 hover:text-white transition-colors">
               <X size={22} />
@@ -128,13 +131,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </nav>
 
           {/* Logout Button */}
-          <div className="p-4 border-t border-slate-700/30">
+          <div className="p-4 border-t border-slate-700/30 space-y-2">
+            <div className="flex justify-center">
+              <LanguageSwitcher />
+            </div>
             <button 
               onClick={handleLogout}
               className="flex items-center gap-3 px-3 py-2 w-full text-gray-400 hover:bg-slate-800/50 hover:text-gray-300 rounded-lg transition-colors text-sm font-medium"
             >
               <DoorOpen size={18} />
-              <span>Cerrar Sesión</span>
+              <span>{t('auth.signOut')}</span>
             </button>
           </div>
         </div>

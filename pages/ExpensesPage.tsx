@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useApp } from '../App';
 import { Card, CardContent, Input, Button, Dialog } from '../components/ui/shadcn';
 import { 
@@ -64,6 +65,7 @@ const getIconComponent = (iconName: string) => {
 };
 
 const ExpensesPage = () => {
+  const { t } = useTranslation();
   const { expenses, categories, addExpense, updateExpense, deleteExpense, loading } = useApp();
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);

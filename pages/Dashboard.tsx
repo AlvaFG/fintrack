@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useApp } from '../App';
 import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge, Button } from '../components/ui/shadcn';
 import { 
@@ -71,6 +72,7 @@ const getIconComponent = (iconName: string) => {
 };
 
 const Dashboard = () => {
+  const { t } = useTranslation();
   const { expenses, categories, loading, settings } = useApp();
   const currency = settings?.currency || 'USD'; // Usar la moneda de settings
 
@@ -144,7 +146,7 @@ const Dashboard = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Total Gastado (Mes)</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('dashboard.monthlyExpenses')}</p>
                 <TrendingDown className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
@@ -157,7 +159,7 @@ const Dashboard = () => {
                   </p>
                 )}
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Mes actual
+                  {t('dashboard.thisMonth')}
                 </p>
               </div>
             </div>
@@ -168,7 +170,7 @@ const Dashboard = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Gastos esta semana</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('dashboard.weeklyExpenses')}</p>
                 <Calendar className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
@@ -180,7 +182,7 @@ const Dashboard = () => {
                     US$ {weeklySpentUSD.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}
                   </p>
                 )}
-                <p className="text-xs text-gray-500 dark:text-gray-400">Últimos 7 días</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">{t('dashboard.thisWeek')}</p>
               </div>
             </div>
           </CardContent>
@@ -190,7 +192,7 @@ const Dashboard = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Categoría Top</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('dashboard.topCategory')}</p>
                 <Award className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
@@ -214,12 +216,12 @@ const Dashboard = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Total Gastos</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('expenses.totalExpenses')}</p>
                 <Clock className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto">
                 <div className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-1">{expenses.length}</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">registrados</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">{t('dashboard.totalSpent')}</p>
               </div>
             </div>
           </CardContent>
@@ -230,7 +232,7 @@ const Dashboard = () => {
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Tendencia de Gastos (Pesos)</CardTitle>
+            <CardTitle>{t('dashboard.monthlyTrend')} (ARS)</CardTitle>
           </CardHeader>
           <CardContent className="pl-2">
             <div className="h-[300px]">
@@ -259,7 +261,7 @@ const Dashboard = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Tendencia de Gastos (Dólares)</CardTitle>
+            <CardTitle>{t('dashboard.monthlyTrend')} (USD)</CardTitle>
           </CardHeader>
           <CardContent className="pl-2">
             <div className="h-[300px]">
@@ -290,7 +292,7 @@ const Dashboard = () => {
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Por Categoría (Pesos)</CardTitle>
+            <CardTitle>{t('dashboard.categoryDistribution')} (ARS)</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-[300px] flex items-center justify-center">
@@ -316,7 +318,7 @@ const Dashboard = () => {
                 </ResponsiveContainer>
               ) : (
                 <div className="flex items-center justify-center h-full text-gray-400">
-                  No hay gastos en pesos
+                  {t('dashboard.noExpenses')} (ARS)
                 </div>
               )}
             </div>
@@ -325,7 +327,7 @@ const Dashboard = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Por Categoría (Dólares)</CardTitle>
+            <CardTitle>{t('dashboard.categoryDistribution')} (USD)</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-[300px] flex items-center justify-center">
@@ -351,7 +353,7 @@ const Dashboard = () => {
                 </ResponsiveContainer>
               ) : (
                 <div className="flex items-center justify-center h-full text-gray-400">
-                  No hay gastos en dólares
+                  {t('dashboard.noExpenses')} (USD)
                 </div>
               )}
             </div>
@@ -362,13 +364,13 @@ const Dashboard = () => {
       {/* Recent Activity Table */}
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>Actividad Reciente</CardTitle>
-          <Button variant="ghost" size="sm">Ver todos</Button>
+          <CardTitle>{t('dashboard.recentExpenses')}</CardTitle>
+          <Button variant="ghost" size="sm">{t('dashboard.viewAll')}</Button>
         </CardHeader>
         <CardContent>
           {expenses.length === 0 ? (
             <div className="text-center py-8 text-gray-400">
-              No hay gastos registrados aún
+              {t('dashboard.addFirstExpense')}
             </div>
           ) : (
             <div className="space-y-4">
