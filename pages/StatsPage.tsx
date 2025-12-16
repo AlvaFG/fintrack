@@ -360,7 +360,7 @@ const StatsPage = () => {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Promedio Semanal</CardTitle>
+                <CardTitle className="text-base">{t('stats.weeklyAverage')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-3xl font-bold text-gray-900">
@@ -374,7 +374,7 @@ const StatsPage = () => {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Promedio Mensual</CardTitle>
+                <CardTitle className="text-base">{t('stats.monthlyAverage')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-3xl font-bold text-gray-900">

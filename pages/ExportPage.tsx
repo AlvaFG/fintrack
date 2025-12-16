@@ -152,7 +152,7 @@ export default function ExportPage() {
               onClick={() => setQuickDateRange('month')}
               className="px-3 py-1.5 text-sm bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
             >
-              Último mes
+              {t('export.lastMonth')}
             </button>
             <button
               onClick={() => setQuickDateRange('quarter')}
@@ -270,19 +270,19 @@ export default function ExportPage() {
 
         {/* Formato del CSV */}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-          <h3 className="font-semibold text-gray-900 mb-2">Formato del Archivo CSV</h3>
+          <h3 className="font-semibold text-gray-900 mb-2">{t('export.csvFormatTitle')}</h3>
           <p className="text-sm text-gray-700 mb-2">
-            El archivo incluirá las siguientes columnas:
+            {t('export.csvFormatDescription')}
           </p>
           <div className="flex flex-wrap gap-2">
-            {['Fecha', 'Mes', 'Categoría', 'Descripción', 'Monto', 'Moneda', 'Día de semana', 'Tipo', 'ID'].map(col => (
+            {[t('export.columns.date'), t('export.columns.month'), t('export.columns.category'), t('export.columns.description'), t('export.columns.amount'), t('export.columns.currency'), t('export.columns.dayOfWeek'), t('export.columns.type'), t('export.columns.id')].map(col => (
               <span key={col} className="px-2 py-1 bg-white border border-gray-300 rounded text-xs font-mono text-gray-700">
                 {col}
               </span>
             ))}
           </div>
           <p className="text-xs text-gray-600 mt-3">
-            Los gastos se ordenarán por fecha (más recientes primero) y el archivo será compatible con Excel, Google Sheets y otras aplicaciones.
+            {t('export.csvFormatFooter')}
           </p>
         </div>
 

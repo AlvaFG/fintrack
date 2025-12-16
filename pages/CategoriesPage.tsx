@@ -260,7 +260,7 @@ const CategoriesPage = () => {
       }
       handleCloseModal();
     } catch (error: any) {
-      alert(`Error al guardar categoría: ${error.message}`);
+      alert(`${t('messages.error')}: ${error.message}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -269,7 +269,7 @@ const CategoriesPage = () => {
   const handleDelete = async (categoryId: string) => {
     const stats = categoryStats.get(categoryId);
     if (stats && stats.count > 0) {
-      alert(`No puedes eliminar esta categoría porque tiene ${stats.count} gasto(s) asociado(s).`);
+      alert(`${t('categories.cannotDelete')} ${stats.count} ${t('categories.associatedExpenses')}`);
       return;
     }
     
@@ -278,7 +278,7 @@ const CategoriesPage = () => {
         await deleteCategory(categoryId);
         setDeleteConfirm(null);
       } catch (error: any) {
-        alert(`Error al eliminar categoría: ${error.message}`);
+        alert(`${t('messages.error')}: ${error.message}`);
       }
     } else {
       setDeleteConfirm(categoryId);
@@ -307,14 +307,14 @@ const CategoriesPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">Categorías</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50">{t('nav.categories')}</h1>
           <p className="text-gray-500 mt-1">
-            Gestiona y organiza las categorías de tus gastos
+            {t('categories.manageAndOrganize')}
           </p>
         </div>
         <Button onClick={() => handleOpenModal()} className="gap-2">
           <Plus size={18} />
-          Nueva Categoría
+          {t('categories.newCategory')}
         </Button>
       </div>
 
@@ -324,7 +324,7 @@ const CategoriesPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Gasto Anual</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('categories.yearlyExpense')}</p>
                 <DollarSign className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto space-y-1">
@@ -353,7 +353,7 @@ const CategoriesPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Gasto Este Mes</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('categories.thisMonthExpense')}</p>
                 <DollarSign className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto space-y-1">
@@ -382,7 +382,7 @@ const CategoriesPage = () => {
           <CardContent className="p-6 pt-5">
             <div className="flex flex-col h-full">
               <div className="flex items-start justify-between mb-4">
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">Gasto Mes Pasado</p>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 pt-1">{t('categories.lastMonthExpense')}</p>
                 <DollarSign className="h-5 w-5 text-gray-400" />
               </div>
               <div className="mt-auto space-y-1">
@@ -430,7 +430,7 @@ const CategoriesPage = () => {
                       <CardTitle className="text-lg">{category.name}</CardTitle>
                       {category.isPreset && (
                         <Badge variant="outline" className="mt-1 text-xs">
-                          Predeterminada
+                          {t('categories.preset')}
                         </Badge>
                       )}
                     </div>
@@ -487,7 +487,7 @@ const CategoriesPage = () => {
                       )}
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Gastos</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">{t('categories.expenses')}</p>
                       <p className="text-sm font-semibold text-gray-900 dark:text-gray-50">{stats.count}</p>
                     </div>
                   </div>
@@ -503,13 +503,13 @@ const CategoriesPage = () => {
         <Card>
           <CardContent className="p-12 text-center">
             <div className="text-6xl mb-4">📁</div>
-            <h3 className="text-xl font-semibold mb-2">No hay categorías</h3>
+            <h3 className="text-xl font-semibold mb-2">{t('categories.noCategories')}</h3>
             <p className="text-gray-500 mb-4">
-              Comienza creando tu primera categoría para organizar tus gastos
+              {t('categories.createFirstCategory')}
             </p>
             <Button onClick={() => handleOpenModal()}>
               <Plus size={18} className="mr-2" />
-              Crear Primera Categoría
+              {t('categories.createFirst')}
             </Button>
           </CardContent>
         </Card>
@@ -521,12 +521,12 @@ const CategoriesPage = () => {
           <form onSubmit={handleSubmit}>
             <DialogHeader className="border-b border-gray-200 dark:border-gray-700 pb-4">
               <DialogTitle className="text-2xl">
-                {editingCategory ? 'Editar Categoría' : 'Nueva Categoría'}
+                {editingCategory ? t('categories.editCategory') : t('categories.newCategory')}
               </DialogTitle>
               <DialogDescription className="text-base">
                 {editingCategory 
-                  ? 'Modifica los datos de la categoría' 
-                  : 'Completa los datos para crear una nueva categoría'}
+                  ? t('categories.editDescription') 
+                  : t('categories.createDescription')}
               </DialogDescription>
             </DialogHeader>
 
@@ -534,13 +534,13 @@ const CategoriesPage = () => {
               {/* Nombre */}
               <div>
                 <Label htmlFor="name" className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                  Nombre de la categoría
+                  {t('categories.categoryName')}
                 </Label>
                 <Input
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="ej: Restaurantes, Transporte..."
+                  placeholder={t('categories.namePlaceholder')}
                   required
                   className="mt-2 h-11"
                 />
@@ -549,7 +549,7 @@ const CategoriesPage = () => {
               {/* Icono */}
               <div>
                 <Label className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 block">
-                  Selecciona un icono
+                  {t('categories.selectIcon')}
                 </Label>
                 <div className="grid grid-cols-6 gap-3">
                   {AVAILABLE_ICONS.map((item) => {
@@ -646,10 +646,10 @@ const CategoriesPage = () => {
 
             <DialogFooter className="pt-4 gap-2">
               <Button type="button" variant="outline" onClick={handleCloseModal}>
-                Cancelar
+                {t('common.cancel')}
               </Button>
               <Button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? 'Guardando...' : editingCategory ? 'Guardar Cambios' : 'Crear Categoría'}
+                {isSubmitting ? t('categories.saving') : editingCategory ? t('categories.saveChanges') : t('categories.createCategoryButton')}
               </Button>
             </DialogFooter>
           </form>

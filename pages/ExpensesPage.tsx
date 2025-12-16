@@ -257,11 +257,11 @@ const ExpensesPage = () => {
         </CardContent>
       </Card>
 
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen} title={editingExpense ? "Editar Gasto" : "Nuevo Gasto"}>
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen} title={editingExpense ? t('expenses.editExpense') : t('expenses.newExpense')}>
         <form onSubmit={handleSave} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                    <label className="text-sm font-medium">Monto</label>
+                    <label className="text-sm font-medium">{t('common.amount')}</label>
                     <Input 
                         type="number" 
                         step="0.01"
@@ -273,7 +273,7 @@ const ExpensesPage = () => {
                     />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium">Moneda</label>
+                    <label className="text-sm font-medium">{t('common.currency')}</label>
                     <div className="flex bg-gray-100 p-1 rounded-md">
                         <button 
                             type="button"
@@ -294,7 +294,7 @@ const ExpensesPage = () => {
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-medium">Categoría</label>
+                <label className="text-sm font-medium">{t('common.category')}</label>
                 <div className="grid grid-cols-3 gap-2">
                     {categories.map(cat => (
                         <button
@@ -311,15 +311,15 @@ const ExpensesPage = () => {
             </div>
 
             <Input 
-                label="Descripción" 
-                placeholder="¿Qué compraste?" 
+                label={t('common.description')} 
+                placeholder={t('expenses.whatDidYouBuy')} 
                 value={newDesc}
                 onChange={e => setNewDesc(e.target.value)}
                 required
             />
 
             <Input 
-                label="Fecha" 
+                label={t('common.date')} 
                 type="date" 
                 value={newDate}
                 onChange={e => setNewDate(e.target.value)}
@@ -327,16 +327,16 @@ const ExpensesPage = () => {
 
             <div className="flex justify-end gap-2 mt-6">
                 <Button type="button" variant="ghost" onClick={() => setIsModalOpen(false)}>
-                  Cancelar
+                  {t('common.cancel')}
                 </Button>
                 <Button type="submit" disabled={saving}>
                   {saving ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Guardando...
+                      {t('expenses.saving')}
                     </>
                   ) : (
-                    editingExpense ? 'Actualizar' : 'Guardar Gasto'
+                    editingExpense ? t('expenses.update') : t('expenses.saveExpense')
                   )}
                 </Button>
             </div>

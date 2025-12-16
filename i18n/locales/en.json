@@ -80,7 +80,10 @@
     "descriptionPlaceholder": "Expense description",
     "selectCategory": "Select a category",
     "saving": "Saving...",
-    "deleting": "Deleting..."
+    "deleting": "Deleting...",
+    "whatDidYouBuy": "What did you buy?",
+    "update": "Update",
+    "saveExpense": "Save Expense"
   },
   "recurring": {
     "title": "Recurring Expenses",
@@ -105,6 +108,8 @@
     "pausedOnly": "Paused Only",
     "noRecurring": "No recurring expenses",
     "addFirstRecurring": "Add your first recurring expense",
+    "saveChanges": "Save Changes",
+    "createRecurring": "Create Recurring",
     "frequencies": {
       "daily": "Daily",
       "weekly": "Weekly",
@@ -122,6 +127,8 @@
     "monthlyVariation": "Monthly Variation",
     "averageDaily": "Daily Average",
     "averageMonthly": "Monthly Average",
+    "weeklyAverage": "Weekly Average",
+    "monthlyAverage": "Monthly Average",
     "projectedSpending": "Projected Spending",
     "categoryTrends": "Category Trends",
     "spendingByDay": "Spending by Day of Week",
@@ -180,8 +187,22 @@
     "createFirstCategory": "Create your first category to organize your expenses",
     "totalSpent": "Total Spent",
     "expenseCount": "Expenses",
+    "expenses": "Expenses",
     "average": "Average",
-    "namePlaceholder": "Category name",
+    "namePlaceholder": "e.g: Restaurants, Transport...",
+    "manageAndOrganize": "Manage and organize your expense categories",
+    "yearlyExpense": "Yearly Expense",
+    "preset": "Preset",
+    "createFirst": "Create First Category",
+    "createDescription": "Fill in the details to create a new category",
+    "editDescription": "Modify the category details",
+    "cannotDelete": "You cannot delete this category because it has",
+    "associatedExpenses": "associated expense(s)",
+    "thisMonthExpense": "This Month Expense",
+    "lastMonthExpense": "Last Month Expense",
+    "saving": "Saving...",
+    "saveChanges": "Save Changes",
+    "createCategoryButton": "Create Category",
     "icons": {
       "shopping": "Shopping",
       "transport": "Transport",
@@ -245,7 +266,21 @@
     "exportSuccess": "Data exported successfully",
     "exportError": "Error exporting data",
     "includeCategories": "Include Categories",
-    "includeRecurring": "Include Recurring Expenses"
+    "includeRecurring": "Include Recurring Expenses",
+    "csvFormatTitle": "CSV File Format",
+    "csvFormatDescription": "The file will include the following columns:",
+    "csvFormatFooter": "Expenses will be sorted by date (most recent first) and the file will be compatible with Excel, Google Sheets, and other applications.",
+    "columns": {
+      "date": "Date",
+      "month": "Month",
+      "category": "Category",
+      "description": "Description",
+      "amount": "Amount",
+      "currency": "Currency",
+      "dayOfWeek": "Day of Week",
+      "type": "Type",
+      "id": "ID"
+    }
   },
   "settings": {
     "title": "Settings",
@@ -266,6 +301,11 @@
     "budgetAlerts": "Budget Alerts",
     "saveSettings": "Save Settings",
     "settingsSaved": "Settings saved successfully",
+    "emailCannotBeModified": "Email cannot be modified",
+    "saving": "Saving...",
+    "saveChanges": "Save Changes",
+    "savePreferences": "Save Preferences",
+    "confirmNewPassword": "Confirm New Password",
     "languages": {
       "en": "English",
       "es": "Spanish"

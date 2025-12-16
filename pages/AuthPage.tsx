@@ -180,7 +180,7 @@ const AuthPage = () => {
             </div>
           </div>
           <CardTitle className="text-2xl text-primary font-bold tracking-tight">FinTrack Pro</CardTitle>
-          <p className="text-gray-500 mt-2 text-sm">Gestiona tus finanzas inteligentemente</p>
+          <p className="text-gray-500 mt-2 text-sm">{t('auth.subtitle')}</p>
         </CardHeader>
         <CardContent>
           <Tabs value={activeTab} onValueChange={(v) => { setActiveTab(v); setErrors({}); }}>
@@ -315,7 +315,7 @@ const AuthPage = () => {
                 </div>
 
                 <Input 
-                  label="Confirmar Contraseña" 
+                  label={t('auth.confirmPassword')} 
                   type="password" 
                   placeholder="Repetir contraseña" 
                   value={registerData.confirmPassword}

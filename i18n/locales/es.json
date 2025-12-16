@@ -35,7 +35,8 @@
     "welcomeBack": "Bienvenido de nuevo",
     "createAccount": "Crea tu cuenta",
     "emailPlaceholder": "tu@email.com",
-    "confirmEmail": "Debes confirmar tu email antes de iniciar sesión"
+    "confirmEmail": "Debes confirmar tu email antes de iniciar sesión",
+    "subtitle": "Gestiona tus finanzas inteligentemente"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -80,7 +81,10 @@
     "descriptionPlaceholder": "Descripción del gasto",
     "selectCategory": "Selecciona una categoría",
     "saving": "Guardando...",
-    "deleting": "Eliminando..."
+    "deleting": "Eliminando...",
+    "whatDidYouBuy": "¿Qué compraste?",
+    "update": "Actualizar",
+    "saveExpense": "Guardar Gasto"
   },
   "recurring": {
     "title": "Gastos Recurrentes",
@@ -105,6 +109,8 @@
     "pausedOnly": "Solo Pausados",
     "noRecurring": "No hay gastos recurrentes",
     "addFirstRecurring": "Agrega tu primer gasto recurrente",
+    "saveChanges": "Guardar Cambios",
+    "createRecurring": "Crear Recurrente",
     "frequencies": {
       "daily": "Diario",
       "weekly": "Semanal",
@@ -122,6 +128,8 @@
     "monthlyVariation": "Variación Mensual",
     "averageDaily": "Promedio Diario",
     "averageMonthly": "Promedio Mensual",
+    "weeklyAverage": "Promedio Semanal",
+    "monthlyAverage": "Promedio Mensual",
     "projectedSpending": "Gasto Proyectado",
     "categoryTrends": "Tendencias por Categoría",
     "spendingByDay": "Gastos por Día de la Semana",
@@ -180,8 +188,22 @@
     "createFirstCategory": "Crea tu primera categoría para organizar tus gastos",
     "totalSpent": "Total Gastado",
     "expenseCount": "Gastos",
+    "expenses": "Gastos",
     "average": "Promedio",
-    "namePlaceholder": "Nombre de la categoría",
+    "namePlaceholder": "ej: Restaurantes, Transporte...",
+    "manageAndOrganize": "Gestiona y organiza las categorías de tus gastos",
+    "yearlyExpense": "Gasto Anual",
+    "preset": "Predeterminada",
+    "createFirst": "Crear Primera Categoría",
+    "createDescription": "Completa los datos para crear una nueva categoría",
+    "editDescription": "Modifica los datos de la categoría",
+    "cannotDelete": "No puedes eliminar esta categoría porque tiene",
+    "associatedExpenses": "gasto(s) asociado(s)",
+    "thisMonthExpense": "Gasto Este Mes",
+    "lastMonthExpense": "Gasto Mes Pasado",
+    "saving": "Guardando...",
+    "saveChanges": "Guardar Cambios",
+    "createCategoryButton": "Crear Categoría",
     "icons": {
       "shopping": "Compras",
       "transport": "Transporte",
@@ -245,7 +267,21 @@
     "exportSuccess": "Datos exportados exitosamente",
     "exportError": "Error al exportar datos",
     "includeCategories": "Incluir Categorías",
-    "includeRecurring": "Incluir Gastos Recurrentes"
+    "includeRecurring": "Incluir Gastos Recurrentes",
+    "csvFormatTitle": "Formato del Archivo CSV",
+    "csvFormatDescription": "El archivo incluirá las siguientes columnas:",
+    "csvFormatFooter": "Los gastos se ordenarán por fecha (más recientes primero) y el archivo será compatible con Excel, Google Sheets y otras aplicaciones.",
+    "columns": {
+      "date": "Fecha",
+      "month": "Mes",
+      "category": "Categoría",
+      "description": "Descripción",
+      "amount": "Monto",
+      "currency": "Moneda",
+      "dayOfWeek": "Día de semana",
+      "type": "Tipo",
+      "id": "ID"
+    }
   },
   "settings": {
     "title": "Configuración",
@@ -266,6 +302,11 @@
     "budgetAlerts": "Alertas de Presupuesto",
     "saveSettings": "Guardar Configuración",
     "settingsSaved": "Configuración guardada exitosamente",
+    "emailCannotBeModified": "El email no puede ser modificado",
+    "saving": "Guardando...",
+    "saveChanges": "Guardar Cambios",
+    "savePreferences": "Guardar Preferencias",
+    "confirmNewPassword": "Confirmar Nueva Contraseña",
     "languages": {
       "en": "Inglés",
       "es": "Español"

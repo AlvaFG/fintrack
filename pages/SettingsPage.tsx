@@ -180,13 +180,13 @@ const SettingsPage = () => {
                   className="bg-gray-100"
                 />
                 <p className="text-xs text-gray-500">
-                  El email no puede ser modificado
+                  {t('settings.emailCannotBeModified')}
                 </p>
               </div>
 
               <Button onClick={handleSaveProfile} disabled={isSaving} className="gap-2">
                 <Save size={16} />
-                {isSaving ? 'Guardando...' : 'Guardar Cambios'}
+                {isSaving ? t('settings.saving') : t('settings.saveChanges')}
               </Button>
             </CardContent>
           </Card>
@@ -304,7 +304,7 @@ const SettingsPage = () => {
 
               <Button onClick={handleSavePreferences} disabled={isSaving} className="gap-2">
                 <Save size={16} />
-                {isSaving ? 'Guardando...' : 'Guardar Preferencias'}
+                {isSaving ? t('settings.saving') : t('settings.savePreferences')}
               </Button>
             </CardContent>
           </Card>
@@ -340,7 +340,7 @@ const SettingsPage = () => {
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="confirmPassword">Confirmar Nueva Contraseña</Label>
+                <Label htmlFor="confirmPassword">{t('settings.confirmNewPassword')}</Label>
                 <Input
                   id="confirmPassword"
                   type="password"
