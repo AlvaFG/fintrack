@@ -82,7 +82,9 @@
     "totalSpent": "Total Spent",
     "thisMonth": "This Month",
     "thisWeek": "This Week",
-    "dollarsUSD": "Dollars (USD)"
+    "dollarsUSD": "Dollars (USD)",
+    "allTime": "All time",
+    "totalExpenses": "Total Expenses"
   },
   "expenses": {
     "title": "Expenses",

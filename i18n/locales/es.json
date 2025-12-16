@@ -82,7 +82,9 @@
     "totalSpent": "Total Gastado",
     "thisMonth": "Este Mes",
     "thisWeek": "Esta Semana",
-    "dollarsUSD": "Dólares (USD)"
+    "dollarsUSD": "Dólares (USD)",
+    "allTime": "Todo el tiempo",
+    "totalExpenses": "Gastos Totales"
   },
   "expenses": {
     "title": "Gastos",
