@@ -45,7 +45,7 @@ export interface UserSettings {
   currency: Currency;
   dateFormat: 'DD/MM/YYYY' | 'MM/DD/YYYY' | 'YYYY-MM-DD';
   language: 'es' | 'en';
-  theme: 'light' | 'dark' | 'system';
+  theme: 'light';
   createdAt: string;
   updatedAt: string;
 }
