@@ -18,7 +18,6 @@ import {
 } from 'lucide-react';
 import { Button, Avatar, AvatarFallback, AvatarImage } from './ui/shadcn';
 import { useApp } from '../App';
-import { LanguageSwitcher } from './LanguageSwitcher';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -131,10 +130,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </nav>
 
           {/* Logout Button */}
-          <div className="p-4 border-t border-slate-700/30 space-y-2">
-            <div className="flex justify-center">
-              <LanguageSwitcher />
-            </div>
+          <div className="p-4 border-t border-slate-700/30">
             <button 
               onClick={handleLogout}
               className="flex items-center gap-3 px-3 py-2 w-full text-gray-400 hover:bg-slate-800/50 hover:text-gray-300 rounded-lg transition-colors text-sm font-medium"
