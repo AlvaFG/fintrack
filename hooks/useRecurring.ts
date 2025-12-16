@@ -195,7 +195,7 @@ export function useRecurring() {
           category_id: recurringItem.categoryId,
           description: recurringItem.description,
           date: new Date().toISOString(),
-          notes: recurringItem.notes ? `${recurringItem.notes} (Gasto recurrente)` : 'Gasto recurrente',
+          notes: recurringItem.notes ? `${recurringItem.notes} (Recurring expense)` : 'Recurring expense',
         });
 
       if (expenseError) throw expenseError;
