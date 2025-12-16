@@ -162,10 +162,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="w-10" /> {/* Spacer for centering */}
         </header>
 
-        {/* Desktop Breadcrumb */}
-        <div className="hidden md:block bg-white border-b border-gray-200 px-8 py-4">
-          {getBreadcrumbs()}
-        </div>
+        {/* Desktop Breadcrumb - Removed */}
 
         {/* Page Content */}
         <main className="flex-1 p-4 md:p-8 bg-gray-50">
